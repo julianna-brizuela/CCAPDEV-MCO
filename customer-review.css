@@ -1,7 +1,30 @@
+:root {
+    /* color palette */
+    --yellow: #ebe8d4;
+    --red: #b05151;
+    --darkred: #873b3b;
+    --black: #383030;
+    --white: #fdfdfd;
+    --gray: #c9c9c9;
+    --desert: #cfc7aa;
+
+    /* default attribute values */
+    --default-text-color: var(--black);
+    --default-font-size: 20px;
+    --default-font-weight: 700;
+    --default-title-text: 'corsario-variable', sans-serif;
+    --default-norm-text: 'Anonymous Pro', monospace;
+    --default-border: 2px solid var(--black);
+    --default-border-radius: 5px;
+
+    /* default attributes */
+    font-weight: var(--default-font-weight);
+}
+
 html, body {
     margin: 0;
     padding: 0;
- }
+}
 
 .overall-container {
     height: 100vh;
@@ -81,7 +104,7 @@ html, body {
 }
 
 .rating-tags > span {
-    background-color: #CFC7AA;
+    background-color: var(--desert);
     border-radius: 25px;
     padding: .1rem .5rem;
     font-size: .8rem;
@@ -94,31 +117,13 @@ html, body {
     box-sizing: border-box;
     outline: none;
     background: none;
-    background-color: #FDFDFD;
+    background-color: var(--white);
     border-radius: 10px;
     padding: 1rem;
     font-size: 20px;
     font-family: 'Anonymous Pro', monospace;
     height: 20rem;
     width: 100%;
-}
-
-.review-submit {
-    margin-left: 20px;
-    font-size: 1rem;
-    padding: 10px;
-    border-radius: 5px;
-    font-family: 'Anonymous Pro', monospace;
-    font-weight: 700;
-    background-color: var(--default-button);
-    color: var(--white);
-    border: none;
-    box-sizing: border-box;
-    width: fit-content;
-}
-
-.review-submit:hover {
-    background-color:#873b3b;
 }
 
 .side-content {
