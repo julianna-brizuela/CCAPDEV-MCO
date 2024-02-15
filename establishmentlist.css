@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url("https://use.typekit.net/mch3zne.css");
 
+* {
+    box-sizing: border-box;
+}
+
 :root {
     --bg: #EBE8D4;
     --default-text: #383030;
@@ -49,6 +53,11 @@ h3 {
     font-size:1.5rem;
 }
 
+h4 {
+    margin-top: 1em;
+    margin-bottom:1em;
+}
+
 .navbar-container {
     margin:0px 5%;
     z-index:5;
@@ -81,21 +90,54 @@ div.links > h2,p {
     
 }
 
-.login {
+.action-buttons {
     margin-top:auto;
     margin-bottom:auto;
     margin-left:auto;
+    margin-right:20px;
+    
 }
 
-div.login > button {
+
+div.action-buttons > button {
     margin-left:20px;
     font-size:1rem;
     padding:10px;
     border-radius:5px;
     font-family: 'Anonymous Pro', monospace;
     font-weight:700;
-    border: none;
+    
 
+}
+
+.signup {
+    background-color:var(--default-button);
+    color: var(--white);
+    border: none;
+}
+
+.login {
+    background-color:transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+}
+
+.login:hover {
+    background-color:#fdfdfd2f;
+}
+
+.signup:hover {
+    background-color:#873b3b;
+}
+
+.profile-picture {
+    background-image: url("images/spritesheet.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: -360px center;
+    padding: 0 .1rem;
+    width: 40px;
+    height: 40px;
 }
 
 .signup {
@@ -106,6 +148,7 @@ div.login > button {
 .login {
     background-color:transparent;
     color: var(--default-text);
+    border: 2px solid var(--default-text);
 }
 
 hr {
@@ -147,11 +190,12 @@ hr {
     border-right:2px solid var(--default-text);
     padding:0 2.5%;
     margin-right: 50px;
-    width: 10%;
+    width: 25%;
 }
 
 .filter-list hr {
-    width:100%
+    width:100%;
+    margin-top: 1em;
 }
 
 .review-container {
@@ -187,23 +231,144 @@ div.tag-container div {
 }
 
 .restaurant-title {
-    margin: 0px 0px 15px;
+    margin: 0px 0px 5px;
 }
 
 .review-container {
-    margin-bottom:15px;
+    margin-bottom:5px;
+}
+
+.review-rating {
+    margin-top:auto;
+    margin-bottom:auto;
 }
 
 .review-stars {
     margin-right: 20px;
+    
 }
 
-.star-spritegroup > li{
+.star-spritegroup > li { 
     display: inline-block;
 }
 
 .star-spritegroup {
     margin: 0px;
     padding: 0px;
+}
+
+.star {
+    background: url('images/spritesheet.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: -4px;
+    width: 30px;
+    height: 30px;
+}
+
+.filter-list button {
+    border: 2px solid var(--default-text);
+    border-radius: 10px;
+    padding:7.5px;
+    background:#cfc7aa;
+    font-family:'Anonymous Pro', monospace;
+    
+}
+
+.tag-list {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.tag-list button {
+    margin:5px;
+}
+
+.peso {
+    background: url('images/spritesheet.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: -150px;
+    width: 30px;
+    height: 30px;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;  
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 2px solid #383030;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+.close {
+    background:#888;
+    color:#eee;
+    border-radius:15px;
+    line-height: 15px;
+    top: 10px;
+    right: 10px;
+    height: 15px;
+    width:15px;
+    text-align:center;
+    position: absolute;
+    cursor: pointer;
+}
+
+.popup .modal h2{
+    color: var(--default-text);
+    text-align:center;
+    font-size: 1.5rem;
+    font-weight:lighter;
+}
+
+.popup .modal .form-element{
+    margin:15px 0px;
+}
+
+.popup .modal .form-element label{
+    font-size:15px;
+    color: var(--default-text);
+}
+
+.popup .modal .form-element input[type="text"],
+.popup .modal .form-element input[type="password"] {
+    margin-top:5px;
+    display:block;
+    width:95%;
+    padding:10px;
+    border:1px solid #383030;
+    border-radius:5px;
+}
+
+.popup .modal .form-element input[type="submit"]{
+    width:100%;
+    height:40px;
+    border:none;
+    outline:none;
+    font-size:15px;
+    font-weight:bold;
+    background: var(--default-button);
+    color: var(--default-text);
+    border-radius:10px;
+    cursor:pointer;
 }
 

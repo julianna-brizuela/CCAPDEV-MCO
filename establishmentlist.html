@@ -5,38 +5,148 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MUNCH | Where your cravings are satisfied!</title>
     <link rel="stylesheet" type="text/css" href="establishmentlist.css"/>
+    <script src="index.js"></script>
 
 </head>
 <body>
     <div class="overall-container">
 
-        <div class="navbar-container">
-            <hr id="top">
-            <div class="navbar-content">
-                <div class="link-container">
-                    <div class="links">
-                        <h2> <a href="index.html">munch</a></h2>
-                        <p> <a href="establishmentlist.html">Browse Restaurants</a></p>
+        <div class="top-container"> 
+            <div class="navbar-container">
+                <hr id="top">
+                <div class="navbar-content">
+                    <div class="link-container">
+                        <div class="links">
+                            <h2> <a href="index.html">munch</a></h2>
+                            <p> <a href="establishmentlist.html">Browse Restaurants</a></p>
+                        </div>
                     </div>
-                </div>
+                
+
+                    <div class="action-buttons">
+                        <button type="button" class="login" onclick="openLoginForm()">Log In</button>
+                            <!-- Login Form-->
+                            <div id="login-form" class="popup">
+                                <div class="modal">
+                                    <span class="close" onclick="closeLoginForm()">&times;</span>
+                                    <h2>Log In</h2> 
+                                    <form method="post" class="form" onsubmit="redirectToUserOrAdmin(); return false;">
+                                        <div class="form-element">
+                                            <label for="login-email"> Email </label>
+                                            <input type="text" id="login-email" placeholder="Enter email">
+                                        </div>
+                                        <div class="form-element">
+                                            <label for="login-password"> Password </label>
+                                            <input type="password" id="login-password" placeholder="Enter password">
+                                        </div>
+                                        <div class="form-element">
+                                            <input type="radio" name="user-type" id="login-admin">
+                                            <label for="login-admin"> Admin </label>
+                                            <input type="radio" name="user-type" id="login-user">
+                                            <label for="login-user"> User </label>
+                                        </div>
+                                        <div class="form-element">
+                                            <input type="checkbox" id="remember-me">
+                                            <label for="remember-me"> Remember me </label>
+                                        </div>
+                                        <div class="form-element">
+                                            <input type="submit" value="Login">
+                                        </div>        
+                                    </form>
+                                </div>
+                            </div>
+
+                        <button type="button" class="signup" onclick="openSignupForm()">Sign Up</button>
+                            <!-- Signup Form-->
+                            <div id="signup-form" class="popup">
+                                <div class="modal">
+                                    <span class="close" onclick="closeSignupForm()">&times;</span>
+                                    <h2>Signup</h2> 
+                                    <form action="" method="post" class="form">
+                                        <div class="form-element">
+                                            <label for="first-name"> First Name </label>
+                                            <input type="text" id="first-name" placeholder="Enter First Name">
+                                        </div>
+                                        <div class="form-element">
+                                            <label for="last-name"> Last Name </label>
+                                            <input type="text" id="last-name" placeholder="Enter Last Name">
+                                        </div>
+                                        <div class="form-element">
+                                            <label for="signup-email"> Email </label>
+                                            <input type="text" id="signup-email" placeholder="Enter email">
+                                        </div>
+                                        <div class="form-element">
+                                            <label for="signup-password"> Password </label>
+                                            <input type="password" id="signup-password" placeholder="Enter password">
+                                        </div>
+                                        <div class="form-element">
+                                            <label for="confirm-password"> Confirm Password </label>
+                                            <input type="password" id="confirm-password" placeholder="Confirm password">
+                                        </div>
+                                        <div class="form-element">
+                                            <input type="file" id="profile-picture" hidden>
+                                            <label class="picture-upload" for="profile-picture"> Upload Profile Picture </label>
+
+                                        </div>
+                                        <div class="form-element">
+                                            <input type="checkbox" id="terms-and-conditions">
+                                            <label for="terms-and-conditions"> Agree to terms and conditions </label>
+                                        </div>
+                                        <div class="form-element">
+                                            <input type="radio" name="user-type" id="signup-admin">
+                                            <label for="signup-admin"> Admin </label>
+                                            <input type="radio" name="user-type" id="signup-user">
+                                            <label for="signup-user"> User </label>
+                                        </div>
+                                        <div class="form-element">
+                                            <input type="submit" value="Signup">
+                                        </div>        
+                                    </form>
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-picture"></div>
     
-                <div class="login">
-                    <button type="button" class="login">Log In</button>
-                    <button type="button" class="signup">Sign Up</button>
                 </div>
+                <hr>
+
+                
             </div>
-            <hr>
+
         </div>
 
         <div class="content-container">
 
             <div class="filter-list">
+                    <h4>Prices</h4>
                 <div class="price-filters">
-                    ppp
+                    <button>
+                        <span class="peso"></span>
+                    </button>
+                    <button>
+                        <span class="peso"></span>
+                        <span class="peso"></span>
+                    </button>
+                    <button>
+                        <span class="peso"></span>
+                        <span class="peso"></span>
+                        <span class="peso"></span>
+                    </button>
+                    <button>
+                        <span class="peso"></span>
+                        <span class="peso"></span>
+                        <span class="peso"></span>
+                    </button>
                 </div>
                 <hr>
+                    <h4> Tags </h4>
                 <div class="tag-list"> 
-                    
+                    <button>Japanese</button>
+                    <button>Chinese</button>
+                    <button>Fusion Cuisine</button>
+                    <button>Italian</button>
+                    <button>Filipino</button>
                 </div>
     
             </div>
@@ -52,11 +162,11 @@
                         <div class="review-container">
                             <div class="review-stars">
                                 <ul class="star-spritegroup"> 
-                                    <li class="star-1">*</li>
-                                    <li class="star-2">*</li>
-                                    <li class="star-3">*</li>
-                                    <li class="star-4">*</li>
-                                    <li class="star-5">*</li>
+                                    <li class="star 1"></li>
+                                    <li class="star 2"></li>
+                                    <li class="star 3"></li>
+                                    <li class="star 4"></li>
+                                    <li class="star 5"></li>
                                 </ul>
                             </div>
 
