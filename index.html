@@ -31,18 +31,22 @@
                                     <h2>Log In</h2> 
                                     <form method="post" class="form" onsubmit="redirectToUserOrAdmin(); return false;">
                                         <div class="form-element">
-                                            <label for="Email"> Email </label>
-                                            <input type="text" id="" placeholder="Enter email">
+                                            <label for="login-email"> Email </label>
+                                            <input type="text" id="login-email" placeholder="Enter email">
                                         </div>
                                         <div class="form-element">
-                                            <label for="password"> Password </label>
-                                            <input type="password" id="" placeholder="Enter password">
+                                            <label for="login-password"> Password </label>
+                                            <input type="password" id="login-password" placeholder="Enter password">
                                         </div>
                                         <div class="form-element">
-                                            <input type="checkbox" id="admin">
-                                            <label for="admin"> Admin </label>
-                                            <input type="checkbox" id="user">
-                                            <label for="user"> User </label>
+                                            <input type="radio" name="user-type" id="login-admin">
+                                            <label for="login-admin"> Admin </label>
+                                            <input type="radio" name="user-type" id="login-user">
+                                            <label for="login-user"> User </label>
+                                        </div>
+                                        <div class="form-element">
+                                            <input type="checkbox" id="remember-me">
+                                            <label for="remember-me"> Remember me </label>
                                         </div>
                                         <div class="form-element">
                                             <input type="submit" value="Login">
@@ -60,33 +64,38 @@
                                     <form action="" method="post" class="form">
                                         <div class="form-element">
                                             <label for="first-name"> First Name </label>
-                                            <input type="text" id="" placeholder="Enter First Name">
+                                            <input type="text" id="first-name" placeholder="Enter First Name">
                                         </div>
                                         <div class="form-element">
                                             <label for="last-name"> Last Name </label>
-                                            <input type="text" id="" placeholder="Enter Last Name">
+                                            <input type="text" id="last-name" placeholder="Enter Last Name">
                                         </div>
                                         <div class="form-element">
-                                            <label for="Email"> Email </label>
-                                            <input type="text" id="" placeholder="Enter email">
+                                            <label for="signup-email"> Email </label>
+                                            <input type="text" id="signup-email" placeholder="Enter email">
                                         </div>
                                         <div class="form-element">
-                                            <label for="password"> Password </label>
-                                            <input type="password" id="" placeholder="Enter password">
+                                            <label for="signup-password"> Password </label>
+                                            <input type="password" id="signup-password" placeholder="Enter password">
                                         </div>
                                         <div class="form-element">
                                             <label for="confirm-password"> Confirm Password </label>
-                                            <input type="password" id="" placeholder="Confirm password">
+                                            <input type="password" id="confirm-password" placeholder="Confirm password">
+                                        </div>
+                                        <div class="form-element">
+                                            <input type="file" id="profile-picture" hidden>
+                                            <label class="picture-upload" for="profile-picture"> Upload Profile Picture </label>
+
                                         </div>
                                         <div class="form-element">
                                             <input type="checkbox" id="terms-and-conditions">
                                             <label for="terms-and-conditions"> Agree to terms and conditions </label>
                                         </div>
                                         <div class="form-element">
-                                            <input type="checkbox" id="admin">
-                                            <label for="admin"> Admin </label>
-                                            <input type="checkbox" id="user">
-                                            <label for="user"> User </label>
+                                            <input type="radio" name="user-type" id="signup-admin">
+                                            <label for="signup-admin"> Admin </label>
+                                            <input type="radio" name="user-type" id="signup-user">
+                                            <label for="signup-user"> User </label>
                                         </div>
                                         <div class="form-element">
                                             <input type="submit" value="Signup">

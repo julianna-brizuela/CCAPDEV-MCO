@@ -15,9 +15,9 @@ function closeSignupForm() {
 }
 
 function redirectToUserOrAdmin() {
-    if (document.getElementById("admin").checked) {
+    if (document.getElementById("login-admin").checked) {
         window.location.href = "test.html"; // pa change na langg
-    } else if (document.getElementById("user").checked) {
+    } else if (document.getElementById("login-user").checked) {
         window.location.href = "test.html"; // same here
     }
 }

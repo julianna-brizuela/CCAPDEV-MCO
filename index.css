@@ -224,13 +224,22 @@ a, a:visited {
 }
 
 .popup .modal .form-element input[type="text"],
-.popup .modal .form-element input[type="password"] {
+.popup .modal .form-element input[type="password"]{
     margin-top:5px;
     display:block;
     width:95%;
     padding:10px;
     border:1px solid #383030;
     border-radius:5px;
+}
+
+.popup .modal .form-element .picture-upload{
+    padding:10px;
+    border-radius:5px;
+    font-weight:700;
+    background-color:var(--default-button);
+    color: var(--white);
+    border: none;
 }
 
 .popup .modal .form-element input[type="submit"]{
@@ -273,7 +282,7 @@ a, a:visited {
     width: 30%;
 }
 
-.searchbar input, input:focus{
+.searchbar input, .searchbar input:focus{
     border:none;
     height: 50px;
     width:100%;
