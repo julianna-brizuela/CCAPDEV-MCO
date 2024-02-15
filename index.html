@@ -28,7 +28,7 @@
                             <div class="modal">
                                 <span class="close" onclick="closeLoginForm()">&times;</span>
                                 <h2>Login</h2> 
-                                <form action="" method="post" class="form">
+                                <form method="post" class="form" onsubmit="redirectToUserOrAdmin(); return false;">
                                     <div class="form-element">
                                         <label for="Email"> Email </label>
                                         <input type="text" id="" placeholder="Enter email">
@@ -36,6 +36,12 @@
                                     <div class="form-element">
                                         <label for="password"> Password </label>
                                         <input type="password" id="" placeholder="Enter password">
+                                    </div>
+                                    <div class="form-element">
+                                        <input type="checkbox" id="admin">
+                                        <label for="admin"> Admin </label>
+                                        <input type="checkbox" id="user">
+                                        <label for="user"> User </label>
                                     </div>
                                     <div class="form-element">
                                         <input type="submit" value="Login">
@@ -74,6 +80,12 @@
                                     <div class="form-element">
                                         <input type="checkbox" id="terms-and-conditions">
                                         <label for="terms-and-conditions"> Agree to terms and conditions </label>
+                                    </div>
+                                    <div class="form-element">
+                                        <input type="checkbox" id="admin">
+                                        <label for="admin"> Admin </label>
+                                        <input type="checkbox" id="user">
+                                        <label for="user"> User </label>
                                     </div>
                                     <div class="form-element">
                                         <input type="submit" value="Signup">

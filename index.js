@@ -13,3 +13,11 @@ function openSignupForm() {
 function closeSignupForm() {
     document.getElementById("signup-form").style.display = "none";
 }
+
+function redirectToUserOrAdmin() {
+    if (document.getElementById("admin").checked) {
+        window.location.href = "test.html"; // pa change na langg
+    } else if (document.getElementById("user").checked) {
+        window.location.href = "test.html"; // same here
+    }
+}
