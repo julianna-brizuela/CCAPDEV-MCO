@@ -109,6 +109,14 @@ div.login > button {
     color: var(--default-text);
 }
 
+.login:hover {
+    background-color:#fdfdfd2f;
+}
+
+.signup:hover {
+    background-color:#873b3b;
+}
+
 hr {
     border:1px solid var(--default-text);
 }
@@ -131,12 +139,13 @@ a, a:visited {
 
 }
 
-.layer1 {
+.group1 {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 0px;
     margin-left: 10px;
+    margin-right: 10px;
 }
 
 .description {
@@ -149,7 +158,7 @@ a, a:visited {
 .pictures {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    gap: 8px;
     height: 450px;
     margin-bottom: 20px;
 }
@@ -166,7 +175,7 @@ a, a:visited {
     display: grid;
     grid-template-columns: repeat(2, 1fr); 
     grid-template-rows: repeat(2, 1fr);
-    gap: 10px;
+    gap: 8px;
 }
 
 .pic2, .pic4 {
@@ -175,15 +184,21 @@ a, a:visited {
         margin-right: 50px;  
 }
 
-.pic3, .pic5 {
+.pic3 {
     width: 100%;
     background-color:#c9c9c9;
     border-top-right-radius: 25px;
-    border-bottom-right-radius: 25px;
     margin-right: 50px;
 
 }
 
+.pic5 {
+    width: 100%;
+    background-color:#c9c9c9;
+    border-bottom-right-radius: 25px;
+    margin-right: 50px;
+
+}
 
 .ratings {
     display: flex;
@@ -244,7 +259,7 @@ div.tag-container div {
 }
 
 .hr {
-    border-top: 2px solid #887676; 
+    border-top: 2px solid #9c8d8d; 
     margin:0px 5%;
     z-index:5;
 }
@@ -257,15 +272,22 @@ div.tag-container div {
     margin-top: 20px;
 }
 
-.layer2 {
+.group2 {
     display: flex;
     flex-direction: row;
     margin-left: 20px;
-    justify-content: right;
+    margin-right: 30px;
+    justify-content: space-between;
+}
+
+.action-group {
+    display: flex;
+    flex-direction: row;
+    width: 70%; 
 }
 
 
-.write-review {
+.button {
     background-color:var(--default-button);
     color: var(--white);
     margin-left:20px;
@@ -277,6 +299,185 @@ div.tag-container div {
     border: none;
 }
 
+.share-sprite, .bookmark-sprite, .photo-sprite {
+    background-color: transparent;
+    border: 2px solid #9c8d8d;
+    color: var(--default-text);
+}
+
+.share-sprite:hover {
+    background-color:#fdfdfd2f;
+}
+
+.bookmark-sprite:hover {
+    background-color:#fdfdfd2f;
+}
+
+.photo-sprite:hover {
+    background-color:#fdfdfd2f;
+}
+
+.write-review:hover {
+    background-color:#873b3b;
+}
+
+.group3 {
+    display: flex;
+    flex-direction: row;
+    margin-top: 40px;
+    margin-left: 30px;
+}
+
+.image-container {
+    height: 200px;
+    width: 90%;
+    background-color:#c9c9c9;
+    border-radius: 5px;
+    margin-right: 50px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin-right: 40px;
+    gap: 10px;
+}
+
+.hr2 {
+    border-top: 2px solid #9c8d8d; 
+    width: 100%;
+    margin-bottom: 30px;
+    
+}
+
+.bold {
+    font-size: 35px;
+    font-weight:700;
+    font-family: corsario-variable, sans-serif;
+}
+
+.menu {
+    height: 500px;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.reviews-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 
 
+.customer-reviews {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.post {
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+    border-bottom: 2px solid #383030;
+    padding-bottom: 1rem;
+}
+
+.post-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.post-profile-pic {
+    border-radius: 100%;
+    height: 2.5rem;
+    width: 2.5rem;
+    margin-right: 1rem;
+}
+
+.post-info {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+
+.post-rating {
+    display: flex;
+    flex-direction: row;
+    align-items: center;;
+}
+
+#rating-1.rating-scale > li {
+    display: inline-block;
+    cursor: pointer;
+    background-image: url("images/spritesheet.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 10.5% center;
+    padding: 0;
+    width: 1.2rem; /* Adjust the width as needed */
+    height: 1.2rem; /* Adjust the height as needed */
+}
+
+#rating-1.rating-scale > li:hover {
+    display: inline-block;
+    cursor: pointer;
+    background-image: url("images/spritesheet.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0 center;
+    padding: 0;
+    width: 1.2rem; /* Adjust the width as needed */
+    height: 1.2rem; /* Adjust the height as needed */
+}
+
+.post-date {
+    font-size: .8rem;
+}
+
+.post-review {
+    font-size: .9rem;
+}
+
+
+
+
+.side-bar {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    border: 2px solid #9c8d8d; 
+    margin-right: 30px;
+    border-radius: 10px;
+    padding:30px; 
+    position: relative;
+    height: 450px;
+}
+
+
+.direction {
+    margin-top: -20px;
+}
+
+
+.side-bar > div {
+    margin-bottom: 30px;
+}
+
+.details {
+    font-weight: 100;
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+.number {
+    margin-top: 40px;
+    font-weight: 600;
+    position: absolute;
+    bottom: 0;
+}
 
