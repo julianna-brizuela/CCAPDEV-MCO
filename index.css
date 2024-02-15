@@ -9,7 +9,7 @@
     color:var(--default-text);
     font-size:20px;
     font-family: 'Anonymous Pro', monospace;
-    font-weight:700;
+    font-weight:400;
     background-color:var(--bg);
 }
 
@@ -20,6 +20,7 @@
 
 body {
     margin:0px;
+    overflow-x:hidden;
 }
 
 #top {
@@ -102,32 +103,36 @@ div.login > button {
 }
 
 hr {
-    border:2px solid var(--white);
+    border:1px solid var(--white);
 }
 
-.images > img {
+.images {
+    height:57.5vh;
     z-index:0;
     position:absolute;
     top:0;
-    height:57.5%;
     width:100%;
-    object-fit: cover;
-    border:4px solid var(--default-text);
-    object-position: 0px -1400px;
+    border-bottom:2px solid var(--default-text);
+
+}
+
+.images > img {
+    width:100%;
+    object-fit:cover;
+    height:57.5vh;
 }
 
 .gradient {
-    background-image: linear-gradient(to top, rgba(255,0,0,0), rgba(0, 0, 0, 0.7));
+    background-image: linear-gradient(to top, rgba(255,0,0,0), rgba(0, 0, 0, 1));
     position:absolute;
     top:0;
-    height:40%;
+    height:100%;
     width:100%;
     z-index:1;
 }
 
 .tagline {
     z-index: 0;
-    margin-top:21%;
     margin-left:5%;
     margin-right:5%;
     text-align:center;
