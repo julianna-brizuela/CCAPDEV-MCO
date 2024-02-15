@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url("https://use.typekit.net/mch3zne.css");
+
+:root {
+    --bg: #EBE8D4;
+    --default-text: #383030;
+    --default-button: #B05151;
+    --white: #FDFDFD;
+    color:var(--default-text);
+    font-size:20px;
+    font-family: 'Anonymous Pro', monospace;
+    font-weight:400;
+    background-color:var(--bg);
+}
+
+.overall-container {
+    display:flex;
+    flex-direction:column;
+
+}
+
+body {
+    margin:0px;
+    overflow-x:hidden;
+}
+
+#top {
+    margin-top:30px;
+}
+
+.underline {
+    text-decoration:underline;
+}
+
+h1 {
+    font-family: corsario-variable, sans-serif;
+    font-variation-settings: "opsz" 48, "wght" 600;
+    font-size:4rem;
+}
+
+h2 {
+    font-family: corsario-variable, sans-serif;
+    font-variation-settings: "opsz" 16, "wght" 800;
+    font-size:2rem;
+}
+
+h3 {
+    font-family: corsario-variable, sans-serif;
+    font-variation-settings: "opsz" 6, "wght" 700;
+    font-size:1.5rem;
+}
+
+.navbar-container {
+    margin:0px 5%;
+    z-index:5;
+    
+}
+
+.navbar-content {
+    display:flex;
+    flex-direction:row;
+    padding:20px 0px;
+    align-content: space-between;
+    color:var(--default-text);
+   
+}
+
+div.links > h2,p {
+    margin-top:auto;
+    margin-bottom:auto;
+    margin-right:50px;
+}
+
+.link-container {
+    margin-top:auto;
+    margin-bottom:auto;
+}
+
+.links {
+    display:flex;
+    flex-direction:row;
+    
+}
+
+.login {
+    margin-top:auto;
+    margin-bottom:auto;
+    margin-left:auto;
+}
+
+div.login > button {
+    margin-left:20px;
+    font-size:1rem;
+    padding:10px;
+    border-radius:5px;
+    font-family: 'Anonymous Pro', monospace;
+    font-weight:700;
+    border: none;
+
+}
+
+.signup {
+    background-color:var(--default-button);
+    color: var(--white);
+}
+
+.login {
+    background-color:transparent;
+    color: var(--default-text);
+}
+
+hr {
+    border:1px solid var(--default-text);
+}
+
+a, a:visited {
+    text-decoration:none;
+    color: var(--default-text);
+}
+
+.main-restaurant-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: -20px;
+}
+
+.name {
+    margin-bottom: -30px;
+
+}
+
+.layer1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 0px;
+    margin-left: 10px;
+}
+
+.description {
+    display:flex;
+    width:70%;
+    font-size: 15px;
+    margin-bottom: 30px;
+}
+
+.pictures {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    height: 450px;
+    margin-bottom: 20px;
+}
+
+.pic1 {
+    width: 100%;
+    background-color:#c9c9c9;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    margin-right: 50px;
+}
+
+.second-half {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.pic2, .pic4 {
+        width: 100%;
+        background-color:#c9c9c9;
+        margin-right: 50px;  
+}
+
+.pic3, .pic5 {
+    width: 100%;
+    background-color:#c9c9c9;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    margin-right: 50px;
+
+}
+
+
+.ratings {
+    display: flex;
+    flex-direction: row;
+    width:30%;
+    justify-content: right;
+}
+
+.review-container {
+    margin-bottom:15px;
+}
+
+.review-stars {
+    margin-right: 20px;
+}
+
+.star-spritegroup > li{
+    display: inline-block;
+
+}
+
+.star-spritegroup {
+    margin: 0px;
+    padding: 0px;
+}
+
+.misc-info {
+    margin-top: -10px;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    font-size: 25px;
+}
+
+.price {
+    letter-spacing: 5px;
+}
+
+.tag-container {
+    display: flex;
+    flex-direction: row;
+    margin-top:auto;
+    height:15%;
+}
+
+.tag {
+    background-color: #cfc7aa;
+    height:100%;
+    min-width: 25%;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+div.tag-container div {
+    display:inline-block;
+    justify-content: space-between;
+}
+
+.hr {
+    border-top: 2px solid #887676; 
+    margin:0px 5%;
+    z-index:5;
+}
+
+.restaurant-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 20px;
+}
+
+.layer2 {
+    display: flex;
+    flex-direction: row;
+    margin-left: 20px;
+    justify-content: right;
+}
+
+
+.write-review {
+    background-color:var(--default-button);
+    color: var(--white);
+    margin-left:20px;
+    font-size:30px;
+    padding:10px;
+    border-radius:5px;
+    font-family: 'Anonymous Pro', monospace;
+    font-weight:700;
+    border: none;
+}
+
+
+
+
