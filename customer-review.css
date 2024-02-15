@@ -1,0 +1,206 @@
+html, body {
+    margin: 0;
+    padding: 0;
+ }
+
+.overall-container {
+    height: 100vh;
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+.main-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    margin:0px 5%;
+    font-weight: 800;
+    height: 100%;
+}
+
+.content-container { /* overwrites estabblishment.css */
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    width: 60%;
+    margin: 2.5% 2.5% 5% 0;
+}
+
+.content-header {
+    font-family: corsario-variable, sans-serif;
+    font-variation-settings: "opsz" 16, "wght" 1000;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.content-body {
+    border: 2px solid #383030;
+    border-radius: 25px;
+    margin: 24px 0;
+    padding: 20px;
+}
+
+.rating {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    font-size: 1rem;
+    font-family: 'Anonymous Pro', monospace;
+    padding-bottom: 2rem;
+}
+
+.rating-scale {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0 1rem 0 0;
+}
+
+.rating-scale > li {
+    display: inline-block;
+    cursor: pointer;
+    background-image: url("images/spritesheet.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 10.5% center;
+    padding: 0 .1rem;
+    width: 40px;
+    height: 40px;
+}
+
+.rating-scale > li:hover {
+    background-position: 0 center;
+}
+
+/* .rating-guide {
+} */
+
+.rating-tags {
+    padding: .5rem 0 2rem 0;
+}
+
+.rating-tags > span {
+    background-color: #CFC7AA;
+    border-radius: 25px;
+    padding: .1rem .5rem;
+    font-size: .8rem;
+    color: var(--default-text);
+}
+
+.review-text {
+    resize: none;
+    border: none;
+    box-sizing: border-box;
+    outline: none;
+    background: none;
+    background-color: #FDFDFD;
+    border-radius: 10px;
+    padding: 1rem;
+    font-size: 20px;
+    font-family: 'Anonymous Pro', monospace;
+    height: 20rem;
+    width: 100%;
+}
+
+.review-submit {
+    margin-left: 20px;
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: 'Anonymous Pro', monospace;
+    font-weight: 700;
+    background-color: var(--default-button);
+    color: var(--white);
+    border: none;
+    box-sizing: border-box;
+    width: fit-content;
+}
+
+.review-submit:hover {
+    background-color:#873b3b;
+}
+
+.side-content {
+    border-left: 2px solid #383030;
+    padding: 1rem;
+    height: 100%;
+    width: 40%;
+}
+
+.side-header {
+    font-family: corsario-variable, sans-serif;
+    font-variation-settings: "opsz" 16, "wght" 1000;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.post {
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+    border-bottom: 2px solid #383030;
+    padding-bottom: 1rem;
+}
+
+.post-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.post-profile-pic {
+    border-radius: 100%;
+    height: 2.5rem;
+    width: 2.5rem;
+    margin-right: 1rem;
+}
+
+.post-info {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.post-info-name {
+}
+
+.post-rating {
+    display: flex;
+    flex-direction: row;
+    align-items: center;;
+}
+
+#rating-1.rating-scale > li {
+    display: inline-block;
+    cursor: pointer;
+    background-image: url("images/spritesheet.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 10.5% center;
+    padding: 0;
+    width: 1.2rem; /* Adjust the width as needed */
+    height: 1.2rem; /* Adjust the height as needed */
+}
+
+#rating-1.rating-scale > li:hover {
+    display: inline-block;
+    cursor: pointer;
+    background-image: url("images/spritesheet.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0 center;
+    padding: 0;
+    width: 1.2rem; /* Adjust the width as needed */
+    height: 1.2rem; /* Adjust the height as needed */
+}
+
+.post-date {
+    font-size: .8rem;
+}
+
+.post-review {
+    font-size: .9rem;
+}
+

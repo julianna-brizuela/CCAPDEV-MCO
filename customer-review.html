@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUNCH | Write a Review</title>
+    <link rel="stylesheet" type="text/css" href="establishmentlist.css">
+    <link rel="stylesheet" type="text/css" href="customer-review.css">
+    <script src="customer-review.js"></script>
+</head>
+<body>
+    <div class="overall-container">
+        <div class="navbar-container">
+            <hr id="top">
+            <div class="navbar-content">
+                <div class="link-container">
+                    <div class="links">
+                        <h2> <a href="index.html">munch</a></h2>
+                        <p> <a href="establishmentlist.html">Browse Restaurants</a></p>
+                    </div>
+                </div>
+
+                <div class="searchbar"> 
+                    <form class="search-establishment">
+                            <input type="text" class="search-bar" value="Japanese"> 
+                            <button type="submit" class="submit-search">
+                                <span class="search-button"></span>
+                            </button>
+                    </form>
+                </div>
+
+                <div class="action-buttons">
+                    <button type="button" class="login" onclick="openLoginForm()">Log In</button>
+                        <!-- Login Form-->
+                        <div id="login-form" class="popup">
+                            <div class="modal">
+                                <span class="close" onclick="closeLoginForm()">&times;</span>
+                                <h2>Log In</h2> 
+                                <form method="post" class="form" onsubmit="redirectToUserOrAdmin(); return false;">
+                                    <div class="form-element">
+                                        <label for="login-email"> Email </label>
+                                        <input type="text" id="login-email" placeholder="Enter email">
+                                    </div>
+                                    <div class="form-element">
+                                        <label for="login-password"> Password </label>
+                                        <input type="password" id="login-password" placeholder="Enter password">
+                                    </div>
+                                    <div class="form-element">
+                                        <input type="radio" name="user-type" id="login-admin">
+                                        <label for="login-admin"> Admin </label>
+                                        <input type="radio" name="user-type" id="login-user">
+                                        <label for="login-user"> User </label>
+                                    </div>
+                                    <div class="form-element">
+                                        <input type="checkbox" id="remember-me">
+                                        <label for="remember-me"> Remember me </label>
+                                    </div>
+                                    <div class="form-element">
+                                        <input type="submit" value="Login">
+                                    </div>        
+                                </form>
+                            </div>
+                        </div>
+
+                    <button type="button" class="signup" onclick="openSignupForm()">Sign Up</button>
+                        <!-- Signup Form-->
+                        <div id="signup-form" class="popup">
+                            <div class="modal">
+                                <span class="close" onclick="closeSignupForm()">&times;</span>
+                                <h2>Signup</h2> 
+                                <form action="" method="post" class="form">
+                                    <div class="form-element">
+                                        <label for="first-name"> First Name </label>
+                                        <input type="text" id="first-name" placeholder="Enter First Name">
+                                    </div>
+                                    <div class="form-element">
+                                        <label for="last-name"> Last Name </label>
+                                        <input type="text" id="last-name" placeholder="Enter Last Name">
+                                    </div>
+                                    <div class="form-element">
+                                        <label for="signup-email"> Email </label>
+                                        <input type="text" id="signup-email" placeholder="Enter email">
+                                    </div>
+                                    <div class="form-element">
+                                        <label for="signup-password"> Password </label>
+                                        <input type="password" id="signup-password" placeholder="Enter password">
+                                    </div>
+                                    <div class="form-element">
+                                        <label for="confirm-password"> Confirm Password </label>
+                                        <input type="password" id="confirm-password" placeholder="Confirm password">
+                                    </div>
+                                    <div class="form-element">
+                                        <input type="file" id="profile-picture" hidden>
+                                        <label class="picture-upload" for="profile-picture"> Upload Profile Picture </label>
+
+                                    </div>
+                                    <div class="form-element">
+                                        <input type="checkbox" id="terms-and-conditions">
+                                        <label for="terms-and-conditions"> Agree to terms and conditions </label>
+                                    </div>
+                                    <div class="form-element">
+                                        <input type="radio" name="user-type" id="signup-admin">
+                                        <label for="signup-admin"> Admin </label>
+                                        <input type="radio" name="user-type" id="signup-user">
+                                        <label for="signup-user"> User </label>
+                                    </div>
+                                    <div class="form-element">
+                                        <input type="submit" value="Signup">
+                                    </div>        
+                                </form>
+                            </div>
+                    </div>
+                </div>
+
+                <div class="profile-picture"> </div>
+
+            </div>
+            <hr>
+
+            
+        </div>
+        <div class="main-container">
+            <div class="content-container">
+                <div class="content-header">Restaurant Name</div>
+                <div class="content-body">
+                    <div class="rating">
+                        <ul class="rating-scale" id="rating-0">
+                            <li class="star-1"></li>
+                            <li class="star-2"></li>
+                            <li class="star-3"></li>
+                            <li class="star-4"></li>
+                            <li class="star-5"></li>
+                        </ul>
+                        Select your rating
+                    </div>
+                    <div class="rating-guide">
+                        Some things to consider when writing the review
+                        <div class="rating-tags">
+                            <span>Food</span>
+                            <span>Price</span>
+                            <span>Service</span>
+                            <span>Ambiance</span>
+                            <span>Overall Impression</span>
+                        </div>
+                    </div>
+                    <textarea class="review-text" name="review-text" placeholder="Write your review..."></textarea>
+                </div>
+                <button class="review-submit" type="button" onclick="">Submit Review</button>
+            </div>
+            <div class="side-content">
+                <span class="side-header">Recent Reviews</span>
+                <div class="post" id="post-1">
+                    <div class="post-header">
+                        <img class="post-profile-pic" src="images/profile-pics/profile-pic-1.jpg">
+                        <div class="post-info">
+                            <div class="post-info-name">Josh Hutcherson</div>
+                            <div class="post-rating">
+                                <ul class="rating-scale" id="rating-1">
+                                    <li class="star-1"></li>
+                                    <li class="star-2"></li>
+                                    <li class="star-3"></li>
+                                    <li class="star-4"></li>
+                                    <li class="star-5"></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="post-date">01/01/2000</span>
+                    <p class="post-review">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae id molestiae, explicabo obcaecati amet quo asperiores recusandae soluta facere sapiente laboriosam, quia eos enim repellendus, quisquam illum quasi. Sed, quis?</p>
+                </div>
+                <div class="post" id="post-2">
+                    <div class="post-header">
+                        <img class="post-profile-pic" src="images/profile-pics/profile-pic-2.jpg">
+                        <div class="post-info">
+                            <div class="post-info-name">Sensei Wu Baby</div>
+                            <div class="post-rating">
+                                <ul class="rating-scale" id="rating-1">
+                                    <li class="star-1"></li>
+                                    <li class="star-2"></li>
+                                    <li class="star-3"></li>
+                                    <li class="star-4"></li>
+                                    <li class="star-5"></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="post-date">01/01/2000</span>
+                    <p class="post-review">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae id molestiae, explicabo obcaecati amet quo asperiores recusandae soluta facere sapiente laboriosam, quia eos enim repellendus, quisquam illum quasi. Sed, quis?</p>
+                </div>
+                <div class="post" id="post-3">
+                    <div class="post-header">
+                        <img class="post-profile-pic" src="images/profile-pics/profile-pic-3.jpg">
+                        <div class="post-info">
+                            <div class="post-info-name">Mewing Cat</div>
+                            <div class="post-rating">
+                                <ul class="rating-scale" id="rating-1">
+                                    <li class="star-1"></li>
+                                    <li class="star-2"></li>
+                                    <li class="star-3"></li>
+                                    <li class="star-4"></li>
+                                    <li class="star-5"></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="post-date">01/01/2000</span>
+                    <p class="post-review">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae id molestiae, explicabo obcaecati amet quo asperiores recusandae soluta facere sapiente laboriosam, quia eos enim repellendus, quisquam illum quasi. Sed, quis?</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+</html>
