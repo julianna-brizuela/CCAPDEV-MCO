@@ -3,6 +3,7 @@
 
 * {
     box-sizing: border-box;
+    
 }
 
 :root {
@@ -54,6 +55,8 @@ h3 {
 }
 
 h4 {
+    font-family: corsario-variable, sans-serif;
+    font-variation-settings: "opsz" 6, "wght" 700;
     margin-top: 1em;
     margin-bottom:1em;
 }
@@ -93,7 +96,6 @@ div.links > h2,p {
 .action-buttons {
     margin-top:auto;
     margin-bottom:auto;
-    margin-left:auto;
     margin-right:20px;
     
 }
@@ -106,20 +108,12 @@ div.action-buttons > button {
     border-radius:5px;
     font-family: 'Anonymous Pro', monospace;
     font-weight:700;
-    
-
 }
 
 .signup {
     background-color:var(--default-button);
     color: var(--white);
     border: none;
-}
-
-.login {
-    background-color:transparent;
-    color: var(--white);
-    border: 2px solid var(--white);
 }
 
 .login:hover {
@@ -223,11 +217,12 @@ a, a:visited {
 
 div.tag-container div {
     display:inline-block;
+    padding:12.5px;
+    
 }
 
 .tag-container {
     margin-top:auto;
-    height:15%;
 }
 
 .restaurant-title {
@@ -286,12 +281,9 @@ div.tag-container div {
 }
 
 .peso {
-    background: url('images/spritesheet.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: -150px;
-    width: 30px;
-    height: 30px;
+    background: url('images/spritesheet.png') no-repeat -393px -7px;
+	width: 78px;
+	height: 85px;
 }
 
 .popup {
@@ -371,4 +363,49 @@ div.tag-container div {
     border-radius:10px;
     cursor:pointer;
 }
+
+.searchbar {
+    display:flex;
+    flex-direction:row;
+    margin-left:auto;
+    background-color:#fdfdfd;
+    border-radius:15px;
+    
+}
+
+.search-establishment {
+    display:flex;
+    flex-direction:row;
+}
+
+.search-bar {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    padding:10px;
+    
+}
+
+.searchbar input, .searchbar button {
+    height:100%;
+    border:0px;
+    font-family: 'Anonymous Pro', monospace;
+}
+
+.search-button {
+    padding:20px;
+    height:100%;
+    width:60px;
+    background-image:url('images/spritesheet.png');
+    background-repeat: no-repeat;
+    background-size:720px 36px;
+    background-position:-179px center;
+}
+
+.submit-search {
+    background-color:var(--default-button);
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    width:50px;
+}
+
 

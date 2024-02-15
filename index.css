@@ -277,15 +277,20 @@ a, a:visited {
 }
 
 #search {
+    height:100%;
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
+    background-color:var(--default-button);
+    width:60px; 
+    border:none;
 }
 
 .right {
-    width: 30%;
+    width: 40%;
+    background-color:#ffffff;
 }
 
-.searchbar input, .searchbar input:focus{
+.searchbar input, .searchbar input:focus {
     border:none;
     height: 50px;
     width:100%;
@@ -298,5 +303,25 @@ input {
 
 .right > input {
     font-weight:700;
+}
+
+.submit-search {
+    padding:20px;
+    height:50px;
+    width:60px;
+    background-image:url('images/spritesheet.png');
+    background-repeat: no-repeat;
+    background-size:720px 36px;
+    background-position:-180px center;
+}
+
+.location-sprite {
+    padding:20px;
+    height:50px;
+    width:60px;
+    background-image:url('images/spritesheet.png');
+    background-repeat: no-repeat;
+    background-size:720px 36px;
+    background-position:-106px center;
 }
 
