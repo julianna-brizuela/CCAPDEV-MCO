@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url("https://use.typekit.net/mch3zne.css");
 
+* {
+    box-sizing: border-box;
+}
+
+
 :root {
     --bg: #EBE8D4;
     --default-text: #383030;
@@ -11,6 +16,11 @@
     font-family: 'Anonymous Pro', monospace;
     font-weight:400;
     background-color:var(--bg);
+}
+
+.overall-container{
+    display:flex;
+    flex-direction:column;
 }
 
 
@@ -72,31 +82,43 @@ div.links > h2,p {
     
 }
 
-.login {
+.action-buttons {
     margin-top:auto;
     margin-bottom:auto;
     margin-left:auto;
+    
 }
 
-div.login > button {
+
+div.action-buttons > button {
     margin-left:20px;
     font-size:1rem;
     padding:10px;
     border-radius:5px;
     font-family: 'Anonymous Pro', monospace;
     font-weight:700;
-    border: none;
+    
 
 }
 
 .signup {
     background-color:var(--default-button);
     color: var(--white);
+    border: none;
 }
 
 .login {
     background-color:transparent;
     color: var(--white);
+    border: 2px solid var(--white);
+}
+
+.login:hover {
+    background-color:#fdfdfd2f;
+}
+
+.signup:hover {
+    background-color:#873b3b;
 }
 
 hr {
@@ -223,3 +245,41 @@ a, a:visited {
     border-radius:10px;
     cursor:pointer;
 }
+
+.searchbar {
+    margin:0px 5%;
+}
+
+.searchbar form {
+    display:flex;
+    flex-direction:row;
+}
+
+.left {
+    width: 70%;
+}
+
+#food-type {
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+
+#search {
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.right {
+    width: 30%;
+}
+
+.searchbar input , input:focus{
+    border:none;
+    height: 50px;
+    width:100%;
+    padding-left: 20px;
+}
+
+.border-customized-input {
+    border: 2px solid #eee;
+ }
