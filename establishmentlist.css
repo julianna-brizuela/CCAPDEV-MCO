@@ -168,7 +168,7 @@ hr {
     display:flex;
     flex-direction:row;
     width: 100%;
-    margin-bottom:20px;
+    margin-bottom:60px;
     font-family: 'Anonymous Pro', monospace;
     font-weight:700;
 }
@@ -201,6 +201,7 @@ hr {
     display:flex;
     flex-direction:column;
     height:100%;
+    width:100%;
 }
 
 a, a:visited {
@@ -211,8 +212,9 @@ a, a:visited {
 .tag {
     background-color: #cfc7aa;
     height:100%;
-    min-width: 25%;
+    min-width: 10%;
     border-radius: 5px;
+    text-align:center;
 }
 
 div.tag-container div {
@@ -252,12 +254,30 @@ div.tag-container div {
     padding: 0px;
 }
 
+.half-star {
+    background-image: url('images/spritesheet.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: -30px center;
+    width: 25px;
+    height: 30px;
+}
+
+.blank-star {
+    background-image: url('images/spritesheet.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: -60px center;
+    width: 25px;
+    height: 30px;
+}
+
 .star {
     background: url('images/spritesheet.png');
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: -4px;
-    width: 30px;
+    background-position: -4px center;
+    width: 25px;
     height: 30px;
 }
 
@@ -369,7 +389,8 @@ div.tag-container div {
     flex-direction:row;
     margin-left:auto;
     background-color:#fdfdfd;
-    border-radius:15px;
+    border-radius:18px;
+    border: 2px solid var(--default-text);
     
 }
 
