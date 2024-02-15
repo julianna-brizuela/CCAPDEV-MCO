@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUNCH | Where your cravings are satisfied!</title>
+    <link rel="stylesheet" type="text/css" href="index.css"/>
+    <link rel="stylesheet" type="text/css" href="admin.css"/>
+    <script src="index.js"></script>
+</head>
+<body>
+    <div class="overall-container">
+
+        <div class="top-container"> 
+            <div class="navbar-container">
+                <hr id="top">
+                <div class="navbar-content">
+                    <div class="link-container">
+                        <div class="links">
+                            <h2> <a href="index.html">munch</a></h2>
+                            <p> <a href="establishmentlist.html">Browse Restaurants</a></p>
+                        </div>
+                    </div>
+                
+                    <div class="action-buttons">
+                        <button type="button" class="signup" onclick="logout()">Logout</button>
+                    </div>
+    
+                </div>
+                <hr>
+            </div>
+            
+            <div class="images">
+                <span class="gradient"></span>
+                <img src="images/jesse-cortez-DESJBCkFkF8-unsplash.jpg">
+            </div>   
+        </div>
+        
+        <div class="admin-controls-container">
+
+            <div class="restaurant-list">
+                <div class="restaurant">
+                    <div class="add-restaurant">
+                        <button class="upload-icon" onclick="addRestaurant()">  </button>
+                    </div>
+                    
+                    <div class="restaurant-name">
+                        Add restaurant
+                    </div>
+                </div>
+                
+                <div class="restaurant">
+                    <div class="restaurant-image">
+                        <img src="images/jesse-cortez-DESJBCkFkF8-unsplash.jpg">
+                    </div>
+                    <div class="overlay">
+                        <ul class="icon">
+                            <li> <button class="edit-icon" onclick="editRestaurantInfo()">  </button></li>
+                            <li> <button class="delete-icon" onclick="removeRestaurant()">  </button></li>
+                        </ul>
+                    </div>
+                    <div class="restaurant-name">
+                        Restaurant 1
+                    </div>
+                </div>
+
+                <div class="restaurant">
+                    <img src="images/jesse-cortez-DESJBCkFkF8-unsplash.jpg">
+                    <div class="overlay">
+                        <ul class="icon">
+                            <li> <button class="edit-icon" onclick="editRestaurantInfo()">  </button></li>
+                            <li> <button class="delete-icon" onclick="removeRestaurant()">  </button></li>
+                        </ul>
+                    </div>
+                    <div class="restaurant-name">
+                        Restaurant 2
+                    </div>
+                </div>
+
+                <div class="restaurant">
+                    <div class="restaurant-image">
+                        <img src="images/jesse-cortez-DESJBCkFkF8-unsplash.jpg">
+                    </div>
+                    <div class="overlay">
+                        <ul class="icon">
+                            <li> <button class="edit-icon" onclick="editRestaurantInfo()">  </button></li>
+                            <li> <button class="delete-icon" onclick="removeRestaurant()">  </button></li>
+                        </ul>
+                    </div>
+                    <div class="restaurant-name">
+                        Restaurant 3
+                    </div>
+                </div>
+                
+                <div class="restaurant">
+                    <img src="images/jesse-cortez-DESJBCkFkF8-unsplash.jpg">
+                    <div class="overlay">
+                        <ul class="icon">
+                            <li> <button class="edit-icon" onclick="editRestaurantInfo()">  </button></li>
+                            <li> <button class="delete-icon" onclick="removeRestaurant()">  </button></li>
+                        </ul>
+                    </div>
+                    <div class="restaurant-name">
+                        Restaurant 4
+                    </div>
+                </div>
+
+                <div class="restaurant">
+                    <img src="images/jesse-cortez-DESJBCkFkF8-unsplash.jpg">
+                    <div class="overlay">
+                        <ul class="icon">
+                            <li> <button class="edit-icon" onclick="editRestaurantInfo()">  </button></li>
+                            <li> <button class="delete-icon" onclick="removeRestaurant()">  </button></li>
+                        </ul>
+                    </div>
+                    <div class="restaurant-name">
+                        Restaurant 5
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

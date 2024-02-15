@@ -1,0 +1,130 @@
+.admin-controls-container{
+    margin-left:auto;
+    margin-right:auto;
+    border: black 2px solid;
+}
+
+.restaurant-list{
+    justify-content: center; 
+    display:flex;
+    flex-wrap:wrap;
+    position:relative;
+    margin:10px; 
+}
+
+.add-restaurant{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    height: 200px;
+    width: 280px;
+    border-radius: 25px;
+    margin-right: 50px;
+    margin-bottom: 9px;
+    border: 3px solid var(--default-text);
+    min-height: 200px;
+    background-color: rgb(226, 226, 220);
+}
+
+.restaurant{
+    height: 220px;
+    width: 300px;
+    position: relative;
+    margin: 10px;
+    overflow: hidden; 
+}
+
+.restaurant img {
+    height: 200px;
+    width: 280px;
+    border-radius: 25px;
+    margin-right: 50px;
+    margin-bottom: 5px;
+    border: 3px solid var(--default-text);
+}
+
+.restaurant-name {
+    text-align: center; 
+    position: relative; 
+    width: 100%;
+    bottom: 5px;
+    font-family: corsario-variable, sans-serif;
+    font-variation-settings: "opsz" 48, "wght" 600;
+    font-size:0.8rem; 
+}
+
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 200px;
+    width: 280px;
+    background-color: rgba(204, 198, 198, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px; 
+    overflow: hidden; 
+}
+
+.upload-icon{
+    background: url('images/spritesheet.png');
+    background-position: -1060px center;
+    width: 80px;
+    height: 90px;
+    display: inline;
+    border: 0px;
+    cursor: pointer
+}
+
+.restaurant:hover .overlay {
+    opacity: 1;
+}
+
+.icon{
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    overflow: hidden;
+    position: relative;
+    height: 100%; 
+    width: 100%; 
+    list-style: none; 
+    padding: 0; 
+    margin: 0;
+    background: transparent;
+    border: 0px; 
+}
+
+.icon > li{
+    margin: 0 30px;
+    overflow: hidden;
+    position: relative;
+}
+
+.edit-icon {
+    background-image: url("images/spritesheet.png");
+    border: 0px;
+    background-color:transparent;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: -900px center;
+    width: 60px;
+    height: 60px;
+}
+
+.delete-icon{
+    border: 0px;
+    background-color:transparent;
+	background: url('images/spritesheet.png') no-repeat -1273px -23px;
+	width: 46px;
+	height: 50px;
+}
+
+.icon button{
+    cursor: pointer;
+}
+
