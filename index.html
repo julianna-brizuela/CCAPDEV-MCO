@@ -20,6 +20,7 @@
                             <p> <a href="establishmentlist.html">Browse Restaurants</a></p>
                         </div>
                     </div>
+                
 
                     <div class="action-buttons">
                         <button type="button" class="login" onclick="openLoginForm()">Log In</button>
@@ -28,7 +29,7 @@
                                 <div class="modal">
                                     <span class="close" onclick="closeLoginForm()">&times;</span>
                                     <h2>Login</h2> 
-                                    <form action="" method="post" class="form">
+                                    <form method="post" class="form" onsubmit="redirectToUserOrAdmin(); return false;">
                                         <div class="form-element">
                                             <label for="Email"> Email </label>
                                             <input type="text" id="" placeholder="Enter email">
@@ -38,12 +39,18 @@
                                             <input type="password" id="" placeholder="Enter password">
                                         </div>
                                         <div class="form-element">
+                                            <input type="checkbox" id="admin">
+                                            <label for="admin"> Admin </label>
+                                            <input type="checkbox" id="user">
+                                            <label for="user"> User </label>
+                                        </div>
+                                        <div class="form-element">
                                             <input type="submit" value="Login">
                                         </div>        
                                     </form>
                                 </div>
                             </div>
-    
+
                         <button type="button" class="signup" onclick="openSignupForm()">Sign Up</button>
                             <!-- Signup Form-->
                             <div id="signup-form" class="popup">
@@ -76,11 +83,17 @@
                                             <label for="terms-and-conditions"> Agree to terms and conditions </label>
                                         </div>
                                         <div class="form-element">
+                                            <input type="checkbox" id="admin">
+                                            <label for="admin"> Admin </label>
+                                            <input type="checkbox" id="user">
+                                            <label for="user"> User </label>
+                                        </div>
+                                        <div class="form-element">
                                             <input type="submit" value="Signup">
                                         </div>        
                                     </form>
                                 </div>
-                            </div>
+                        </div>
                     </div>
     
                 </div>
