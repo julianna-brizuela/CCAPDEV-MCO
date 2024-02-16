@@ -82,38 +82,21 @@ html, body {
 
 .rating-scale > li {
     display: inline-block;
-    cursor: pointer;
     background-image: url("images/spritesheet.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 10.5% center;
     padding: 0 .1rem;
-    width: 40px;
-    height: 40px;
-}
-
-.rating-scale > li {
-    display: inline-block;
-    cursor: pointer;
-    background-image: url("images/spritesheet.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 10.5% center;
-    padding: 0;
     width: 1.2rem; /* Adjust the width as needed */
     height: 1.2rem; /* Adjust the height as needed */
 }
 
 #rating-0.rating-scale > li {
-    display: inline-block;
     cursor: pointer;
-    background-image: url("images/spritesheet.png");
-    background-size: cover;
-    background-repeat: no-repeat;
     background-position: 10.5% center;
-    padding: 0;
-    width: 2rem; /* Adjust the width as needed */
-    height: 2rem; /* Adjust the height as needed */
+    padding: 0 .1rem;
+    width: 40px;
+    height: 40px;
 }
 
 #rating-0.rating-scale > li:hover {
