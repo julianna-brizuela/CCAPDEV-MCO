@@ -96,7 +96,6 @@ div.links > h2,p {
 .action-buttons {
     margin-top:auto;
     margin-bottom:auto;
-    margin-right:20px;
     
 }
 
@@ -122,16 +121,6 @@ div.action-buttons > button {
 
 .signup:hover {
     background-color:#873b3b;
-}
-
-.profile-picture {
-    background-image: url("images/spritesheet.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: -360px center;
-    padding: 0 .1rem;
-    width: 40px;
-    height: 40px;
 }
 
 .signup {
@@ -287,6 +276,7 @@ div.tag-container div {
     padding:7.5px;
     background:#cfc7aa;
     font-family:'Anonymous Pro', monospace;
+    margin:5px;
     
 }
 
@@ -294,10 +284,6 @@ div.tag-container div {
     display:flex;
     flex-direction: row;
     flex-wrap: wrap;
-}
-
-.tag-list button {
-    margin:5px;
 }
 
 .peso {
@@ -427,6 +413,19 @@ div.tag-container div {
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
     width:50px;
+}
+
+.star-filter button {
+    display:inline-block;
+}
+
+.star-filter .star {
+    padding:12.5px;
+    background-image:url('images/spritesheet.png');
+    background-repeat: no-repeat;
+    background-size:500px 25px;
+    background-position:0px center;
+
 }
 
 

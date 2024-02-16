@@ -18,7 +18,7 @@ function redirectToUserOrAdmin() {
     if (document.getElementById("login-admin").checked) {
         window.location.href = "admin.html";
     } else if (document.getElementById("login-user").checked) {
-        window.location.href = "test.html"; // same here
+        window.location.href = "user.html";
     }
 }
 
@@ -36,4 +36,8 @@ function editRestaurantInfo(){
 
 function addRestaurant(){
     window.location.href="addRestaurant.html";
+}
+
+function enableProfilePicture() {
+    document.getElementById("profile-picture").style.display = "block";
 }
