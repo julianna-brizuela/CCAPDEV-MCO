@@ -1,0 +1,79 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);  
+}
+
+.add-restaurant-form-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: auto;
+    background: white;
+    padding: 15px;
+    top: 50%;
+    left: 50%;
+}
+
+.add-restaurant-form{
+    border: 1px solid #d3cccc;
+    padding: 62px 65px 64px;
+}
+
+.add-restaurant-form h2{
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 48px;
+    color: #6d5555;
+    letter-spacing: 2px;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:row;
+}
+
+.add-restaurant-form .form-group > div:first-child {
+    margin-right: 155px;
+}
+
+.add-restaurant-form label{
+    font-size: 15px;
+    margin-bottom: 10px;
+    display: block;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.form-box{
+    border: 1px solid #e6e6e6;
+    display: block;
+    width:135%;
+    height: 42px;
+    padding: 0 20px 0 20px;
+    color: #8f8e8e;
+    font-size: 15px;
+    margin-bottom: 25px;
+    max-width: 135%;
+    overflow:hidden;
+}
+
+.review-text {
+    resize: none;
+    border: 1px solid #e6e6e6;
+    box-sizing: border-box;
+    background: none;
+    background-color: #FDFDFD;
+    padding: 1rem;
+    width:263%;
+    max-width: 263%;
+    height: 80px;
+    padding: 8px 20px;
+    color: #8f8e8e;
+    font-size: 15px;
+}

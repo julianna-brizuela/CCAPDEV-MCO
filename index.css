@@ -124,6 +124,7 @@ div.action-buttons > button {
 }
 
 .profile-picture {
+    display: none;
     background-image: url("images/spritesheet.png");
     background-size: cover;
     background-repeat: no-repeat;
