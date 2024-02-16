@@ -126,6 +126,7 @@ a, a:visited {
     color: var(--default-text);
 }
 
+
 .main-restaurant-info {
     display: flex;
     flex-direction: column;
@@ -286,39 +287,74 @@ div.tag-container div {
     width: 70%; 
 }
 
-
 .button {
-    background-color:var(--default-button);
+    background-color: var(--default-button);
     color: var(--white);
-    margin-left:20px;
-    font-size:30px;
-    padding:10px;
-    border-radius:5px;
+    margin-left: 20px;
+    font-size: 30px;
+    padding: 10px;
+    border-radius: 5px;
     font-family: 'Anonymous Pro', monospace;
-    font-weight:700;
+    font-weight: 700;
     border: none;
+    display: flex;
+    align-items: center; 
 }
 
 .share-sprite, .bookmark-sprite, .photo-sprite {
     background-color: transparent;
     border: 2px solid #9c8d8d;
     color: var(--default-text);
+    gap: 10px;
 }
 
-.share-sprite:hover {
-    background-color:#fdfdfd2f;
+.share-sprite:hover, .bookmark-sprite:hover, .photo-sprite:hover {
+    background-color: #fdfdfd2f;
 }
 
-.bookmark-sprite:hover {
-    background-color:#fdfdfd2f;
+.bookmark:hover:before {
+    content: "";
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-image: url("images/spritesheet.png");
+    background-size: cover;
+    background-position: 90px 0px;
 }
 
-.photo-sprite:hover {
-    background-color:#fdfdfd2f;
+.share::before {
+    content: "";
+    display: inline-block;
+    width: 30px; 
+    height: 30px; 
+    background-image: url("images/spritesheet.png");
+    background-size: cover;
+    background-position: -900px 0px; 
 }
+
+.bookmark::before {
+    content: "";
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-image: url("images/spritesheet.png");
+    background-size: cover;
+    background-position: 60px 0px;
+}
+
+.photo::before {
+    content: "";
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-image: url("images/spritesheet.png");
+    background-size: cover;
+    background-position: 0px 200px; 
+}
+
 
 .write-review:hover {
-    background-color:#873b3b;
+        background-color:#873b3b;
 }
 
 .group3 {
