@@ -14,11 +14,21 @@ function closeSignupForm() {
     document.getElementById("signup-form").style.display = "none";
 }
 
-function redirectToUserOrAdmin() {
+// function redirectToUserOrAdmin() {
+//     if (document.getElementById("login-admin").checked) {
+//         window.location.href = "admin.html";
+//     } else if (document.getElementById("login-user").checked) {
+//         window.location.href = "test.html"; // same here
+//     }
+// }
+
+function redirectToUserOrAdmin(event) {
+    event.preventDefault();
     if (document.getElementById("login-admin").checked) {
         window.location.href = "admin.html";
     } else if (document.getElementById("login-user").checked) {
-        window.location.href = "user.html";
+        document.querySelector(".action-buttons").style.display = "none";
+        document.querySelector(".profile-picture").style.display = "block";
     }
 }
 
