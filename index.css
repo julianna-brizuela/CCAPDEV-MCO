@@ -85,6 +85,9 @@ div.links > h2,p {
     margin-left:auto;
 }
 
+button {
+    cursor:pointer;
+}
 
 div.action-buttons > button {
     margin-left:20px;
@@ -247,6 +250,7 @@ a, a:visited {
     width:100%;
     object-fit:cover;
     height:100%;
+    object-position:center -900px;
 }
 
 .gradient {

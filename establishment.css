@@ -43,6 +43,7 @@
     border-top-left-radius: 25px;
     border-bottom-left-radius: 25px;
     margin-right: 50px;
+    background-position:center;
 }
 
 .second-half {
@@ -56,6 +57,7 @@
         width: 100%;
         background-color:#c9c9c9;
         margin-right: 50px;  
+        background-position:center;
 }
 
 .pic3 {
@@ -63,6 +65,7 @@
     background-color:#c9c9c9;
     border-top-right-radius: 25px;
     margin-right: 50px;
+    background-position:center;
 
 }
 
@@ -71,6 +74,7 @@
     background-color:#c9c9c9;
     border-bottom-right-radius: 25px;
     margin-right: 50px;
+    background-position:center;
 
 }
 
