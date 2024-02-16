@@ -204,6 +204,7 @@ a, a:visited {
     color: var(--default-text);
 }
 
+.popup .modal .form-element input[type="text"],
 .popup .modal .form-element input[type="email"],
 .popup .modal .form-element input[type="password"] {
     margin-top:5px;
