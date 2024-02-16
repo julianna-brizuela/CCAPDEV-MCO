@@ -5,10 +5,22 @@
     margin-left:auto;
 }
 
+h5 {
+    font-family: 'Anonymous Pro', monospace;
+    font-variation-settings: "opsz" 6, "wght" 200;
+    margin-top: 1em;
+    margin-bottom:1em;
+}
+
+hr {
+    border:1px solid var(--default-text);
+}
+
 .content-container {
     display:flex;
     flex-direction:row;
     margin:2.5% 5%;
+    gap: 10px;
 }
 
 .left {
@@ -26,11 +38,11 @@
     margin-bottom:10px;
 }
 
-.profile-picture {
+.profile-pic {
     margin:auto;
 }
 
-.profile-picture img{
+.profile-pic img{
     border: 2px solid var(--default-text);
     border-radius: 100px;
 }
@@ -49,6 +61,10 @@
     flex-direction:column;
     margin:auto;
     text-align:center;
+}
+
+.loc {
+    margin-top: -15px;
 }
 
 .profile-controls button {
@@ -94,6 +110,7 @@
     margin:auto;
 }
 
+
 .review-container {
     width:100%;
 }
@@ -105,18 +122,25 @@
     width:100%;
     display:flex;
     flex-direction:row;
+    justify-content: space-between;
 }
 
 .star {
+    display: inline-block;
     background: url('images/spritesheet.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 0px center;
-    width: 25px;
+    width: 28px;
     height: 30px;
     margin-right: 20px;
     margin-top:auto;
     margin-bottom:auto;
+}
+
+.group {
+    display: flex;
+    flex-direction: row;
 }
 
 .my-reviews h4 {
@@ -124,3 +148,46 @@
     margin-bottom:auto;
 }
 
+.profile-num {
+    margin-top:auto;
+    margin-bottom:auto;
+
+}
+
+.saved-container {
+    margin-top: 10px;
+    width: 100%;
+}
+
+.my-saves{
+    padding:5%;
+    border:2px solid var(--default-text);
+    background-color: var(--bg);
+    width:100%;
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+}
+
+.saved {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url("images/spritesheet.png");
+    background-size: cover;
+    background-position: 89.25% 0;
+    margin: auto 20px auto 4px;
+}
+
+.right {
+    display:flex;
+    flex-direction:column;
+    border-left: 2px solid #383030;
+
+}
+
+.main-section {
+    display: flex; 
+    flex-direction: column;
+}
