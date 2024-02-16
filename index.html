@@ -11,6 +11,7 @@
     <div class="overall-container">
 
         <div class="top-container"> 
+            <!--navigation bar-->
             <div class="navbar-container">
                 <hr id="top">
                 <div class="navbar-content">
@@ -20,7 +21,6 @@
                             <p> <a href="establishmentlist.html">Browse Restaurants</a></p>
                         </div>
                     </div>
-                
 
                     <div class="action-buttons">
                         <button type="button" class="login" onclick="openLoginForm()">Log In</button>
@@ -32,7 +32,7 @@
                                     <form method="post" class="form" onsubmit="redirectToUserOrAdmin(event); return false;">
                                         <div class="form-element">
                                             <label for="login-email"> Email </label>
-                                            <input type="text" id="login-email" placeholder="Enter email">
+                                            <input type="email" id="login-email" placeholder="Enter email">
                                         </div>
                                         <div class="form-element">
                                             <label for="login-password"> Password </label>
@@ -105,7 +105,7 @@
                         </div>
                     </div>
 
-                    <div class="profile-picture"></div>
+                    <button class="profile-picture"></button>
     
                 </div>
                 <hr>
@@ -125,7 +125,7 @@
         </div>
 
         <div class="searchbar"> 
-            <form>
+            <form action="establishmentlist.html">
                     <div class="left">
                         <input type="text" id="food-type" placeholder="Japanese Food"/>
                     </div>

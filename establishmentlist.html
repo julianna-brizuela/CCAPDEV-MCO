@@ -6,6 +6,7 @@
     <title>MUNCH | Where your cravings are satisfied!</title>
     <link rel="stylesheet" type="text/css" href="establishmentlist.css"/>
     <script src="index.js"></script>
+    <script src="filters.js"></script>
 
 </head>
 <body>
@@ -38,7 +39,7 @@
                                 <div class="modal">
                                     <span class="close" onclick="closeLoginForm()">&times;</span>
                                     <h2>Log In</h2> 
-                                    <form method="post" class="form" onsubmit="redirectToUserOrAdmin(); return false;">
+                                    <form method="post" class="form" onsubmit="redirectToUserOrAdmin(event); return false;">
                                         <div class="form-element">
                                             <label for="login-email"> Email </label>
                                             <input type="text" id="login-email" placeholder="Enter email">
@@ -114,7 +115,7 @@
                         </div>
                     </div>
 
-                    <div class="profile-picture"> </div>
+                    <button class="profile-picture" onlick></button>
     
                 </div>
                 <hr>
@@ -150,6 +151,39 @@
                     <button>Fusion Cuisine</button>
                     <button>Italian</button>
                     <button>Filipino</button>
+                </div>
+                <hr>
+                    <h4> Rating </h4>
+                <div class="star-filter"> 
+                    <button>
+                        <span class="star"></span>
+                    </button>
+                    <button>
+                        <span class="star"></span>
+                        <span class="star"></span>
+                        
+                    </button>
+                    <button>
+                        <span class="star"></span>
+                        <span class="star"></span>
+                        <span class="star"></span>
+                        
+                    </button>
+                    <button>
+                        <span class="star"></span>
+                        <span class="star"></span>
+                        <span class="star"></span>
+                        <span class="star"></span>
+                        
+                    </button>
+                    <button>
+                        <span class="star"></span>
+                        <span class="star"></span>
+                        <span class="star"></span>
+                        <span class="star"></span>
+                        <span class="star"></span>
+                        
+                    </button>
                 </div>
     
             </div>
