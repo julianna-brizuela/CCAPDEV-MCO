@@ -19,6 +19,7 @@ selector {
     --white: #fdfdfd;
     --gray: #c9c9c9;
     --desert: #cfc7aa;
+    --darkdesert: #c1b794;
 
     /* default attribute values */
     --default-text-color: var(--black);
