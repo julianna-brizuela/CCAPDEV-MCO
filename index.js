@@ -31,15 +31,15 @@ function redirectToAdmin(){
 }
 
 function logout(){
-    window.location.href = "index.html"
+    window.location.href = "index.html";
 }
 
 function removeRestaurant(){
-    window.location.href = "removeRestaurant.html" // placeholder
+    window.location.href = "removeRestaurant.html"; // placeholder
 }
 
-function editRestaurantInfo(){
-    window.location.href="editRestaurant.html"
+function editRestaurantInfo(editRestaurantUrl){
+    window.location.href = editRestaurantUrl;
 }
 
 function addRestaurant(){
