@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="defaults.css">
     <link rel="stylesheet" type="text/css" href="establishmentlist.css">
     <link rel="stylesheet" type="text/css" href="customer-review.css">
+    <script src="index.js"></script>
     <script src="customer-review.js"></script>
 </head>
 <body>
@@ -23,7 +24,7 @@
 
                 <div class="searchbar"> 
                     <form class="search-establishment">
-                            <input type="text" class="search-bar" value="Japanese"> 
+                            <input type="text" class="search-bar" placeholder="Japanese"> 
                             <button type="submit" class="submit-search">
                                 <span class="search-button"></span>
                             </button>
@@ -37,7 +38,7 @@
                             <div class="modal">
                                 <span class="close" onclick="closeLoginForm()">&times;</span>
                                 <h2>Log In</h2> 
-                                <form method="post" class="form" onsubmit="redirectToUserOrAdmin(); return false;">
+                                <form method="post" class="form" onsubmit="redirectToUserOrAdmin(event); return false;">
                                     <div class="form-element">
                                         <label for="login-email"> Email </label>
                                         <input type="text" id="login-email" placeholder="Enter email">
@@ -112,9 +113,11 @@
                             </div>
                     </div>
                 </div>
-                <div class="profile-picture"> </div>
+
+                <button class="profile-picture" onlick></button>
+
             </div>
-            <hr>           
+            <hr>
         </div>
         <div class="main-container">
             <div class="content-container">
