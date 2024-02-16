@@ -105,6 +105,7 @@ hr {
 
 .profile-controls button:hover {
     background-color: var(--darkdesert);
+
 }
 
 .profile-controls .edit-profile {
@@ -140,7 +141,7 @@ hr {
 }
 
 
-.review-container {
+.reviews-container {
     width:100%;
 }
 
@@ -213,10 +214,158 @@ hr {
     display:flex;
     flex-direction:column;
     border-left: 2px solid #383030;
+    width: 70%;
 
 }
 
 .main-section {
     display: flex; 
     flex-direction: column;
+}
+
+.heading {
+    margin-left: 40px;
+}
+
+.review-section hr {
+    width: 95%;
+}
+
+.review-post-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    height: 200px;
+}
+
+.sort-container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: -25px;
+    margin-bottom: 20px;
+
+}
+
+.sort-by {
+    display: inline-block;
+    background-color: var(--yellow);
+    font-family: var(--default-norm-text);
+    font-weight: 200;
+}
+
+.sort-container label{
+    font-weight: 300;
+    font-size: 15px;
+}
+
+.reviews-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.customer-reviews {
+    display: flex;
+    flex-direction: row;
+    margin-left: 50px;
+}
+
+
+.post {
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+    border-bottom: 1px solid #383030;
+    padding-bottom: 1rem;
+    width: 100%;
+}
+
+.post-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.restaurant-pic {
+    border-radius: 25%;
+    height: 4rem;
+    width: 4rem;
+    margin-right: 1.5rem;
+}
+
+.post-info-name {
+    font-family: var(--default-title-text);
+    font-weight:700;
+}
+
+.post-info {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    margin: -15px;
+}
+
+.tag-container {
+    font-family: 'Anonymous Pro', monospace;
+    font-weight:700;
+    display: flex;
+    flex-direction: row;
+    margin-top:auto;
+    height:15%;
+    
+}
+
+.tag {
+    background-color: #cfc7aa;
+    height:100%;
+    min-width: 5%;
+    border-radius: 5px;
+    margin-right: 5px;
+    text-align:center;
+    font-size: 12px;
+}
+
+div.tag-container div {
+    display:inline-block;
+    padding:5px;
+}
+
+.post-rating {
+    display: flex;
+    flex-direction: row;
+    margin: -10px;
+}
+
+ul {
+    padding:0px;
+}
+
+#rating-1.rating-scale > li {
+    display: inline-block;
+    cursor: pointer;
+    background-image: url("images/spritesheet.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 10.5% center;
+    padding: 0;
+    width: 1.0rem; /* Adjust the width as needed */
+    height: 1.2rem; /* Adjust the height as needed */
+}
+
+.post-date {
+    font-size: .8rem;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.post-review {
+    margin-top:0;
+    font-size: 14px;
+}
+
+.post-location {
+    font-size: .8rem;
 }
