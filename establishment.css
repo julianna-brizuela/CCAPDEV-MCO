@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url("https://use.typekit.net/mch3zne.css");
 
+* {
+    box-sizing:border-box;
+}
+
 :root {
     --bg: #EBE8D4;
     --default-text: #383030;
@@ -130,8 +134,7 @@ a, a:visited {
 .main-restaurant-info {
     display: flex;
     flex-direction: column;
-    margin-left: 100px;
-    margin-right: 100px;
+    margin: 0 5%;
     margin-top: -20px;
 }
 
@@ -145,7 +148,6 @@ a, a:visited {
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 0px;
-    margin-left: 10px;
     margin-right: 10px;
 }
 
@@ -206,19 +208,30 @@ a, a:visited {
     flex-direction: row;
     width:30%;
     justify-content: right;
+    margin-bottom:auto;
 }
 
 .review-container {
-    margin-bottom:15px;
+    margin-bottom:5px;
+}
+
+.review-rating {
+    margin-top:auto;
+    margin-bottom:auto;
 }
 
 .review-stars {
     margin-right: 20px;
 }
 
-.star-spritegroup > li{
-    display: inline-block;
+.review-stars {
+    margin-right: 20px;
+    
+    
+}
 
+.star-spritegroup > li { 
+    display: inline-block;
 }
 
 .star-spritegroup {
@@ -226,20 +239,50 @@ a, a:visited {
     padding: 0px;
 }
 
+.half-star {
+    background-image: url('images/spritesheet.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: -30px center;
+    width: 25px;
+    height: 30px;
+}
+
+.blank-star {
+    background-image: url('images/spritesheet.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: -60px center;
+    width: 25px;
+    height: 30px;
+}
+
+.star {
+    background: url('images/spritesheet.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: -4px center;
+    width: 25px;
+    height: 30px;
+}
+
 .misc-info {
     margin-top: -10px;
     display: flex;
     flex-direction: row;
     margin-bottom: 20px;
-    margin-left: 10px;
     font-size: 25px;
 }
 
 .price {
     letter-spacing: 5px;
+    margin-bottom:auto;
+    margin-top:auto;
 }
 
 .tag-container {
+    font-family: 'Anonymous Pro', monospace;
+    font-weight:700;
     display: flex;
     flex-direction: row;
     margin-top:auto;
@@ -249,14 +292,16 @@ a, a:visited {
 .tag {
     background-color: #cfc7aa;
     height:100%;
-    min-width: 25%;
+    min-width: 10%;
     border-radius: 5px;
     margin-right: 20px;
+    text-align:center;
 }
 
 div.tag-container div {
     display:inline-block;
     justify-content: space-between;
+    padding:10px;
 }
 
 .hr {
@@ -268,16 +313,13 @@ div.tag-container div {
 .restaurant-info {
     display: flex;
     flex-direction: column;
-    margin-left: 100px;
-    margin-right: 100px;
+    margin:0px 5%;
     margin-top: 20px;
 }
 
 .group2 {
     display: flex;
     flex-direction: row;
-    margin-left: 20px;
-    margin-right: 30px;
     justify-content: space-between;
 }
 
@@ -287,10 +329,13 @@ div.tag-container div {
     width: 70%; 
 }
 
+.action-group .button {
+    margin-right:20px;
+}
+
 .button {
     background-color: var(--default-button);
     color: var(--white);
-    margin-left: 20px;
     font-size: 30px;
     padding: 10px;
     border-radius: 5px;
@@ -299,6 +344,16 @@ div.tag-container div {
     border: none;
     display: flex;
     align-items: center; 
+    
+}
+
+.button-review {
+    margin-top:auto;
+    margin-bottom:auto;
+}
+
+i {
+    height:30px;
 }
 
 .share-sprite, .bookmark-sprite, .photo-sprite {
@@ -327,9 +382,9 @@ div.tag-container div {
     display: inline-block;
     width: 30px; 
     height: 30px; 
-    background-image: url("images/spritesheet.png");
+    background-image: url("images/spritesheet2.png");
     background-size: cover;
-    background-position: -900px 0px; 
+    background-position: -60px center; 
 }
 
 .bookmark::before {
@@ -342,16 +397,25 @@ div.tag-container div {
     background-position: 60px 0px;
 }
 
+.photo:hover:before {
+    content: "";
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-image: url("images/spritesheet2.png");
+    background-size: cover;
+    background-position: -150px center; 
+}
+
 .photo::before {
     content: "";
     display: inline-block;
     width: 30px;
     height: 30px;
-    background-image: url("images/spritesheet.png");
+    background-image: url("images/spritesheet2.png");
     background-size: cover;
-    background-position: 0px 200px; 
+    background-position: -120px center; 
 }
-
 
 .write-review:hover {
         background-color:#873b3b;
@@ -360,8 +424,7 @@ div.tag-container div {
 .group3 {
     display: flex;
     flex-direction: row;
-    margin-top: 40px;
-    margin-left: 30px;
+    margin-top: 20px;
 }
 
 .image-container {
@@ -434,6 +497,10 @@ div.tag-container div {
     margin-right: 1rem;
 }
 
+.post-info-name {
+    font-weight:700;
+}
+
 .post-info {
     display: flex;
     flex-direction: column;
@@ -444,7 +511,10 @@ div.tag-container div {
 .post-rating {
     display: flex;
     flex-direction: row;
-    align-items: center;;
+}
+
+ul {
+    padding:0px;
 }
 
 #rating-1.rating-scale > li {
@@ -473,21 +543,20 @@ div.tag-container div {
 
 .post-date {
     font-size: .8rem;
+    font-weight:700;
+    margin-bottom:10px;
 }
 
 .post-review {
+    margin-top:0;
     font-size: .9rem;
 }
-
-
-
 
 .side-bar {
     display: flex;
     flex-direction: column;
     width: 30%;
     border: 2px solid #9c8d8d; 
-    margin-right: 30px;
     border-radius: 10px;
     padding:30px; 
     position: relative;
@@ -516,4 +585,45 @@ div.tag-container div {
     position: absolute;
     bottom: 0;
 }
+
+.location-sprite {
+    display: inline-block;
+    height:30px;
+    width:30px;
+    background-image:url('images/spritesheet.png');
+    background-repeat: no-repeat;
+    background-size:600px 30px;
+    background-position:-86px center;
+    margin-right: 20px;
+}
+
+.loc-info {
+    display:flex;
+    flex-direction:row;
+}
+
+.phone-sprite {
+    display: inline-block;
+    height:30px;
+    width:30px;
+    background-image:url('images/spritesheet2.png');
+    background-repeat: no-repeat;
+    background-size:180px 30px;
+    background-position: -90px center;
+    margin-right: 20px;
+}
+
+.number {
+    display:flex;
+    flex-direction:row;
+}
+
+.num {
+    margin-top:auto;
+    margin-bottom:auto;
+}
+
+
+
+
 
