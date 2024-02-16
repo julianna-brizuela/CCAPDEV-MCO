@@ -60,11 +60,11 @@ a, a:visited {
     width:100%;
     object-fit:cover;
     height:100%;
-    object-position:center -900px;
+    object-position:center;
 }
 
 .gradient {
-    background-image: linear-gradient(to top, rgba(255,0,0,0), rgba(0, 0, 0, 0.429));
+    background-image: linear-gradient(to top, rgba(255,0,0,0), rgba(0, 0, 0, 0.718));
     position:absolute;
     top:0;
     height:100%;
@@ -74,11 +74,9 @@ a, a:visited {
 
 .tagline {
     z-index: 1;
-    margin-left:5%;
-    margin-right:5%;
     text-align:center;
     display:block;
-    margin-top:15px;;
+    margin-top:15px;
 }
 
 .top-container {
@@ -154,3 +152,7 @@ input {
     background-position:-106px center;
 }
 
+.bottom {
+    width:70%;
+    margin:auto;
+}
