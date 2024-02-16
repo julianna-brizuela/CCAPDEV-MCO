@@ -14,21 +14,15 @@ function closeSignupForm() {
     document.getElementById("signup-form").style.display = "none";
 }
 
-// function redirectToUserOrAdmin() {
-//     if (document.getElementById("login-admin").checked) {
-//         window.location.href = "admin.html";
-//     } else if (document.getElementById("login-user").checked) {
-//         window.location.href = "test.html"; // same here
-//     }
-// }
-
 function redirectToUserOrAdmin(event) {
     event.preventDefault();
+    document.querySelector(".action-buttons").style.display = "none";
+    document.querySelector("#picture").style.display = "block";
+
     if (document.getElementById("login-admin").checked) {
-        window.location.href = "admin.html";
+        document.getElementById("picture").action="admin.html"
     } else if (document.getElementById("login-user").checked) {
-        document.querySelector(".action-buttons").style.display = "none";
-        document.querySelector(".profile-picture").style.display = "block";
+        document.getElementById("picture").action="user.html"
     }
 }
 
