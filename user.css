@@ -268,8 +268,9 @@ hr {
 
 .customer-reviews {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin-left: 50px;
+    gap:10px;
 }
 
 
@@ -294,6 +295,7 @@ hr {
     height: 4rem;
     width: 4rem;
     margin-right: 1.5rem;
+    border: var(--default-border);
 }
 
 .post-info-name {
@@ -337,15 +339,17 @@ div.tag-container div {
     display: flex;
     flex-direction: row;
     margin: -10px;
+    gap: 10px;
+    margin-top: -15px;
 }
 
 ul {
     padding:0px;
+    margin: 0.5em;
 }
 
 #rating-1.rating-scale > li {
     display: inline-block;
-    cursor: pointer;
     background-image: url("images/spritesheet.png");
     background-size: cover;
     background-repeat: no-repeat;
@@ -353,19 +357,27 @@ ul {
     padding: 0;
     width: 1.0rem; /* Adjust the width as needed */
     height: 1.2rem; /* Adjust the height as needed */
+    margin-right: -5px;
 }
 
 .post-date {
-    font-size: .8rem;
+    display: inline-block;
+    font-size: .7rem;
     font-weight:700;
-    margin-bottom:10px;
+    margin-top: 13px;
+    
 }
 
 .post-review {
-    margin-top:0;
-    font-size: 14px;
+    margin-top: 10px;
+    font-size: 12px;
 }
 
 .post-location {
     font-size: .8rem;
+}
+
+
+#rating-1.rating-scale > li:nth-child(-n+3) {
+    background-position: 0 center;
 }
