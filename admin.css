@@ -25,6 +25,7 @@
     border: 3px solid var(--default-text);
     min-height: 200px;
     background-color: rgb(226, 226, 220);
+    cursor: pointer;
 }
 
 .restaurant{
@@ -60,7 +61,7 @@
     left: 0;
     height: 200px;
     width: 280px;
-    background-color: rgba(204, 198, 198, 0.5);
+    background-color: rgba(167, 162, 162, 0.5);
     opacity: 0;
     transition: opacity 0.3s ease;
     display: flex;
@@ -71,17 +72,19 @@
 }
 
 .upload-icon{
-    background: url('images/spritesheet.png');
-    background-position: -1060px center;
+    background: url('images/spritesheet2.png');
+    background-repeat: no-repeat;
+    background-position: -0 center;
+    background-size: cover;
     width: 80px;
-    height: 90px;
+    height: 70px;
     display: inline;
     border: 0px;
     cursor: pointer
 }
 
 .restaurant:hover .overlay {
-    opacity: 1;
+    opacity: 3;
 }
 
 .icon{
