@@ -95,6 +95,10 @@ div.links > h2,p {
     
 }
 
+button {
+    cursor:pointer;
+}
+
 .action-buttons {
     margin-top:auto;
     margin-bottom:auto;
@@ -269,7 +273,7 @@ a, a:visited {
 }
 
 #picture {
-    margin-left:auto;
+    margin-left:20px;
     display:none;
 }
 
