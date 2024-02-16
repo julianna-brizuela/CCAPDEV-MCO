@@ -176,7 +176,7 @@ div.tag-container div {
 }
 
 .hr {
-    border-top: 2px solid #9c8d8d; 
+    border-top: 2px solid var(--default-text); 
     margin:0px 5%;
     z-index:5;
 }
@@ -229,7 +229,7 @@ i {
 
 .share-sprite, .bookmark-sprite, .photo-sprite {
     background-color: transparent;
-    border: 2px solid #9c8d8d;
+    border: 2px solid var(--default-text);
     color: var(--default-text);
     gap: 10px;
 }
@@ -304,6 +304,7 @@ i {
     background-color:#c9c9c9;
     border-radius: 5px;
     margin-right: 50px;
+    margin-bottom:20px;
 }
 
 .content {
@@ -315,7 +316,7 @@ i {
 }
 
 .hr2 {
-    border-top: 2px solid #9c8d8d; 
+    border-top: 2px solid var(--default-text); 
     width: 100%;
     margin-bottom: 30px;
     
@@ -352,6 +353,7 @@ i {
     padding-top: 1rem;
     border-bottom: 2px solid #383030;
     padding-bottom: 1rem;
+    width:33%;
 }
 
 .post-header {
@@ -400,18 +402,6 @@ ul {
     height: 1.2rem; /* Adjust the height as needed */
 }
 
-#rating-1.rating-scale > li:hover {
-    display: inline-block;
-    cursor: pointer;
-    background-image: url("images/spritesheet.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 0 center;
-    padding: 0;
-    width: 1.2rem; /* Adjust the width as needed */
-    height: 1.2rem; /* Adjust the height as needed */
-}
-
 .post-date {
     font-size: .8rem;
     font-weight:700;
@@ -427,7 +417,7 @@ ul {
     display: flex;
     flex-direction: column;
     width: 30%;
-    border: 2px solid #9c8d8d; 
+    border: 2px solid var(--default-text); 
     border-radius: 10px;
     padding:30px; 
     position: relative;

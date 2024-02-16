@@ -1,0 +1,298 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> MUNCH | Where your cravings are satisfied! </title>
+    <link rel="stylesheet" type="text/css" href="establishment.css"/>
+    <link rel="stylesheet" type="text/css" href="navigationbar.css"/>
+    <script src="index.js"></script>
+</head>
+<body>
+    <div class ="overall-container">
+
+        <div class="top-container"> 
+            <div class="navbar-container">
+                <hr id="top">
+                <div class="navbar-content">
+                    <div class="link-container">
+                        <div class="links">
+                            <h2> <a href="index.html">munch</a></h2>
+                            <p> <a href="establishmentlist.html">Browse Restaurants</a></p>
+                        </div>
+                    </div>
+
+                    <div class="searchbar"> 
+                        <form class="search-establishment">
+                                <input type="text" class="search-bar" placeholder="Japanese"> 
+                                <button type="submit" class="submit-search">
+                                    <span class="search-button"></span>
+                                </button>
+                        </form>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button type="button" class="login" onclick="openLoginForm()">Log In</button>
+                            <!-- Login Form-->
+                            <div id="login-form" class="popup">
+                                <div class="modal">
+                                    <span class="close" onclick="closeLoginForm()">&times;</span>
+                                    <h2>Log In</h2> 
+                                    <form method="post" class="form" onsubmit="redirectToUserOrAdmin(event); return false;">
+                                        <div class="form-element">
+                                            <label for="login-email"> Email </label>
+                                            <input type="email" id="login-email" placeholder="Enter email">
+                                        </div>
+                                        <div class="form-element">
+                                            <label for="login-password"> Password </label>
+                                            <input type="password" id="login-password" placeholder="Enter password">
+                                        </div>
+                                        <div class="form-element">
+                                            <input type="radio" name="user-type" id="login-admin">
+                                            <label for="login-admin"> Admin </label>
+                                            <input type="radio" name="user-type" id="login-user">
+                                            <label for="login-user"> User </label>
+                                        </div>
+                                        <div class="form-element">
+                                            <input type="checkbox" id="remember-me">
+                                            <label for="remember-me"> Remember me </label>
+                                        </div>
+                                        <div class="form-element">
+                                            <input type="submit" value="Login">
+                                        </div>        
+                                    </form>
+                                </div>
+                            </div>
+
+                        <button type="button" class="signup" onclick="openSignupForm()">Sign Up</button>
+                            <!-- Signup Form-->
+                            <div id="signup-form" class="popup">
+                                <div class="modal">
+                                    <span class="close" onclick="closeSignupForm()">&times;</span>
+                                    <h2>Signup</h2> 
+                                    <form action="" method="post" class="form">
+                                        <div class="form-element">
+                                            <label for="first-name"> First Name </label>
+                                            <input type="text" id="first-name" placeholder="Enter First Name">
+                                        </div>
+                                        <div class="form-element">
+                                            <label for="last-name"> Last Name </label>
+                                            <input type="text" id="last-name" placeholder="Enter Last Name">
+                                        </div>
+                                        <div class="form-element">
+                                            <label for="signup-email"> Email </label>
+                                            <input type="text" id="signup-email" placeholder="Enter email">
+                                        </div>
+                                        <div class="form-element">
+                                            <label for="signup-password"> Password </label>
+                                            <input type="password" id="signup-password" placeholder="Enter password">
+                                        </div>
+                                        <div class="form-element">
+                                            <label for="confirm-password"> Confirm Password </label>
+                                            <input type="password" id="confirm-password" placeholder="Confirm password">
+                                        </div>
+                                        <div class="form-element">
+                                            <input type="file" id="profile-picture" hidden>
+                                            <label class="picture-upload" for="profile-picture"> Upload Profile Picture </label>
+
+                                        </div>
+                                        <div class="form-element">
+                                            <input type="checkbox" id="terms-and-conditions">
+                                            <label for="terms-and-conditions"> Agree to terms and conditions </label>
+                                        </div>
+                                        <div class="form-element">
+                                            <input type="radio" name="user-type" id="signup-admin">
+                                            <label for="signup-admin"> Admin </label>
+                                            <input type="radio" name="user-type" id="signup-user">
+                                            <label for="signup-user"> User </label>
+                                        </div>
+                                        <div class="form-element">
+                                            <input type="submit" value="Signup">
+                                        </div>        
+                                    </form>
+                                </div>
+                        </div>
+                    </div>
+
+                    <form id="picture">
+                        <button class="profile-picture"></button>
+                    </form>
+                </div>
+                <hr>
+
+                
+            </div>
+
+        </div>
+
+        <div class="main-restaurant-info">
+            <div class="name">  <h1> The Wholesome Table </h1>  </div>
+
+            <div class="pictures">
+                <div class="pic1"></div>
+                <div class="second-half">
+                    <div class="pic2"></div>
+                    <div class="pic3"></div>
+                    <div class="pic4"></div>
+                    <div class="pic5"></div>
+                </div>
+                
+            </div>
+
+            <div class="group1">
+                <div class="description"> 
+                    <p> 
+                        The Wholesome Table is an organic restaurant that serves comfort food. </p>
+                </div>
+                
+
+                <div class="ratings">
+                    <div class="review-stars">
+                        <ul class="star-spritegroup"> 
+                            <li class="star"></li>
+                            <li class="star"></li>
+                            <li class="star"></li>
+                            <li class="star"></li>
+                            <li class="blank-star"></li>
+                        </ul>
+                    </div>
+
+                    <div class="review-rating">
+                        4.2
+                        <span class="subtext">(756 reviews)</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class ="misc-info">
+                <div class="price"> ₱₱₱ |  </div>
+                <div class="tag-container">
+                    <div class="tag">Fusion Cuisine</div>
+                    <div class="tag">Vegan-Friendly</div>
+                    <div class="tag">Italian</div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="hr"></div>
+
+        <div class="restaurant-info">
+            <div class="group2"> 
+                <div class="action-group">
+                    <div class="button share-sprite"> <i class="share"></i> Share </div>
+                    <div class="button bookmark-sprite"> <i class="bookmark"></i> <span> Save </span> </div>
+                    <div class="button photo-sprite"> <i class="photo"></i> <span> Add Photo </span> </div>
+                </div>
+                <div class="button-review">
+                    <button type="button" class="button write-review">Write a Review</button> 
+                </div>
+            </div>
+            <div class="group3">
+
+                <div class="content"> 
+                    <div class="hr2"> </div>
+                    <div class="bold">Menu </div>
+                    <iframe src="pdfs/wholesometablemenu.pdf" class="image-container menu"></iframe>
+
+                    <div class="hr2"> </div>
+                    
+                    <div class="reviews-section">
+                        <div class="bold">Recommended Reviews </div>
+                        <div> Average rating will appear after 3 reviews </div>
+                        <br>
+                        <div class="customer-reviews">
+                            <div class="post" id="post-1">
+                                <div class="post-header">
+                                    <img class="post-profile-pic" src="images/profile-pics/profile-pic-1.jpg">
+                                    <div class="post-info">
+                                        <div class="post-info-name">Josh Hutcherson</div>
+                                        <div class="post-rating">
+                                            <ul class="rating-scale" id="rating-1">
+                                                <li class="star"></li>
+                                                <li class="star"></li>
+                                                <li class="star"></li>
+                                                <li class="star"></li>
+                                                <li class="star"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="post-date">01/01/2000</span>
+                                <p class="post-review">
+                                    Fantastic spot for a healthy brunch! The toasties were wonderfully crunchy and full of flavor, although a tad heavy on the rock salt. The salad, dressed with a delightful strawberry vinaigrette, showcased a blend of fresh, delectable greens. While the pumpkin soup leaned towards the healthier side (slightly on the bland side, if I may add) the attentive service was consistent as usual. Looking forward to returning for more of their nutritious brunch options
+                                </p>
+                            </div>
+                            <div class="post" id="post-2">
+                                <div class="post-header">
+                                    <img class="post-profile-pic" src="images/profile-pics/profile-pic-2.jpg">
+                                    <div class="post-info">
+                                        <div class="post-info-name">Sensei Wu Baby</div>
+                                        <div class="post-rating">
+                                            <ul class="rating-scale" id="rating-2">
+                                                <li class="star"></li>
+                                                <li class="star"></li>
+                                                <li class="star"></li>
+                                                <li class="star"></li>
+                                                <li class="star"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="post-date">01/01/2000</span>
+                                <p class="post-review"> 
+                                    I recently dined at The Wholesome Table and I'm happy to give it a solid 4 stars. The food was generally good across the board. The chicken inasal was a standout, being tender and flavorful.
+
+                                    <br><br>However, there was a slight disappointment with the pork chops. The portion size seemed a bit reduced compared to what I expected. The pizza, pasta, and salmon bowl were decent but didn't particularly stand out in the same way as the chicken inasal.
+                                    
+                                    <br><br>Service at The Wholesome Table was commendable. The staff was attentive and friendly, but be prepared for a bit of a wait for your food. It's worth it, though, for the quality of the meal.
+                                    
+                                    <br><br>The ambiance of the restaurant is truly impressive. The interior, with its combination of wood, live trees, and plants, creates a welcoming and refreshing atmosphere. It's a great environment that complements the wholesome theme of the restaurant.
+                                    
+                                    <br><br>In summary, The Wholesome Table offers a good dining experience with some standout dishes and a beautiful setting. It's a place I'd recommend for anyone looking for a meal that feels both healthy and satisfying.
+                                </p>
+                            </div>
+                            <div class="post" id="post-3">
+                                <div class="post-header">
+                                    <img class="post-profile-pic" src="images/profile-pics/profile-pic-3.jpg">
+                                    <div class="post-info">
+                                        <div class="post-info-name">Mewing Cat</div>
+                                        <div class="post-rating">
+                                            <ul class="rating-scale" id="rating-3">
+                                                <li class="star"></li>
+                                                <li class="star"></li>
+                                                <li class="star"></li>
+                                                <li class="star"></li>
+                                                <li class="star"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="post-date">01/01/2000</span>
+                                <p class="post-review">
+                                    This place is a fantastic spot for dining, with exceptionally accommodating staff. My friends and I visited over the weekend, and we were pleased to find that the place is roomy and not overcrowded. The atmosphere exudes a calming vibe, making it an ideal spot for a coffee break. The menu leans towards healthier options with a focus on vegetables. I particularly enjoyed the Hummus and the Superfood Salad. I'm eagerly looking forward to our next visit.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                     
+                </div>
+
+                <div class="side-bar"> 
+                    <div class="loc-info"> <span class="location-sprite"> </span> <span class="bold"> Location </span> </div>
+                    <iframe  class="image-container directions" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15446.685486773113!2d121.0252846!3d14.5607759!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c90706584b91%3A0x65c52d44b537dc62!2sThe%20Wholesome%20Table%20Salcedo!5e0!3m2!1sen!2sph!4v1708076619292!5m2!1sen!2sph" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                    <div>
+                       <span class="details"> Salcedo, Makati | Infinity Tower Ground Floor, L P Leviste Street Salcedo Village Makati, 1227 Metro Manila Philippines </span> 
+                    </div>
+                    <div class="number"> <span class="phone-sprite"></span> <span class="num">| (02) 8848 7777 </span></div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+</body>
+</html>
