@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url("https://use.typekit.net/mch3zne.css");
 
-
 .main-restaurant-info {
     display: flex;
     flex-direction: column;
@@ -396,7 +395,6 @@ ul {
 
 #rating-1.rating-scale > li {
     display: inline-block;
-    cursor: pointer;
     background-image: url("images/spritesheet.png");
     background-size: cover;
     background-repeat: no-repeat;

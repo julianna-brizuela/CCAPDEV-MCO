@@ -84,7 +84,6 @@ a, a:visited {
 }
 
 .index-searchbar {
-    margin:0px 5%;
     border-radius:30px;
     border: 2px solid var(--default-text);
 }
