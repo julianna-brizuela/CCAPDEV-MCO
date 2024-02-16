@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MUNCH | Where your cravings are satisfied!</title>
     <link rel="stylesheet" type="text/css" href="index.css"/>
+    <link rel="stylesheet" type="text/css" href="defaults.css"/>
     <link rel="stylesheet" type="text/css" href="addRestaurant.css"/>
     <script src="index.js"></script>
 </head>
@@ -20,35 +21,70 @@
         </div>
 
         <div class="add-restaurant-form-container">
+            <div class="close-icon-container">
+                <span class="close-icon" onclick="redirectToAdmin()"> </span>
+            </div>
+            
+            <!-- <span class="close" onclick="closeLoginForm()">&times;</span> -->
             <form class="add-restaurant-form">
                 <h2> Establishment Registration Form</h2>
                 <div class="form-group">
-                    <div class="establishment-name">
+                    <div class="form-wrapper">
                         <label for="establishment-name"> Establishment Name: </label>
                         <input type="text" class="form-box" id="establishment-name">
                     </div>
     
-                    <div class="establishment-location">
+                    <div class="form-wrapper">
                         <label for="establishment-location"> Establishment Location: </label>
                         <input type="text" class="form-box" id="establishment-location">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <div class="establishment-description">
+                    <div class="form-wrapper">
                         <label for="establishment-description"> Establishment Description: </label>
-                        <textarea class="review-text" name="review-text" placeholder="Write your review..."></textarea>
+                        <textarea class="description-text" id="establishment-description" placeholder="Establishment Description..."></textarea>
                     </div>
                 </div>
               
-
-                <div class="price-point">
-
+                <div class="form-group">
+                    <div class="form-wrapper">
+                        <label for="price-dropdown">Price Point:</label>
+                        <select id="price-dropdown"class="form-box">
+                            <option value="1">₱</option>
+                            <option value="2">₱₱</option>
+                            <option value="3">₱₱₱</option>
+                            <option value="4">₱₱₱₱</option>
+                            <option value="5">₱₱-₱₱₱</option>
+                            <option value="6">₱₱-₱₱₱₱</option>
+                        </select>
+                    </div>
+                    <div class="form-wrapper">
+                        <div upload-image-holder>
+                            <label for="establishment-picture">Establishment Picture:</label>
+                            <input type="file"  id="profile-picture" hidden>
+                            <label class="form-box upload-image" for="profile-picture">
+                                <span class="profile-icon"></span>
+                            </label>
+                        </div>
+                        
+                    </div>
                 </div>
 
-                <div class="pictures">
-                    
+                <div class="form-submit">
+                    <div class="check-box">
+                        <label class="checkbox-text">
+                            <input type="checkbox" id="terms-and-conditions">
+                            Agree to terms and conditions
+                        </label>
+                    </div>
+                    <div class="button-holder">
+                        <button class="default-red-button">
+                            Register Establishment
+                        </button>
+                    </div>
                 </div>
+
             </form>
         </div>
 

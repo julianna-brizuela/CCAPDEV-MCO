@@ -32,6 +32,10 @@ function redirectToUserOrAdmin(event) {
     }
 }
 
+function redirectToAdmin(){
+    window.location.href="admin.html";
+}
+
 function logout(){
     window.location.href = "index.html"
 }

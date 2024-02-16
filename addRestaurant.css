@@ -38,12 +38,20 @@
     flex-direction:row;
 }
 
+.form-wrapper {
+    margin-bottom: 27px;
+}
+
+.form-group .form-wrapper {
+    width: 238px;
+}
+
 .add-restaurant-form .form-group > div:first-child {
-    margin-right: 155px;
+    margin-right: 130px;
 }
 
 .add-restaurant-form label{
-    font-size: 15px;
+    font-size: 13px;
     margin-bottom: 10px;
     display: block;
     letter-spacing: 1.5px;
@@ -61,19 +69,71 @@
     margin-bottom: 25px;
     max-width: 135%;
     overflow:hidden;
+    cursor:pointer;
 }
 
-.review-text {
+.description-text {
     resize: none;
     border: 1px solid #e6e6e6;
     box-sizing: border-box;
     background: none;
     background-color: #FDFDFD;
     padding: 1rem;
-    width:263%;
-    max-width: 263%;
+    width:290%;
     height: 80px;
     padding: 8px 20px;
     color: #8f8e8e;
     font-size: 15px;
+}
+
+.profile-icon{
+    background-image: url('images/spritesheet.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: -360px center;
+    width: 40px;
+    height: 40px;
+    display:inline-block
+}
+
+.form-submit {
+    display: flex;
+    align-items: center;
+    margin-top: 13px;
+    width:125%;
+}
+
+.checkbox {
+    position: relative;
+    width: 135%;
+    padding-left: 22px;
+}
+
+.checkbox-text{
+    color: #afaaaa;
+}
+
+.button-holder{
+    width:50%;
+    margin-left: auto;
+}
+
+.close-icon-container {
+    background:#ebeaea;
+    border-radius:30px;
+    top: 22px;
+    right: 22px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.close-icon{
+    background-image: url('images/spritesheet.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: -454px center;
+    width: 35px;
+    height: 35px;
+    display:inline-block;
+    cursor: pointer;
 }
