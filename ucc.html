@@ -23,8 +23,8 @@
                     </div>
 
                     <div class="searchbar"> 
-                        <form class="search-establishment">
-                                <input type="text" class="search-bar" placeholder="Japanese"> 
+                        <form class="search-establishment" action="establishmentlist.html">
+                                <input type="text" class="search-bar" id="search-bar" placeholder="Japanese" onkeyup="filterBySearch()"> 
                                 <button type="submit" class="submit-search">
                                     <span class="search-button"></span>
                                 </button>
@@ -129,12 +129,12 @@
             <div class="name">  <h1> UCC Clockwork </h1>  </div>
 
             <div class="pictures">
-                <div class="pic1"></div>
+                <div class="pic1" style="background-image:url('images/restaurant-images/ucc/ucc1.jpg'); background-size:cover"></div>
                 <div class="second-half">
-                    <div class="pic2"></div>
-                    <div class="pic3"></div>
-                    <div class="pic4"></div>
-                    <div class="pic5"></div>
+                    <div class="pic2" style="background-image:url('images/restaurant-images/ucc/ucc2.jpg'); background-size:cover"></div>
+                    <div class="pic3" style="background-image:url('images/restaurant-images/ucc/ucc3.jpg'); background-size:cover"></div>
+                    <div class="pic4" style="background-image:url('images/restaurant-images/ucc/ucc4.jpg'); background-size:cover"></div>
+                    <div class="pic5" style="background-image:url('images/restaurant-images/ucc/ucc5.jpg'); background-size:cover"></div>
                 </div>
                 
             </div>
@@ -187,7 +187,9 @@
                     <div class="button photo-sprite"> <i class="photo"></i> <span> Add Photo </span> </div>
                 </div>
                 <div class="button-review">
-                    <button type="button" class="button write-review">Write a Review</button> 
+                    <form action="customer-review-ucc.html">
+                        <button type="submit" class="button write-review">Write a Review</button> 
+                    </form>
                 </div>
             </div>
             <div class="group3">
