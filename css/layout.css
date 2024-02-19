@@ -1,5 +1,9 @@
 @import "global.css";
 
 header {
-    background-color: mediumpurple;
+    background-color: var(--darkdesert);
+}
+
+footer {
+    background-color: var(--darkdesert);
 }

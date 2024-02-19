@@ -1,5 +1,5 @@
 /* 
-css declaration organization
+css structure
 
 selector {
     (placement) - position, display
@@ -21,17 +21,22 @@ selector {
     --gray: #c9c9c9;
     --desert: #cfc7aa;
 
-    /* default attribute values */
+    /* default values */
     --default-border: 2px solid var(--black);
     --default-border-radius: 5px;
+    --default-background-color: var(--yellow);
     --default-font-size: 20px;
     --default-font-weight: 700;
     --default-text-color: var(--black);
-    --default-title-text: 'corsario-variable', sans-serif;
-    --default-norm-text: 'Anonymous Pro', monospace;
+    --default-title-font: 'corsario-variable', sans-serif;
+    --default-text-font: 'Anonymous Pro', monospace;
 
-    /* default attributes */
+    /* default styles */
+    background-color: var(--white);
+    font-family: var(--default-text-font);
+    font-size: var(--default-font-size);
     font-weight: var(--default-font-weight);
+    color: var(--black);
 }
 
 body {
