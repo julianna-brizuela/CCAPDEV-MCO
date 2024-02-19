@@ -1,7 +1,4 @@
-:root {
-    margin: 0px;
-    padding: 0;
-}
+@import "global.css";
 
 header {
     background-color: mediumpurple;

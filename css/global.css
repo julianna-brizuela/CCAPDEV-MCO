@@ -1,0 +1,40 @@
+/* 
+css declaration organization
+
+selector {
+    (placement) - position, display
+    (dimensions) - width/height, margin, padding, border, outline
+    (presentation) - background, box
+    (text) - font, color
+    (animation) - transition
+}
+*/
+
+:root {
+    /* color palette */
+    --red: #b05151;
+    --darkred: #873b3b;
+    --yellow: #ebe8d4;
+    --black: #383030;
+    --white: #fdfdfd;
+    --darkdesert: #c1b794;
+    --gray: #c9c9c9;
+    --desert: #cfc7aa;
+
+    /* default attribute values */
+    --default-border: 2px solid var(--black);
+    --default-border-radius: 5px;
+    --default-font-size: 20px;
+    --default-font-weight: 700;
+    --default-text-color: var(--black);
+    --default-title-text: 'corsario-variable', sans-serif;
+    --default-norm-text: 'Anonymous Pro', monospace;
+
+    /* default attributes */
+    font-weight: var(--default-font-weight);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
