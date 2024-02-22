@@ -1,0 +1,33 @@
+@import "global.css";
+
+header {
+    background-color: var(--darkdesert);
+}
+
+footer {
+    background-color: var(--yellow);
+    color: var(--black);
+}
+
+hr  {
+    color: var(--black);
+}
+
+h1 {
+    font-family: corsario-variable, sans-serif;
+    font-variation-settings: "opsz" 48, "wght" 900;
+    font-size: 4rem;
+    text-align: center;
+}
+
+.header-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.site-name > h2 {
+    font-family: corsario-variable, sans-serif;
+    font-variation-settings: "opsz" 48, "wght" 900;
+    font-size: 2rem;
+    color: var(--white);
+}
