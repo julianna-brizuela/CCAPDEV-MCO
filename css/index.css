@@ -33,7 +33,7 @@ hr {
 .background-image-container {
     min-width: 800px;
     height: fit-content;
-    padding-bottom: 100px;
+    padding-bottom: 150px;
     border-bottom: 2px solid var(--black);
     background-color: var(--darkdesert);
     background-image: 
