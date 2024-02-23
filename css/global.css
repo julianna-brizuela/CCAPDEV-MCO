@@ -80,6 +80,10 @@ input {
     font-weight: var(--default-font-weight);
 }
 
+input[type="text"]:focus {
+    outline: none;
+}
+
 input[type="button"]:hover {
     cursor: pointer;
 }

@@ -14,7 +14,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    padding: 15px 5px;
 }
 
 main {
@@ -33,12 +33,12 @@ hr {
 .background-image-container {
     min-width: 800px;
     height: fit-content;
-    padding: 10px 1% 100px;
+    padding-bottom: 100px;
     border-bottom: 2px solid var(--black);
     background-color: var(--darkdesert);
     background-image: 
         linear-gradient(to top, rgba(255,0,0,0), rgba(0, 0, 0, 0.718)),
-        url("../images/restaurant-images/wholesometable/pizza.jpeg");;
+        url("../images/restaurant-images/wholesometable/pizza.jpeg");
     background-size: 100% auto;
     background-position: center;
     background-repeat: no-repeat;
@@ -46,6 +46,7 @@ hr {
 
 .background-image-container > span {
     margin-left: 15%;
+    font-size: .8rem;
 }
 
 .background-image-container > .background-image-author {
@@ -53,7 +54,7 @@ hr {
 }
 
 .nav-homepage-container {
-    margin: 0 20px 0 10px;
+    margin: 10px 5px 0 10px;
 }
 
 .nav-homepage-container > h2 {
@@ -62,6 +63,7 @@ hr {
 }
 
 .nav-menu-bar-container {
+    margin: 0 auto 0 50px;
     font-size: 1rem;
 }
 
@@ -71,13 +73,68 @@ hr {
     text-wrap: nowrap;
 }
 
-.nav-menu-bar {
+.nav-menu-bar-container .nav-menu-bar {
     display: flex;
     justify-content: center;
 }
 
+.nav-search-container {
+    flex: 0 1 auto;
+    display: flex;  
+    align-items: center;
+    min-width: 300px;
+    height: 40px;
+    margin: 0 50px 0;
+    border: none;
+    border-radius: 25px;
+    background-color: transparent;
+}
+
+.nav-search-container * {
+    height: 100%;
+}
+
+.nav-search-container > input[type="text"] {
+    width: 100%;
+    padding: 0 15px;
+    border: 0;
+    border-radius: inherit;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    font-size: .9rem;
+}
+
+.nav-search-container > .nav-search-button-container {
+    flex: 0 0 auto;
+    width: 45px;
+    padding: 7px;
+    border-radius: inherit;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    background-color: var(--red);
+}
+
+.nav-search-container > .nav-search-button-container:hover {
+    background-color: var(--darkred);
+}
+
+.nav-search-container input[type="button"] {
+    width: 100%;
+    border: 0;
+    border-radius: inherit;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-radius: inherit;
+    background-color: transparent;
+    background-image: url('../images/spritesheet.png');
+    background-position: 26% center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .nav-menu-buttons-container {
     justify-content: flex-end;
+    margin: 0 10px 0 5px;
 }
 
 .nav-menu-buttons-container > .nav-menu-buttons {
@@ -85,7 +142,7 @@ hr {
     justify-content: flex-end;
 }
 
-.nav-menu-buttons input[type="button"] {
+.nav-menu-buttons-container > .nav-menu-buttons input[type="button"] {
     padding: 10px;
     border-radius: 5px;
     font-size: 1rem;
@@ -93,27 +150,25 @@ hr {
     font-weight: 700;
 }
 
-.nav-menu-buttons .login {
+.nav-menu-buttons-container > .nav-menu-buttons .login {
     margin: 0 10px 0 0;
     border: 2px solid var(--white);
     background-color: transparent;
     color: var(--white);
 }
 
-.nav-menu-buttons .login:hover {
-    border: 2px solid var(--white);
+.nav-menu-buttons-container > .nav-menu-buttons .login:hover {
     background-color: var(--opaque-white);
-    color: var(--white);
 }
 
-.nav-menu-buttons .signup {
+.nav-menu-buttons-container > .nav-menu-buttons .signup {
     margin: 0 0 0 10px;
     border: 2px solid var(--red);
     background-color: var(--red);
     color: var(--white);
 }
 
-.nav-menu-buttons .signup:hover {
+.nav-menu-buttons-container > .nav-menu-buttons .signup:hover {
     border: 2px solid var(--darkred);
     background-color: var(--darkred);
     color: var(--white);
@@ -136,20 +191,21 @@ hr {
 .tagline-container > h1 {
     text-align: left;
     font-size: 5rem;
-    color: var(--white);
+    color: var(--yellow);
 }
 
 .search-bar-container {
     height: 50px;
     margin: 0 15% 50px;
     border: 0; 
+    background-color: transparent;
 }
 
 .search-bar-container * {
     height: 100%;
 }
 
-.search-bar {
+.search-bar-container > .search-bar {
     display: flex;
     justify-content: center;
     min-width: 600px;
@@ -157,35 +213,26 @@ hr {
     margin: 0 auto;
     border: none;
     border-radius: 30px;
-    background-color: var(--white);
+    background-color: inherit;
 }
 
-.search-bar * {
+.search-bar-container > .search-bar * {
     flex: 1 1 auto;
     border: none;
 }
 
-.search-bar input {
+.search-bar-container > .search-bar > input {
     padding: 0 10px 0;
     font-size: 1rem;
 }
 
-.search-bar input[type="text"]:focus {
-    border-color: transparent;
-    outline: none;
-}
-
-.search-bar input[type="button"] {
+.search-bar-container > .search-bar > input[type="button"] {
     border-radius: inherit;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 }
 
-.search-bar input[type="button"]:hover {
-    background-color: var(--darkred);
-}
-
-.search-bar > input#food-type {
+.search-bar-container > .search-bar > input#food-type {
     width: 35%;
     padding-left: 30px;
     border-radius: inherit;
@@ -193,31 +240,14 @@ hr {
     border-bottom-right-radius: 0;
 }
 
-.search-bar > .location-icon-container {
+.search-bar-container > .search-bar > .location-icon-container {
     flex: 0 0 auto;
     width: 50px;
     padding: 3px;
+    background-color: var(--white);
 }
 
-.search-bar > input#location {
-    width: 20%;
-}
-
-.search-bar > .search-icon-container {
-    flex: 0 0 auto;
-    width: 50px;
-    padding: 7px;
-    border-radius: inherit;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    background-color: var(--red);
-}
-
-.search-bar > .search-icon-container:hover {
-    background-color: var(--darkred);
-}
-
-.search-bar #location-icon {
+.search-bar-container > .search-bar #location-icon {
     display: block; /*so the bg image displays without needing content*/
     background-color: transparent;
     background-image: url('../images/spritesheet.png');
@@ -227,7 +257,25 @@ hr {
     /* outline: 1px solid black; */
 }
 
-.search-bar #search-icon {
+.search-bar-container > .search-bar > input#location {
+    width: 20%;
+}
+
+.search-bar-container > .search-bar > .search-icon-container {
+    flex: 0 0 auto;
+    width: 50px;
+    padding: 7px;
+    border-radius: inherit;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    background-color: var(--red);
+}
+
+.search-bar-container > .search-bar > .search-icon-container:hover {
+    background-color: var(--darkred);
+}
+
+.search-bar-container > .search-bar #search-icon {
     width: 100%;
     border-radius: inherit;
     background-color: transparent;
@@ -236,6 +284,8 @@ hr {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+/* ------------------------------------------------- */
 
 .reviews-container {
     display: flex;
@@ -252,14 +302,10 @@ hr {
 .reviews-content {
     display: grid;
     grid-template-columns: repeat(3, minmax(200px, 400px)); /* Adjust the minimum column width as needed */
-    grid-gap: 40px;
     grid-auto-rows: 390px;
-    justify-content: space-around;
+    grid-gap: 30px;
     align-content: center;
 }
-
-
-/* ------------------------------------------------- */
 
 .review-post {
     display: flex;
