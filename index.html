@@ -4,32 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MUNCH | Where your cravings are satisfied!</title>
-    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
 <body>
     <header>
-        <hr>
-        <div class="header-container">
-            <div class="site-name"><h2>munch</h2></div>
-            <nav>
-                <div class="nav-menu-container"><a href="">Browse Restaurants</a></div>
-                <div class="nav-menu-buttons-container">
-                    <ul class="nav-menu-buttons">
-                        <li class="nav-menu-login"><button href="">Login</button></li>
-                        <li class="nav-menu-signup"><button href="">Sign Up</button></li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
+        <nav>
+            <div class="nav-homepage-container"><h2><a href="index.html">munch</a></h2></div>
+            <div class="nav-menu-bar-container"><a href="#">Browse Restaurants</a></div>
+            <div class="nav-menu-buttons-container">
+                <ul class="nav-menu-buttons">
+                    <li class="nav-menu-login"><input class="login" type="button" value="Login"></li>
+                    <li class="nav-menu-signup"><input class="signup" type="button" value="Sign Up"></li>
+                </ul>
+            </div>
+        </nav>
         <hr>
     </header>
     <main>
-        <h1>What are YOU <u>craving?</u></h1>
+        <section class="tagline-searchbar-container">
+            <div class="tagline"><h1>What are YOU <u>craving?</u></h1></div>
+            <div class="search-bar-container">
+                <form action="#">
+                    <div class="search-bar">
+                        <input id="food-type" type="text" placeholder="Japanese">
+                        <div class="location-icon-container"><span id="location-icon"></span></div>
+                        <input id="location" type="text" placeholder="Makati, Metro Manila">
+                        <div class="search-icon-container"><input id="search-icon" type="button" value=""></div>
+                    </div>
+                </form>
+            </div>
+        </section>
     </main>
     <footer>
-        (c) Copyright
-        About
-        Discover
+        <p>(c) Copyright</p>
+        <p>About</p>
+        <p>Discover</p>
     </footer>
 </body>
 </html>

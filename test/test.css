@@ -1,0 +1,45 @@
+.flex-container {
+    display: flex;
+    background: dodgerblue;
+    font-weight: bold;
+    color: ghostwhite;
+    font-size: 1.5rem;
+    margin: 5px;
+}
+
+.flex-row {
+    display: flex;
+    background: lime;
+    flex: 1 1 auto;
+    height: auto;
+    margin: 5px;
+}
+
+.flex-column {
+    display: flex;
+    background: cyan;
+    flex: 1 1 auto;
+    flex-direction: column;
+    height: auto;
+    margin: 5px;
+}
+
+.flex-center {
+    justify-content: center;
+    align-items: center;
+
+}
+
+.flex-nested-row {
+    display: flex;
+    background: darkorange;
+    flex: 1 1 auto;
+    margin: 5px;
+}
+
+.flex-nested-column {
+    display: flex;
+    background: cadetblue;
+    flex: 1 1 auto;
+    margin:5px;
+}

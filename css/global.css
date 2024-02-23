@@ -13,6 +13,12 @@ selector {
 }
 */
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 :root {
     /* color palette */
     --red: #b05151;
@@ -20,6 +26,7 @@ selector {
     --yellow: #ebe8d4;
     --black: #383030;
     --white: #fdfdfd;
+    --opaque-white: #fdfdfd2f;
     --darkdesert: #c1b794;
     --gray: #c9c9c9;
     --desert: #cfc7aa;
@@ -45,4 +52,31 @@ selector {
 body {
     margin: 0;
     padding: 0;
+}
+
+h1 {
+    font-family: var(--default-title-font);
+    font-variation-settings: "opsz" 48, "wght" 900;
+    font-size: 4rem;
+    text-align: center;
+}
+
+h2 {
+    font-family: var(--default-title-font);
+    font-variation-settings: "opsz" 6, "wght" 700;
+    font-size: 1.5rem;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+input {
+    font-family: var(--default-text-font);
+    font-weight: var(--default-font-weight);
+}
+
+input[type="button"]:hover {
+    cursor: pointer;
 }

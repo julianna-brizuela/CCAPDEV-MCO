@@ -1,33 +1,190 @@
 @import "global.css";
 
+:root {
+    background-color: var(--yellow);
+}
+
 header {
+    height: 55vh;
+    padding: 10px 1%;
+    border-bottom: 2px solid var(--black);
     background-color: var(--darkdesert);
+    background-image: 
+        linear-gradient(to top, rgba(255,0,0,0), rgba(0, 0, 0, 0.718)),
+        url("../images/restaurant-images/wholesometable/pizza.jpeg");;
+    background-size: 100% auto;
+    background-position: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
 }
 
 footer {
-    background-color: var(--yellow);
-    color: var(--black);
+    background-color: var(--darkdesert);
 }
 
-hr  {
-    color: var(--black);
+hr {
+    color: var(--white);
 }
 
-h1 {
-    font-family: corsario-variable, sans-serif;
-    font-variation-settings: "opsz" 48, "wght" 900;
-    font-size: 4rem;
-    text-align: center;
-}
-
-.header-container {
-    display: flex;
-    flex-direction: row;
-}
-
-.site-name > h2 {
-    font-family: corsario-variable, sans-serif;
-    font-variation-settings: "opsz" 48, "wght" 900;
+.nav-homepage-container > h2 {
     font-size: 2rem;
     color: var(--white);
+}
+
+.nav-menu-bar-container {
+    font-size: 1rem;
+}
+
+.nav-menu-bar-container > a{
+    color: var(--white);
+}
+
+.nav-menu-buttons-container {
+    justify-content: flex-end;
+}
+
+.nav-menu-buttons-container > .nav-menu-buttons {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+}
+
+.nav-menu-buttons input[type="button"] {
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: var(--default-text-font);
+    font-weight: 700;
+}
+
+.nav-menu-buttons .login {
+    margin: 0 10px 0 0;
+    border: 2px solid var(--white);
+    background-color: transparent;
+    color: var(--white);
+}
+
+.nav-menu-buttons .login:hover {
+    border: 2px solid var(--white);
+    background-color: var(--opaque-white);
+    color: var(--white);
+}
+
+.nav-menu-buttons .signup {
+    margin: 0 0 0 10px;
+    border: 2px solid var(--red);
+    background-color: var(--red);
+    color: var(--white);
+}
+
+.nav-menu-buttons .signup:hover {
+    border: 2px solid var(--darkred);
+    background-color: var(--darkred);
+    color: var(--white);
+}
+
+.tagline {
+    margin: 50px 0 50px;
+}
+
+.search-bar-container {
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    margin: 0 200px 0;
+    border: 0; 
+}
+
+.search-bar-container * {
+    height: 100%;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    width: 700px;
+    min-width: 300px;
+    border: 2px solid var(--black);
+    border-radius: 30px;
+    background-color: var(--white);
+}
+
+.search-bar * {
+    flex: 1 1 auto;
+    border: none;
+}
+
+.search-bar input {
+    padding: 0 10px 0;
+}
+
+.search-bar input[type="text"]:focus {
+    border-color: transparent;
+    outline: none;
+}
+
+.search-bar input[type="button"] {
+    border-radius: inherit;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.search-bar input[type="button"]:hover {
+    background-color: var(--darkred);
+}
+
+.search-bar > input#food-type {
+    width: 35%;
+    padding-left: 30px;
+    border-radius: inherit;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.search-bar > .location-icon-container {
+    flex: 0 0 auto;
+    width: 40px;
+    padding: 3px;
+}
+
+.search-bar > input#location {
+    width: 20%;
+}
+
+.search-bar > .search-icon-container {
+    flex: 0 0 auto;
+    width: 50px;
+    padding: 7px;
+    border-radius: inherit;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    background-color: var(--red);
+}
+
+.search-bar > .search-icon-container:hover {
+    background-color: var(--darkred);
+}
+
+.search-bar #location-icon {
+    display: block; /*so the bg image displays without needing content*/
+    background-color: transparent;
+    background-image: url('../images/spritesheet.png');
+    background-position: 16% center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.search-bar #search-icon {
+    width: 100%;
+    border-radius: inherit;
+    background-color: transparent;
+    background-image: url('../images/spritesheet.png');
+    background-position: 26.5% center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
