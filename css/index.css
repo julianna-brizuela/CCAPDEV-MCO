@@ -265,7 +265,7 @@ hr {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border: 1px solid var(--desert);
+    border: 2px solid var(--darkdesert);
     border-radius: 3px;
     background-color: var(--white);
     font-family: "Roboto", sans-serif;
