@@ -7,32 +7,46 @@
     <link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="nav-homepage-container"><h2><a href="index.html">munch</a></h2></div>
-            <div class="nav-menu-bar-container"><a href="#">Browse Restaurants</a></div>
-            <div class="nav-menu-buttons-container">
-                <ul class="nav-menu-buttons">
-                    <li class="nav-menu-login"><input class="login" type="button" value="Login"></li>
-                    <li class="nav-menu-signup"><input class="signup" type="button" value="Sign Up"></li>
-                </ul>
-            </div>
-        </nav>
-        <hr>
-    </header>
-    <main>
+    <div class="background-image-container">
+        <header>
+            <nav>
+                <div class="nav-homepage-container"><h2><a href="index.html">munch</a></h2></div>
+                <div class="nav-menu-bar-container">
+                    <ul class="nav-menu-bar">
+                        <li class="nav-menu-option-1"><a href="#">Browse Restaurants</a></li>
+                        <span>|</span>
+                        <li class="nav-menu-option-2"> <a href="#">Share a Review</a></li>
+                    </ul>                   
+                </div>
+                <div class="nav-menu-buttons-container">
+                    <ul class="nav-menu-buttons">
+                        <li class="nav-menu-login"><input class="login" type="button" value="Login"></li>
+                        <li class="nav-menu-signup"><input class="signup" type="button" value="Sign Up"></li>
+                    </ul>
+                </div>
+            </nav>
+            <hr>
+        </header>
         <section class="tagline-searchbar-container">
-            <div class="tagline"><h1>What are YOU <u>craving?</u></h1></div>
-            <div class="search-bar-container">
-                <form action="#">
-                    <div class="search-bar">
-                        <input id="food-type" type="text" placeholder="Japanese">
-                        <div class="location-icon-container"><span id="location-icon"></span></div>
-                        <input id="location" type="text" placeholder="Makati, Metro Manila">
-                        <div class="search-icon-container"><input id="search-icon" type="button" value=""></div>
-                    </div>
-                </form>
+            <div class="tagline-container">
+                <hr class="tagline-vertical-border">
+                <h1>What<br>are you<br><u>craving</u><br>for?</h1>
             </div>
+            <form class="search-bar-container" action="#">
+                <div class="search-bar">
+                    <input id="food-type" type="text" placeholder="Japanese">
+                    <div class="location-icon-container"><span id="location-icon"></span></div>
+                    <input id="location" type="text" placeholder="Makati, Metro Manila">
+                    <div class="search-icon-container"><input id="search-icon" type="button" value=""></div>
+                </div>
+            </form>
+        </section>
+        <span class="background-image-source">from The Wholesome Table</span><br>
+        <span class="background-image-author">by Josh Hutcherson</span>
+    </div>
+    <main>
+        <section class="recent-reviews-container">
+            
         </section>
     </main>
     <footer>

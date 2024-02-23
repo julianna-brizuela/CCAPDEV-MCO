@@ -5,15 +5,9 @@
 }
 
 header {
-    height: 55vh;
-    padding: 10px 1%;
-    border-bottom: 2px solid var(--black);
-    background-color: var(--darkdesert);
-    background-image: 
-        linear-gradient(to top, rgba(255,0,0,0), rgba(0, 0, 0, 0.718)),
-        url("../images/restaurant-images/wholesometable/pizza.jpeg");;
-    background-size: 100% auto;
-    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 nav {
@@ -23,12 +17,42 @@ nav {
     padding: 10px;
 }
 
+main {
+    background-color: var(--yellow);
+}
+
 footer {
-    background-color: var(--darkdesert);
+    background-color: var(--desert);
 }
 
 hr {
     color: var(--white);
+}
+
+.background-image-container {
+    min-width: 500px;
+    height: fit-content;
+    padding: 10px 1% 100px;
+    border-bottom: 2px solid var(--black);
+    background-color: var(--darkdesert);
+    background-image: 
+        linear-gradient(to top, rgba(255,0,0,0), rgba(0, 0, 0, 0.718)),
+        url("../images/restaurant-images/wholesometable/pizza.jpeg");;
+    background-size: 100% auto;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.background-image-container > span {
+    margin-left: 15%;
+}
+
+.background-image-container > .background-image-author {
+    font-weight: 500;
+}
+
+.nav-homepage-container {
+    margin: 0 20px 0 10px;
 }
 
 .nav-homepage-container > h2 {
@@ -40,8 +64,15 @@ hr {
     font-size: 1rem;
 }
 
-.nav-menu-bar-container > a{
+.nav-menu-bar-container a, span {
+    margin: 0 0.25rem;
     color: var(--white);
+    text-wrap: nowrap;
+}
+
+.nav-menu-bar {
+    display: flex;
+    justify-content: center;
 }
 
 .nav-menu-buttons-container {
@@ -51,7 +82,6 @@ hr {
 .nav-menu-buttons-container > .nav-menu-buttons {
     display: flex;
     justify-content: flex-end;
-    list-style: none;
 }
 
 .nav-menu-buttons input[type="button"] {
@@ -88,15 +118,29 @@ hr {
     color: var(--white);
 }
 
-.tagline {
-    margin: 50px 0 50px;
+.tagline-container {
+    display: flex;
+    justify-content: flex-start;
+    min-width: 300px;
+    margin: 50px 15% 50px;
+}
+
+.tagline-container > hr {
+    margin: 0 30px 0 0;
+    border: 4px solid var(--yellow);
+    border-radius: 25px;
+    color: var(--yellow);
+}
+
+.tagline-container > h1 {
+    text-align: left;
+    font-size: 5rem;
+    color: var(--yellow);
 }
 
 .search-bar-container {
-    display: flex;
-    justify-content: center;
     height: 50px;
-    margin: 0 200px 0;
+    margin: 0 15% 50px;
     border: 0; 
 }
 
@@ -107,9 +151,10 @@ hr {
 .search-bar {
     display: flex;
     justify-content: center;
-    width: 700px;
-    min-width: 300px;
-    border: 2px solid var(--black);
+    min-width: 600px;
+    max-width: 1000px;
+    margin: 0 auto;
+    border: none;
     border-radius: 30px;
     background-color: var(--white);
 }
@@ -121,6 +166,7 @@ hr {
 
 .search-bar input {
     padding: 0 10px 0;
+    font-size: 1rem;
 }
 
 .search-bar input[type="text"]:focus {
@@ -148,7 +194,7 @@ hr {
 
 .search-bar > .location-icon-container {
     flex: 0 0 auto;
-    width: 40px;
+    width: 50px;
     padding: 3px;
 }
 
@@ -174,9 +220,10 @@ hr {
     display: block; /*so the bg image displays without needing content*/
     background-color: transparent;
     background-image: url('../images/spritesheet.png');
-    background-position: 16% center;
+    background-position: 16.2% center;
     background-repeat: no-repeat;
     background-size: cover;
+    /* outline: 1px solid black; */
 }
 
 .search-bar #search-icon {

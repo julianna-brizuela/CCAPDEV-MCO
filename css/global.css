@@ -49,9 +49,16 @@ selector {
     color: var(--black);
 }
 
-body {
+html, body {
+    width: 100%;
+    height: 100%;
     margin: 0;
     padding: 0;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
 h1 {
@@ -67,11 +74,6 @@ h2 {
     font-size: 1.5rem;
 }
 
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
 input {
     font-family: var(--default-text-font);
     font-weight: var(--default-font-weight);
@@ -79,4 +81,8 @@ input {
 
 input[type="button"]:hover {
     cursor: pointer;
+}
+
+ul {
+    list-style: none;
 }
