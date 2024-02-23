@@ -33,7 +33,7 @@ hr {
 .background-image-container {
     min-width: fit-content;
     height: fit-content;
-    padding-bottom: 150px;
+    padding-bottom: 100px;
     border-bottom: 2px solid var(--black);
     background-color: var(--darkdesert);
     background-image: 
@@ -196,7 +196,7 @@ hr {
 
 .search-bar-container {
     height: 50px;
-    margin: 100px 15% 50px;
+    margin: 100px 15% 100px;
     border: 0; 
     background-color: transparent;
 }
