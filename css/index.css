@@ -31,7 +31,7 @@ hr {
 }
 
 .background-image-container {
-    min-width: 800px;
+    min-width: fit-content;
     height: fit-content;
     padding-bottom: 150px;
     border-bottom: 2px solid var(--black);
