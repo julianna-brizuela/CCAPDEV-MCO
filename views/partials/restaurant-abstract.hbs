@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="/static/css/navbar.css">
+
+<div class="restaurant">
+    <div class="image-container" style="background-image:url('static/img/{{img_file}}'); background-size:contain; background-position: center;">
+    </div>
+
+    <div class="info-container">
+        <h3 class="restaurant-title"> <a href="/{{restaurant}}">{{restaurant}}</a></h3>
+        <div class="review-container">
+            <div class="review-stars">
+                <ul class="star-spritegroup"> 
+                    <!-- can make a handlebar for loop -->
+                    <li class="star"></li>
+                    <li class="star"></li>
+                    <li class="star"></li>
+                    <li class="star"></li>
+                    <li class="blank-star"></li>
+                </ul>
+            </div>
+
+            <div class="review-rating">
+                {{rating}}
+                <span class="subtext">({{review_num}} reviews)</span>
+            </div>
+    
+        </div>
+
+        <div class="location-information"> 
+            {{location}}
+        </div>
+
+        <div class="tag-container">
+            <!-- can make a handlebar for loop -->
+            <div class="tag">Japanese</div>
+            <div class="tag">Ramen</div>
+            <div class="tag">₱₱₱</div>
+        </div>
+    
+    </div>
+</div>
