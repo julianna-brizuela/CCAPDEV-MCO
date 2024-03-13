@@ -13,10 +13,12 @@ app.set('views', './views');
 app.set('view cache', false);
 
 // Routers
+const home = require('./src/routes/home.js');
 const adminRouter = require('./src/routes/adminRouter.js');
 const indexRouter = require('./src/routes/indexRouter.js');
 const restaurantRouter = require('./src/routes/restaurantsRouter.js');
 const usersRouter = require('./src/routes/usersRouter.js');
+app.use('/', home);
 app.use('/', adminRouter);
 app.use('/', indexRouter);
 app.use('/', restaurantRouter);
