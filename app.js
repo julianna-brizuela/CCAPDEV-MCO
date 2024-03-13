@@ -14,6 +14,7 @@ app.set("views", "./views");
 
 app.set("view cache", false);
 
-console.log("success");
+//separated routers
+app.use(restaurantRouter);
 
 app.listen(PORT);
