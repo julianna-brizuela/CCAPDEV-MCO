@@ -1,40 +1,35 @@
-<link rel="stylesheet" href="/static/css/navbar.css">
+<a href="/{{restaurant_name}}">
+    <div class="restaurant"> 
+        <div class="image-container" style="background-image:url('static/img/{{img_file}}'); background-size:contain; background-position: center;">
+        </div>
 
-<div class="restaurant">
-    <div class="image-container" style="background-image:url('static/img/{{img_file}}'); background-size:contain; background-position: center;">
-    </div>
+        <div class="info-container">
+            <h3 class="restaurant-title">{{restaurant_name}}</h3>
 
-    <div class="info-container">
-        <h3 class="restaurant-title"> <a href="/{{restaurant}}">{{restaurant}}</a></h3>
-        <div class="review-container">
-            <div class="review-stars">
-                <ul class="star-spritegroup"> 
-                    <!-- can make a handlebar for loop -->
-                    <li class="star"></li>
-                    <li class="star"></li>
-                    <li class="star"></li>
-                    <li class="star"></li>
-                    <li class="blank-star"></li>
-                </ul>
+            <div class="review-container">
+                <div class="review-stars">
+                    <ul class="star-spritegroup"> 
+                        <!-- s in stars ∈ "star", "half-star", or "blank-star"-->
+                        {{#each star}}
+                            <li class="{{this}}"></li>
+                        {{each}}
+                    </ul>
+                </div>
+
+                <div class="review-rating">
+                    {{rating}} <span class="subtext">({{review_num}} reviews)</span>
+                </div>
             </div>
 
-            <div class="review-rating">
-                {{rating}}
-                <span class="subtext">({{review_num}} reviews)</span>
+            <div class="location-information"> 
+                {{location}}
             </div>
-    
-        </div>
 
-        <div class="location-information"> 
-            {{location}}
+            <div class="tag-container">
+                {{#each tag}}
+                    <div class="tag">{{this}}</div>
+                {{each}}
+            </div>
         </div>
-
-        <div class="tag-container">
-            <!-- can make a handlebar for loop -->
-            <div class="tag">Japanese</div>
-            <div class="tag">Ramen</div>
-            <div class="tag">₱₱₱</div>
-        </div>
-    
     </div>
-</div>
+</a>

@@ -1,0 +1,18 @@
+<div class="post">
+    <div class="post-header">
+        <img class="post-profile-pic" src="images/profile-pics/{{profile_pic}}">
+        <div class="post-info">
+            <div class="post-info-name">{{reviewer_name}}</div>
+            <div class="post-rating">
+                <ul class="rating-scale" id="rating-1">
+                    <!-- s in stars ∈ "star", "half-star", or "blank-star"-->
+                    {{#each star}}
+                        <li class="{{this}}"></li>
+                    {{each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <span class="post-date">{{date_of_review}}</span>
+    <p class="post-review">{{{review_description}}}
+</div>

@@ -1,0 +1,38 @@
+<div class="content-container">
+
+    <div class="filter-list">
+            <h4>Prices</h4>
+        <div class="price-filters">
+            {{#each price}}
+                <button>{{this}}</button>
+            {{each}}
+        </div>
+        <hr>
+            <h4> Tags </h4>
+        <div class="tag-list"> 
+            {{#each tag}} 
+                <button>{{this}}</button>
+            {{each}}
+        </div>
+
+        <hr>
+            <h4> Rating </h4>
+        <div class="star-filter"> 
+                {{#each star}}
+                    <button>
+                        {{#each star}}
+                            <span class="star"></span>
+                        {{each}}
+                    </button>
+                {{each}}
+        </div>
+
+    </div>
+
+    {{#each restaurant}}
+        {{>restaurant-abstract}}
+    {{each}}
+
+        
+    </div>
+</div>
