@@ -21,7 +21,7 @@ const usersRouter = require('./src/routes/usersRouter.js');
 app.use('/', home);
 app.use('/', adminRouter);
 app.use('/', indexRouter);
-app.use('/', restaurantRouter);
+app.use(restaurantRouter);
 app.use('/user', usersRouter);
 
 // Server Startup

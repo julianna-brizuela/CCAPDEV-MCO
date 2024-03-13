@@ -1,38 +1,74 @@
+<link rel="stylesheet" type="text/css" href="static/css/establishmentlist.css"/>
+<script src="filters.js"></script>
+
 <div class="content-container">
 
     <div class="filter-list">
             <h4>Prices</h4>
         <div class="price-filters">
-            {{#each price}}
-                <button>{{this}}</button>
-            {{each}}
+            <button>
+                ₱
+            </button>
+            <button>
+                ₱₱
+            </button>
+            <button>
+                ₱₱₱
+            </button>
+            <button>
+                ₱₱₱
+            </button>
         </div>
         <hr>
             <h4> Tags </h4>
         <div class="tag-list"> 
-            {{#each tag}} 
+            {{#each tags}} 
                 <button>{{this}}</button>
-            {{each}}
+            {{/each}}
         </div>
 
         <hr>
-            <h4> Rating </h4>
+        <h4> Rating </h4>
         <div class="star-filter"> 
-                {{#each star}}
-                    <button>
-                        {{#each star}}
-                            <span class="star"></span>
-                        {{each}}
-                    </button>
-                {{each}}
+            <button>
+                <span class="star"></span>
+            </button>
+            <button>
+                <span class="star"></span>
+                <span class="star"></span>
+                
+            </button>
+            <button>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                
+            </button>
+            <button>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                
+            </button>
+            <button>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                
+            </button>
         </div>
 
     </div>
 
-    {{#each restaurant}}
-        {{>restaurant-abstract}}
-    {{each}}
+    <div class="restaurant-list">
+        {{#each restaurants}}
+            {{>restaurant-abstract}}
+        {{/each}}
 
-        
+    </div>
+
     </div>
 </div>

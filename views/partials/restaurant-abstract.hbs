@@ -1,6 +1,6 @@
-<a href="/{{restaurant_name}}">
+<a href="/{{toLink restaurant_name}}">
     <div class="restaurant"> 
-        <div class="image-container" style="background-image:url('static/img/{{img_file}}'); background-size:contain; background-position: center;">
+        <div class="image-container" style="background-image:url('static/img/{{profile_pic}}'); background-size:contain; background-position: center;">
         </div>
 
         <div class="info-container">
@@ -12,7 +12,7 @@
                         <!-- s in stars ∈ "star", "half-star", or "blank-star"-->
                         {{#each star}}
                             <li class="{{this}}"></li>
-                        {{each}}
+                        {{/each}}
                     </ul>
                 </div>
 
@@ -28,7 +28,7 @@
             <div class="tag-container">
                 {{#each tag}}
                     <div class="tag">{{this}}</div>
-                {{each}}
+                {{/each}}
             </div>
         </div>
     </div>
