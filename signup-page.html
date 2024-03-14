@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUNCH | Where your cravings are satisfied!</title>
+    <link rel="stylesheet" type="text/css" href="defaults.css"/>
+    <link rel="stylesheet" type="text/css" href="navigationbar.css"/>
+    <link rel="stylesheet" type="text/css" href="index.css"/>
+    <link rel="stylesheet" type="text/css" href="login-signup.css"/>
+    <script src="index.js"></script>
+</head>
+<body>
+    <div class = "overall-container">
+        <div class="signup-form"> 
+            <h2> <a href="index.html"> munch </a> </h2> 
+            
+            <div class="form-element">
+                <label for="first-name"> First Name </label>
+                <input type="text" id="first-name" placeholder="Enter First Name">
+            </div>
+            <div class="form-element">
+                <label for="last-name"> Last Name </label>
+                <input type="text" id="last-name" placeholder="Enter Last Name">
+            </div>
+            <div class="form-element">
+                <label for="signup-email"> Email </label>
+                <input type="text" id="signup-email" placeholder="Enter email">
+            </div>
+            <div class="form-element">
+                <label for="signup-password"> Password </label>
+                <input type="password" id="signup-password" placeholder="Enter password">
+            </div>
+            <div class="form-element">
+                <label for="confirm-password"> Confirm Password </label>
+                <input type="password" id="confirm-password" placeholder="Confirm password">
+            </div>
+            <div class="form-element">
+                <input type="file" id="profile-picture" hidden>
+                <label class="default-red-button" for="profile-picture"> Upload Profile Picture </label>
+
+            </div>
+            <div class="form-element">
+                <input type="checkbox" id="terms-and-conditions">
+                <label for="terms-and-conditions"> Agree to terms and conditions </label>
+            </div>
+            <div class="form-element">
+                <input type="radio" name="user-type" id="signup-admin">
+                <label for="signup-admin"> Admin </label>
+                <input type="radio" name="user-type" id="signup-user">
+                <label for="signup-user"> User </label>
+            </div>
+            <div class="form-element">
+                <input type="submit" value="Signup">
+            </div>        
+            <div class="to-login">
+                Already have an account? <a id="to-login" href="login-page.html"> Log In </a>
+            </div>
+            </div>
+        </div>
+    </div>
+</body>

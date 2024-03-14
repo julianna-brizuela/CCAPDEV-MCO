@@ -1,18 +1,18 @@
 function openLoginForm() {
-    document.getElementById("login-form").style.display = "block";
+    window.location.href="login-page.html";
 }
 
-function closeLoginForm() {
-    document.getElementById("login-form").style.display = "none";
-}
+// function closeLoginForm() {
+//     document.getElementById("login-form").style.display = "none";
+// }
 
 function openSignupForm() {
-    document.getElementById("signup-form").style.display = "block";
+    window.location.href="signup-page.html";
 }
 
-function closeSignupForm() {
-    document.getElementById("signup-form").style.display = "none";
-}
+// function closeSignupForm() {
+//     document.getElementById("signup-form").style.display = "none";
+// }
 
 function redirectToUserOrAdmin(event) {
     event.preventDefault();

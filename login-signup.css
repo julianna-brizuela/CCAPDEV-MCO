@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url("https://use.typekit.net/mch3zne.css");
+
+/* [START] constant throughout all websites*/
+
+:root {
+    --bg: #EBE8D4;
+    --default-text: #383030;
+    --default-button: #B05151;
+    --white: #FDFDFD;
+    color:var(--default-text);
+    font-size:20px;
+    font-family: 'Anonymous Pro', monospace;
+    font-weight:400;
+    background-color:var(--bg);
+}
+
+.overall-container {
+    margin: 50px;
+}
+
+.signup-form {
+    background-color: var(--white);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    width: 400px;
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form {
+    background-color: var(--white);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    width: 400px;
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    align-items: center;
+}
+
+.form-element{
+    margin:15px 0px;
+}
+
+.form-element input[type="text"],
+.form-element input[type="email"],
+.form-element input[type="password"] {
+    margin-top:5px;
+    display:block;
+    width:95%;
+    padding:10px;
+    border:1px solid #383030;
+    border-radius:5px;
+}
+
+.form-element input[type="submit"]{
+    width:100%;
+    height:40px;
+    border:none;
+    outline:none;
+    font-size:15px;
+    font-weight:bold;
+    background: var(--default-button);
+    color: var(--white);
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.form-element label{
+    font-size:15px;
+    color: var(--default-text);
+}
+
+label.default-red-button {
+    color: var(--white);
+}
+
+a, a:visited {
+    text-decoration:none;
+    color: var(--default-text);
+}
+
+h2{
+    color: var(--default-text);
+    text-align:center;
+    font-size: 2rem;
+    font-weight:lighter;
+}
+
+.to-login, .to-signup{
+    text-align: center;
+    font-size: 10px;
+}
+
+#to-login, #to-signup {
+    color:rgb(20, 134, 210);
+    font-weight: bold;
+    text-decoration: underline;
+}
+
