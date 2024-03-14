@@ -3,7 +3,7 @@ const database = require('../../db/database.js');
 
 const router = express.Router();
 
-router.post('/auth/login', (req, res) => {
+router.post('/login', (req, res) => {
 
     // const email = req.body['login-email'];
     // const password = req.body['login-password'];

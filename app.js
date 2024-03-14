@@ -1,13 +1,13 @@
 require('dotenv/config');
 const express = require('express');
-const exphbs = require('express-handlebars');
+const phbs = require('express-handlebars');
 const app = express();
 const PORT = process.env.PORT;
 
 // Configurations
 app.use('/static', express.static(__dirname + '/public'));
 app.use(express.urlencoded({ extended: true }));
-app.engine('hbs', exphbs.engine({
+app.engine('hbs', hbs.engine({
     extname: 'hbs',
     helpers: {
         toLink: function (text) { 
