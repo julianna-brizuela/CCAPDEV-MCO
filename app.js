@@ -6,7 +6,8 @@ const PORT = process.env.PORT;
 
 // Configurations
 app.use('/static', express.static(__dirname + '/public'));
-app.use(express.urlencoded({ extended: true }));
+// app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.engine('hbs', hbs.engine({
     extname: 'hbs',
     helpers: {

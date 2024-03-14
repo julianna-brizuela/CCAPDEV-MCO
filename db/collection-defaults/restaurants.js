@@ -95,6 +95,4 @@ for (const document of documents) {
     collection.insertOne(document);
 }
 
-console.log(reviewsCollection.find({ restaurant: 'UCC Clockwork' }));
-
 module.exports = collection;
