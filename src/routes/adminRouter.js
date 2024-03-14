@@ -2,6 +2,7 @@ const express = require('express');
 const adminRouter = express.Router();
 const data = require('./data');
 const database = require('../../db/database.js');
+let documents;
 //
 adminRouter.get("/admin", (req, res) => {
 
@@ -18,18 +19,21 @@ adminRouter.get("/admin", (req, res) => {
            }
      });
  });
- 
-adminRouter.get("/admin/:username", (req, res) => {
+
+ adminRouter.get("/admin/:username", (req, res) => {
+
     let username = req.params.username;
     username = decodeURIComponent(username);
 
-    const admin = data.admins.find(admin => admin.username === username);
+    admin = database.collections['admins'].find({username: username})[0];
+    console.log(admin);
     if(admin){
-        const restaurantReviews = data.reviews.filter(review => review.restaurant === admin.restaurant_name)
-        const adminRestaurant = data.restaurants.find(restaurant => restaurant.restaurant_name === admin.restaurant_name);
-        const title = `MUNCH | ${admin.restaurant_name}`;
+        
+        const restaurantReviews = database.collections['reviews'].find({restaurant: admin.restaurant_name});
+        const adminRestaurant = database.collections['restaurants'].find({restaurant_name: admin.restaurant_name})[0];
+
         res.render("admin-restaurant", {
-            title: title,
+            title: "MUNCH | Where your cravings are served!",
             reviews: restaurantReviews,
             restaurant: adminRestaurant
         });
@@ -37,6 +41,28 @@ adminRouter.get("/admin/:username", (req, res) => {
         res.status(404).send('User not found');
     }
  });
+
+
+// adminRouter.get("/admin/:username", (req, res) => {
+    
+//     let username = req.params.username;
+//     username = decodeURIComponent(username);
+
+//     const admin = data.admins.find(admin => admin.username === username);
+//     if(admin){
+//         const restaurantReviews = data.reviews.filter(review => review.restaurant === admin.restaurant_name)
+//         const adminRestaurant = data.restaurants.find(restaurant => restaurant.restaurant_name === admin.restaurant_name);
+//         console.log("Hello");
+//         const title = `MUNCH | ${admin.restaurant_name}`;
+//         res.render("admin-restaurant", {
+//             title: title,
+//             reviews: restaurantReviews,
+//             restaurant: adminRestaurant
+//         });
+//     } else {
+//         res.status(404).send('User not found');
+//     }
+//  });
 
 
 module.exports = adminRouter;

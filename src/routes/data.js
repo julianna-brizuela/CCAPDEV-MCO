@@ -194,7 +194,7 @@ let tags = ["Japanese", "Ramen", "Okonomiyaki", "Fusion Cuisine", "Vegan-Friendl
 
 let admins = [
     {
-        username: "JaneDoe",
+        username: "Jane Doe",
         name: "Jane Doe",
         email: "jane_doe@gmail.com",
         password: "123!",
