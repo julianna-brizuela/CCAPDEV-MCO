@@ -186,7 +186,39 @@ let restaurants = [
 
 let tags = ["Japanese", "Ramen", "Okonomiyaki", "Fusion Cuisine", "Vegan-Friendly", "Italian", "Filipino", "Asian", "Cantonese", "Chinese", "Cafe"];
 
+let admins = [
+    {
+        username: "JaneDoe",
+        name: "Jane Doe",
+        email: "jane_doe@gmail.com",
+        password: "123!",
+        restaurant_name: "Botejyu"
+    },
+    {
+        username: "Leon Kennedy",
+        name: "Leon Kennedy",
+        email: "leon_kennedy@gmail.com",
+        password: "asdfghjkl",
+        restaurant_name: "UCC"
+    },
+    {
+        username: "Gwen Stacy",
+        name: "Gwen Stacy",
+        email: "gwen_stacy@gmail.com",
+        password: "qwerty1",
+        restaurant_name: "The Wholesome Table"
+    },
+    {
+        username: "Barry Benson",
+        name: "Barry Benson",
+        email: "barry_benson@gmail.com",
+        password: "21bzzz",
+        restaurant_name: "King Bee"
+    }
+];
+
 module.exports = {
+    admins,
     restaurants,
     reviews,
     tags,

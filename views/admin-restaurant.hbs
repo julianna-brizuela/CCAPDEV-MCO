@@ -1,0 +1,89 @@
+<link rel="stylesheet" type="text/css" href="/static/css/admin.css"/>
+
+
+<div class="overall-container">
+    <div class="main-restaurant-info">
+        <div class="name"> <h1> {{restaurant.restaurant_name}} </h1> </div>
+
+        <div class="pictures">
+            <div class="pic1"></div>
+        </div>
+
+        <div class="group1">
+            <div class="description"> 
+                <p> 
+                {{restaurant.description}}
+                </p>
+            </div>
+            
+            <div class="ratings">
+                <div class="review-stars">
+                    <ul class="star-spritegroup"> 
+                        {{#each restaurant.star}}
+                            <li class="{{this}}"></li>
+                        {{/each}}
+                    </ul>
+                </div>
+
+                <div class="review-rating">
+                    {{restaurant.rating}}
+                </div>
+            </div>
+
+        </div>
+
+        <div class ="misc-info">
+            <div class="price"> {{restaurant.price}} |  </div>
+            <div class="tag-container">
+                {{#each restaurant.tags}}
+                <div class="tag">{{this}}</div>
+                {{/each}}
+            </div>
+        </div>
+
+    </div>
+
+    <div class="hr"></div>
+
+    <div class="restaurant-reviews">
+
+        <div class="customer-reviews">
+            {{#each reviews}}
+                <div class="post" id="post-1">
+                    <div class="post-header">
+                        <img class="post-profile-pic" src="">
+                        <div class="post-info">
+                            <div class="post-info-name">{{reviewer_name}}</div>
+                            <div class="post-rating">
+                                <ul class="rating-scale" id="rating-1">
+                                    <li class="star"></li>
+                                    <li class="star"></li>
+                                    <li class="star"></li>
+                                    <li class="star"></li>
+                                    <li class="star"></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="post-date">{{date_of_review}}</span>
+                    <p class="post-review">{{{review_description}}}</p>
+                    <div class="admin-reply"> 
+                        <form action="establishmentlist.html">
+                                <div class="left">
+                                    <input type="text" id="food-type" placeholder="Reply to review ..."/>
+                                </div>
+                                <div class="index-reply-button">
+                                    <button type="submit" id="index-reply" value="submit"> 
+                                        <span class="index-submit-reply">Reply</span>
+                                    </button>
+                                </div>
+                        </form>
+            
+                    </div>
+                </div>
+            {{/each}}
+        
+        </div>
+    </div>
+</div>
+
