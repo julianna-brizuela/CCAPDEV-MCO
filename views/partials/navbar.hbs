@@ -1,115 +1,112 @@
 <link rel="stylesheet" href="/static/css/navigationbar.css">
 
 <div class="top-container"> 
-            <div class="navbar-container">
-                <hr id="top">
-                <div class="navbar-content">
-                    <div class="link-container">
-                        <div class="links">
-                            <h2> <a href="/home">munch</a></h2>
-                            <p> <a href="/browse">Browse Restaurants</a></p>
-                        </div>
-                    </div>
-
-                    <div class="searchbar"> 
-                        <form class="search-establishment" action="establishmentlist.html">
-                                <input type="text" class="search-bar" id="search-bar" placeholder="Japanese" onkeyup="filterBySearch()"> 
-                                <button type="submit" class="submit-search">
-                                    <span class="search-button"></span>
-                                </button>
-                        </form>
-                    </div>
-
-                    <div class="action-buttons">
-                        <button type="button" class="login" onclick="openLoginForm()">Log In</button>
-                            <!-- Login Form-->
-                            <div id="login-form" class="popup">
-                                <div class="modal">
-                                    <span class="close" onclick="closeLoginForm()">&times;</span>
-                                    <h2>Log In</h2> 
-                                    <form method="post" class="form" onsubmit="redirectToUserOrAdmin(event); return false;">
-                                        <div class="form-element">
-                                            <label for="login-email"> Email </label>
-                                            <input type="email" id="login-email" placeholder="Enter email">
-                                        </div>
-                                        <div class="form-element">
-                                            <label for="login-password"> Password </label>
-                                            <input type="password" id="login-password" placeholder="Enter password">
-                                        </div>
-                                        <div class="form-element">
-                                            <input type="radio" name="user-type" id="login-admin">
-                                            <label for="login-admin"> Admin </label>
-                                            <input type="radio" name="user-type" id="login-user">
-                                            <label for="login-user"> User </label>
-                                        </div>
-                                        <div class="form-element">
-                                            <input type="checkbox" id="remember-me">
-                                            <label for="remember-me"> Remember me </label>
-                                        </div>
-                                        <div class="form-element">
-                                            <input type="submit" value="Login">
-                                        </div>        
-                                    </form>
-                                </div>
-                            </div>
-
-                        <button type="button" class="signup" onclick="openSignupForm()">Sign Up</button>
-                            <!-- Signup Form-->
-                            <div id="signup-form" class="popup">
-                                <div class="modal">
-                                    <span class="close" onclick="closeSignupForm()">&times;</span>
-                                    <h2>Signup</h2> 
-                                    <form action="" method="post" class="form">
-                                        <div class="form-element">
-                                            <label for="first-name"> First Name </label>
-                                            <input type="text" id="first-name" placeholder="Enter First Name">
-                                        </div>
-                                        <div class="form-element">
-                                            <label for="last-name"> Last Name </label>
-                                            <input type="text" id="last-name" placeholder="Enter Last Name">
-                                        </div>
-                                        <div class="form-element">
-                                            <label for="signup-email"> Email </label>
-                                            <input type="text" id="signup-email" placeholder="Enter email">
-                                        </div>
-                                        <div class="form-element">
-                                            <label for="signup-password"> Password </label>
-                                            <input type="password" id="signup-password" placeholder="Enter password">
-                                        </div>
-                                        <div class="form-element">
-                                            <label for="confirm-password"> Confirm Password </label>
-                                            <input type="password" id="confirm-password" placeholder="Confirm password">
-                                        </div>
-                                        <div class="form-element">
-                                            <input type="file" id="profile-picture" hidden>
-                                            <label class="picture-upload" for="profile-picture"> Upload Profile Picture </label>
-
-                                        </div>
-                                        <div class="form-element">
-                                            <input type="checkbox" id="terms-and-conditions">
-                                            <label for="terms-and-conditions"> Agree to terms and conditions </label>
-                                        </div>
-                                        <div class="form-element">
-                                            <input type="radio" name="user-type" id="signup-admin">
-                                            <label for="signup-admin"> Admin </label>
-                                            <input type="radio" name="user-type" id="signup-user">
-                                            <label for="signup-user"> User </label>
-                                        </div>
-                                        <div class="form-element">
-                                            <input type="submit" value="Signup">
-                                        </div>        
-                                    </form>
-                                </div>
-                        </div>
-                    </div>
-
-                    <form id="picture"> <!--can be a handlebar-->
-                        <button class="profile-picture"></button>
-                    </form>
+    <div class="navbar-container">
+        <hr id="top">
+        <div class="navbar-content">
+            <div class="link-container">
+                <div class="links">
+                    <h2> <a href="/home">munch</a></h2>
+                    <p> <a href="/browse">Browse Restaurants</a></p>
                 </div>
-                <hr>
+            </div>
 
-                
+            <div class="searchbar"> 
+                <form class="search-establishment" action="establishmentlist.html">
+                        <input type="text" class="search-bar" id="search-bar" placeholder="Japanese" onkeyup="filterBySearch()"> 
+                        <button type="submit" class="submit-search">
+                            <span class="search-button"></span>
+                        </button>
+                </form>
+            </div>
+
+            <div class="action-buttons">
+                <button type="button" class="login" onclick="openLoginForm()">Log In</button>
+                    <!-- Login Form-->
+                    <div id="login-form" class="popup">
+                        <div class="modal">
+                            <span class="close" onclick="closeLoginForm()">&times;</span>
+                            <h2>Log In</h2> 
+                            <form class="form" action="/auth/login" method="post" onsubmit="redirectToUserOrAdmin(event); return false;">
+                                <div class="form-element">
+                                    <label for="login-email"> Email </label>
+                                    <input type="email" id="login-email" name="login-email" placeholder="Enter email">
+                                </div>
+                                <div class="form-element">
+                                    <label for="login-password"> Password </label>
+                                    <input type="password" id="login-password" name="login-password" placeholder="Enter password">
+                                </div>
+                                <div class="form-element">
+                                    <input type="radio" name="user-type" id="login-admin">
+                                    <label for="login-admin"> Admin </label>
+                                    <input type="radio" name="user-type" id="login-user">
+                                    <label for="login-user"> User </label>
+                                </div>
+                                <div class="form-element">
+                                    <input type="checkbox" id="remember-me" name="remember-me">
+                                    <label for="remember-me"> Remember me </label>
+                                </div>
+                                <div class="form-element">
+                                    <input type="submit" value="Login">
+                                </div>        
+                            </form>
+                        </div>
+                    </div>
+
+                <button type="button" class="signup" onclick="openSignupForm()">Sign Up</button>
+                    <!-- Signup Form-->
+                    <div id="signup-form" class="popup">
+                        <div class="modal">
+                            <span class="close" onclick="closeSignupForm()">&times;</span>
+                            <h2>Signup</h2> 
+                            <form class="form" action="/auth/signup" method="post">
+                                <div class="form-element">
+                                    <label for="first-name"> First Name </label>
+                                    <input type="text" id="first-name" placeholder="Enter First Name">
+                                </div>
+                                <div class="form-element">
+                                    <label for="last-name"> Last Name </label>
+                                    <input type="text" id="last-name" placeholder="Enter Last Name">
+                                </div>
+                                <div class="form-element">
+                                    <label for="signup-email"> Email </label>
+                                    <input type="text" id="signup-email" placeholder="Enter email">
+                                </div>
+                                <div class="form-element">
+                                    <label for="signup-password"> Password </label>
+                                    <input type="password" id="signup-password" placeholder="Enter password">
+                                </div>
+                                <div class="form-element">
+                                    <label for="confirm-password"> Confirm Password </label>
+                                    <input type="password" id="confirm-password" placeholder="Confirm password">
+                                </div>
+                                <div class="form-element">
+                                    <input type="file" id="profile-picture" hidden>
+                                    <label class="picture-upload" for="profile-picture"> Upload Profile Picture </label>
+
+                                </div>
+                                <div class="form-element">
+                                    <input type="checkbox" id="terms-and-conditions">
+                                    <label for="terms-and-conditions"> Agree to terms and conditions </label>
+                                </div>
+                                <div class="form-element">
+                                    <input type="radio" name="user-type" id="signup-admin">
+                                    <label for="signup-admin"> Admin </label>
+                                    <input type="radio" name="user-type" id="signup-user">
+                                    <label for="signup-user"> User </label>
+                                </div>
+                                <div class="form-element">
+                                    <input type="submit" value="Signup">
+                                </div>        
+                            </form>
+                        </div>
+                </div>
+            </div>
+
+            <form id="picture"> <!--can be a handlebar-->
+                <button class="profile-picture"></button>
+            </form>
         </div>
-
+        <hr>
+    </div>
 </div>
