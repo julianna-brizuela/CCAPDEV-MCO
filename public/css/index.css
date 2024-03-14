@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url("https://use.typekit.net/mch3zne.css");
+@import url("navigationbar.css");
+
+
+:root {
+    /* color palette */
+    --yellow: #ebe8d4;
+    --red: #b05151;
+    --darkred: #873b3b;
+    --black: #383030;
+    --white: #fdfdfd;
+    --gray: #c9c9c9;
+    --desert: #cfc7aa;
+    --darkdesert: #c1b794;
+
+    /* default attribute values */
+    --default-text-color: var(--black);
+    --default-font-size: 20px;
+    --default-font-weight: 700;
+    --default-title-text: 'corsario-variable', sans-serif;
+    --default-norm-text: 'Anonymous Pro', monospace;
+    --default-border: 2px solid var(--black);
+    --default-border-radius: 5px;
+
+    /* default attributes */
+    font-weight: var(--default-font-weight);
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.background {
+    position: relative;
+}
+
+.background-image {
+    position: fixed; /* Anchor the div to the viewport */
+    top: 0;
+    min-width: fit-content; 
+    min-height: 100%;
+    padding-bottom: 100px;
+    border-bottom: 2px solid var(--black);
+    background-color: var(--darkdesert);
+    background-image: 
+        linear-gradient(to top, rgba(255,0,0,0), rgba(0, 0, 0, 0.718)),
+        url("/static/img/pizza.jpeg");
+    background-size: 100% auto;
+    background-position: center;
+    /* background-repeat: no-repeat; */
+    z-index: -5;
+    width:100%;
+}
+
+.navbar-content {
+    color:var(--white);
+}
+
+a, a:visited {
+    text-decoration:none;
+    color: var(--white);
+}
+
+.login {
+    background-color:transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+}
+
+hr {
+    border:1px solid var(--white);
+}
+
+h1 {
+    color: var(--white);
+}
+
+.background> span {
+    margin-left: 15%;
+    font-size: .7rem;
+}
+
+.background > .background-image-author, .background-image-source {
+    font-weight: 500;
+    color: var(--white)
+}
+
+.background-image-source {
+    font-weight: 800;
+}
+
+.tagline-container {
+    display: flex;
+    justify-content: flex-start;
+    min-width: 300px;
+    margin: 90px 10% 20px;
+}
+
+.tagline-container > hr {
+    margin: 0 30px 0 0;
+    border: 4px solid var(--yellow);
+    border-radius: 25px;
+    color: var(--white);
+}
+
+.tagline-container > h1 {
+    text-align: left;
+    font-size: 5rem;
+    color: var(--yellow);
+}
+
+.search-bar-container {
+    height: 70px;
+    margin: 80px 10% 75px;
+    border: 0; 
+    background-color: transparent;
+}
+
+.search-bar-container * {
+    height: 100%;
+}
+
+.search-bar-container > .search-bar {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    border: none;
+    border-radius: 30px;
+    background-color: inherit;
+}
+
+.search-bar-container > .search-bar * {
+    flex: 1 1 auto;
+    border: none;
+}
+
+.search-bar-container > .search-bar > input {
+    padding: 0 10px 0;
+    font-size: 1rem;
+}
+
+.search-bar-container > .search-bar > input[type="button"] {
+    border-radius: inherit;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.search-bar-container > .search-bar > input#food-type {
+    flex-basis: 35%;
+    padding-left: 30px;
+    border-radius: inherit;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    font-family: var(--default-norm-text);
+    font-weight: 700;
+}
+
+.search-bar-container > .search-bar > .location-icon-container {
+    flex: 0 0 auto;
+    width: 40px;
+    padding: 1px;
+    background-color: var(--white);
+}
+
+.search-bar-container > .search-bar #location-icon {
+    display: block; /*so the bg image displays without needing content*/
+    background-color: transparent;
+    background-image: url('/static/img/spritesheet.png');
+    background-position: 16.2% center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* outline: 1px solid black; */
+}
+
+.search-bar-container > .search-bar > input#location {
+    flex-basis: 20%;
+    font-family: var(--default-norm-text);
+    font-weight: 700;
+}
+
+.search-bar-container > .search-bar > .search-icon-container {
+    flex: 0 0 auto;
+    width: 50px;
+    padding: 7px;
+    border-radius: inherit;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    background-color: var(--red);
+}
+
+.search-bar-container > .search-bar > .search-icon-container:hover {
+    background-color: var(--darkred);
+}
+
+.search-bar-container > .search-bar #search-icon {
+    border-radius: inherit;
+    background-color: transparent;
+    background-image: url('/static/img/spritesheet.png');
+    background-position: 26.5% center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* outline: 1px solid black; */
+    width: 40px;
+}
