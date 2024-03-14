@@ -1,15 +1,23 @@
+// Event listener callbacks
 function openLoginForm() {
-    document.getElementById("login-form").style.display = "block";
+    $('#login-form-modal').css('display', 'block');
 }
 
 function closeLoginForm() {
-    document.getElementById("login-form").style.display = "none";
+    $('#login-form-modal').css('display', 'none');
 }
 
 function openSignupForm() {
-    document.getElementById("signup-form").style.display = "block";
+    $('#signup-form-modal').css('display', 'block');
 }
 
 function closeSignupForm() {
-    document.getElementById("signup-form").style.display = "none";
+    $('#signup-form-modal').css('display', 'block');
 }
+
+// Request listener callbacks
+$("#login-form").submit(async event => {
+    event.preventDefault();
+
+    // const formData = 
+});
