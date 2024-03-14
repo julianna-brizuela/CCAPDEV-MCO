@@ -1,0 +1,207 @@
+:root {
+    /* color palette */
+    --yellow: #ebe8d4;
+    --red: #b05151;
+    --darkred: #873b3b;
+    --black: #383030;
+    --white: #fdfdfd;
+    --gray: #c9c9c9;
+    --desert: #cfc7aa;
+
+    /* default attribute values */
+    --default-text-color: var(--black);
+    --default-font-size: 20px;
+    --default-title-text: 'corsario-variable', sans-serif;
+    --default-norm-text: 'Anonymous Pro', monospace;
+    --default-border: 2px solid var(--black);
+    --default-border-radius: 5px;
+
+    /* default attributes */
+    font-weight: var(--default-font-weight);
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.overall-container {
+    height: 100vh;
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+.main-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    margin:0px 5%;
+    font-weight: 400;
+    height: 100%;
+}
+
+.content-container { /* overwrites estabblishment.css */
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    width: 60%;
+    margin: 2.5% 2.5% 5% 0;
+}
+
+.content-header {
+    font-family: corsario-variable, sans-serif;
+    font-variation-settings: "opsz" 16, "wght" 1000;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.content-body {
+    border: 2px solid #383030;
+    border-radius: 25px;
+    margin: 24px 0;
+    padding: 20px;
+}
+
+.rating {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    font-size: 1rem;
+    font-family: 'Anonymous Pro', monospace;
+    padding-bottom: 2rem;
+}
+
+.rating-scale {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0 1rem 0 0;
+}
+
+.rating-scale > li {
+    display: inline-block;
+    background-image: url('/static/img/spritesheet.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 10.5% center;
+    padding: 0 .1rem;
+    width: 1.2rem; /* Adjust the width as needed */
+    height: 1.2rem; /* Adjust the height as needed */
+}
+
+#rating-0.rating-scale > li {
+    cursor: pointer;
+    background-position: 10.5% center;
+    padding: 0 .1rem;
+    width: 40px;
+    height: 40px;
+}
+
+#rating-0.rating-scale > li:hover {
+    background-position: 0 center;
+}
+
+#rating-1.rating-scale > li:nth-child(-n+3) {
+    background-position: 0 center;
+}
+
+#rating-2.rating-scale > li:nth-child(-n+5) {
+    background-position: 0 center;
+}
+
+#rating-3.rating-scale > li:nth-child(-n+4) {
+    background-position: 0 center;
+}
+
+#rating-3.rating-scale > li:nth-child(4) {
+    background-position: 5.9% center;
+}
+
+/* .rating-guide {
+} */
+
+.rating-tags {
+    padding: .5rem 0 2rem 0;
+}
+
+.rating-tags > span {
+    background-color: var(--desert);
+    border-radius: 25px;
+    padding: .1rem .5rem;
+    font-size: .8rem;
+    color: var(--default-text);
+}
+
+.review-text {
+    resize: none;
+    border: none;
+    box-sizing: border-box;
+    outline: none;
+    background: none;
+    background-color: var(--white);
+    border-radius: 10px;
+    padding: 1rem;
+    font-size: 20px;
+    font-family: 'Anonymous Pro', monospace;
+    height: 20rem;
+    width: 100%;
+}
+
+.side-content {
+    border-left: 2px solid #383030;
+    margin: 2.5% 2.5% 5% 0;
+    padding: 1rem;
+    height: 100%;
+    width: 40%;
+}
+
+.side-header {
+    font-family: corsario-variable, sans-serif;
+    font-variation-settings: "opsz" 16, "wght" 1000;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.post {
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+    border-bottom: 2px solid #383030;
+    padding-bottom: 1rem;
+}
+
+.post-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.post-profile-pic {
+    border-radius: 100%;
+    height: 2.5rem;
+    width: 2.5rem;
+    margin-right: 1rem;
+}
+
+.post-info {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.post-rating {
+    display: flex;
+    flex-direction: row;
+    align-items: center;;
+}
+
+.post-date {
+    font-size: .8rem;
+}
+
+.post-review {
+    font-size: .9rem;
+}
+

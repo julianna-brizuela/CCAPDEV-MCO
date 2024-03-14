@@ -1,35 +1,33 @@
-<a href="/{{toLink restaurant_name}}">
-    <div class="restaurant"> 
-        <div class="image-container" style="background-image:url('static/img/{{profile_pic}}'); background-size:contain; background-position: center;">
+<div class="restaurant" onclick="location.href='/{{toLink restaurant_name}}'"> 
+    <div class="image-container" style="background-image:url('static/img/{{profile_pic}}'); background-size:contain; background-position: center;">
+    </div>
+
+    <div class="info-container">
+        <h3 class="restaurant-title">{{restaurant_name}}</h3>
+
+        <div class="review-container">
+            <div class="review-stars">
+                <ul class="star-spritegroup"> 
+                    <!-- s in stars ∈ "star", "half-star", or "blank-star"-->
+                    {{#each star}}
+                        <li class="{{this}}"></li>
+                    {{/each}}
+                </ul>
+            </div>
+
+            <div class="review-rating">
+                {{rating}} <span class="subtext">({{review_num}} reviews)</span>
+            </div>
         </div>
 
-        <div class="info-container">
-            <h3 class="restaurant-title">{{restaurant_name}}</h3>
+        <div class="location-information"> 
+            {{location}}
+        </div>
 
-            <div class="review-container">
-                <div class="review-stars">
-                    <ul class="star-spritegroup"> 
-                        <!-- s in stars ∈ "star", "half-star", or "blank-star"-->
-                        {{#each star}}
-                            <li class="{{this}}"></li>
-                        {{/each}}
-                    </ul>
-                </div>
-
-                <div class="review-rating">
-                    {{rating}} <span class="subtext">({{review_num}} reviews)</span>
-                </div>
-            </div>
-
-            <div class="location-information"> 
-                {{location}}
-            </div>
-
-            <div class="tag-container">
-                {{#each tag}}
-                    <div class="tag">{{this}}</div>
-                {{/each}}
-            </div>
+        <div class="tag-container">
+            {{#each tags}}
+                <div class="tag">{{this}}</div>
+            {{/each}}
         </div>
     </div>
-</a>
+</div>

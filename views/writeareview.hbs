@@ -1,0 +1,45 @@
+<link rel="stylesheet" type="text/css" href="/static/css/establishmentlist.css">
+<link rel="stylesheet" type="text/css" href="/static/css/customer-review.css">
+<script src="/static/js/reviews.js"></script>
+
+<div class="main-container">
+    <div class="content-container">
+        <div class="content-header">
+            <a href="../{{toLink restaurant_name}}">{{restaurant_name}}</a>
+        </div>
+        <form id="reviewForm">
+            <div class="content-body">
+            <div class="rating">
+                <ul class="rating-scale" id="rating-0">
+                    <li class="star-1"></li>
+                    <li class="star-2"></li>
+                    <li class="star-3"></li>
+                    <li class="star-4"></li>
+                    <li class="star-5"></li>
+                </ul>
+                Select your rating
+            </div>
+            <div class="rating-guide">
+                Some things to consider when writing the review
+                <div class="rating-tags">
+                    <span>Food</span>
+                    <span>Price</span>
+                    <span>Service</span>
+                    <span>Ambiance</span>
+                    <span>Overall Impression</span>
+                </div>
+            </div>
+            <textarea class="review-text" name="review-text" placeholder="Write your review..."></textarea>
+        </div>
+        <button class="default-red-button review-submit" id="submit-button" type="button" onclick="" method="POST">Submit Review</button>
+        </form>
+    </div>
+    <div class="side-content">
+        <span class="side-header">Recent Reviews</span>
+            {{#each resto_reviews}}
+                {{> review}}
+            {{/each}}
+    </div>
+</div>
+    
+

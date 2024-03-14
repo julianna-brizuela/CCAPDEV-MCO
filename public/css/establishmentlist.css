@@ -16,15 +16,15 @@
     width: 100%;
 }
 
-.restaurant-list > a{
-    margin-bottom:60px;
+.restaurant:hover {
+    cursor:pointer;
 }
 
 .restaurant {
     display:flex;
     flex-direction:row;
     width: 100%;
-    
+    margin-bottom:60px;
     font-family: 'Anonymous Pro', monospace;
     font-weight:700;
 }
@@ -55,7 +55,7 @@
 
 .info-container {
     display:flex;
-    flex-direction:column;
+    flex-direction:column !important; 
     height:100%;
     width:100%;
 }

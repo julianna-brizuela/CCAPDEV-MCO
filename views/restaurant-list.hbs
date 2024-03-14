@@ -1,21 +1,21 @@
 <link rel="stylesheet" type="text/css" href="static/css/establishmentlist.css"/>
-<script src="filters.js"></script>
+<script src="static/js/filters.js"></script>
 
 <div class="content-container">
 
     <div class="filter-list">
             <h4>Prices</h4>
         <div class="price-filters">
-            <button>
+            <button class="price-filter-button">
                 ₱
             </button>
-            <button>
+            <button class="price-filter-button">
                 ₱₱
             </button>
-            <button>
+            <button class="price-filter-button">
                 ₱₱₱
             </button>
-            <button>
+            <button class="price-filter-button">
                 ₱₱₱
             </button>
         </div>
@@ -23,35 +23,35 @@
             <h4> Tags </h4>
         <div class="tag-list"> 
             {{#each tags}} 
-                <button>{{this}}</button>
+                <button class="tag-filter-button">{{this}}</button>
             {{/each}}
         </div>
 
         <hr>
         <h4> Rating </h4>
         <div class="star-filter"> 
-            <button>
+            <button class="star-filter-button">
                 <span class="star"></span>
             </button>
-            <button>
+            <button class="star-filter-button">
                 <span class="star"></span>
                 <span class="star"></span>
                 
             </button>
-            <button>
-                <span class="star"></span>
-                <span class="star"></span>
-                <span class="star"></span>
-                
-            </button>
-            <button>
-                <span class="star"></span>
+            <button class="star-filter-button">
                 <span class="star"></span>
                 <span class="star"></span>
                 <span class="star"></span>
                 
             </button>
-            <button>
+            <button class="star-filter-button">
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                
+            </button>
+            <button class="star-filter-button">
                 <span class="star"></span>
                 <span class="star"></span>
                 <span class="star"></span>

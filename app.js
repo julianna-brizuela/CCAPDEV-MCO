@@ -7,7 +7,15 @@ const PORT = process.env.PORT;
 // Configurations
 app.use('/static', express.static(__dirname + '/public'));
 app.use(express.urlencoded({ extended: true }));
-app.engine('hbs', exphbs.engine({ extname: 'hbs' }));
+app.engine('hbs', exphbs.engine({
+    extname: 'hbs',
+    helpers: {
+        toLink: function (text) { 
+            text = text.replace(/\s/g, '');
+            return text.toLowerCase(); 
+        }
+    } 
+}));
 app.set('view engine','hbs');
 app.set('views', './views');
 app.set('view cache', false);
