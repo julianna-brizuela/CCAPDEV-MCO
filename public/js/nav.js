@@ -12,7 +12,7 @@ function openSignupForm() {
 }
 
 function closeSignupForm() {
-    $('#signup-form-modal').css('display', 'block');
+    $('#signup-form-modal').css('display', 'none');
 }
 
 // DOM Event Handlers
@@ -45,7 +45,7 @@ $("#login-form").submit(async event => {
             return;
 
         sessionStorage.setItem('userId', responseData['userID']);
-        window.location.href = '/';
+        window.location.href = window.location.href;
 
     } catch(error) {
         responseMessage.text('Login failed. Please try again.');

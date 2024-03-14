@@ -12,7 +12,6 @@ router.post('/login', (req, res) => {
         const login_status = 'successful';
         const userID = userDocument['_id'];
         res.status(200).json({ login_status, userID });
-        // res.redirect('/');
     }
 
     else {
