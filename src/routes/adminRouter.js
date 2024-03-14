@@ -1,7 +1,7 @@
 const express = require('express');
 const adminRouter = express.Router();
 const data = require('./data');
-
+const database = require('../../db/database.js');
 //
 adminRouter.get("/admin", (req, res) => {
 
@@ -21,6 +21,7 @@ adminRouter.get("/admin", (req, res) => {
  
 adminRouter.get("/admin/:username", (req, res) => {
     let username = req.params.username;
+    username = decodeURIComponent(username);
 
     const admin = data.admins.find(admin => admin.username === username);
     if(admin){

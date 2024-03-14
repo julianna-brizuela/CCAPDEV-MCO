@@ -205,7 +205,7 @@ let admins = [
         name: "Leon Kennedy",
         email: "leon_kennedy@gmail.com",
         password: "asdfghjkl",
-        restaurant_name: "UCC"
+        restaurant_name: "UCC Clockwork"
     },
     {
         username: "Gwen Stacy",
