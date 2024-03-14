@@ -115,7 +115,7 @@ div.action-buttons > button {
     font-weight:700;
 }
 
-.signup {
+.signup , .logout{
     background-color:var(--default-button);
     color: var(--white);
     border: none;
@@ -129,7 +129,11 @@ div.action-buttons > button {
     background-color:#873b3b;
 }
 
-.signup {
+.logout:hover {
+    background-color:#873b3b;
+}
+
+.signup, .logout {
     background-color:var(--default-button);
     color: var(--white);
 }
