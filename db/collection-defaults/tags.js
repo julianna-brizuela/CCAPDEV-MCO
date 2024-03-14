@@ -1,7 +1,7 @@
 const documents = [
     {
-        'tags': [ "Japanese", "Ramen", "Okonomiyaki", "Fusion Cuisine", "Vegan-Friendly", "Italian", "Filipino", "Asian", "Cantonese", "Chinese", "Cafe" ],
-    },
+        tags: [ "Japanese", "Ramen", "Okonomiyaki", "Fusion Cuisine", "Vegan-Friendly", "Italian", "Filipino", "Asian", "Cantonese", "Chinese", "Cafe" ],
+    }
 ];
 
 const Collection = require('../collection.js');

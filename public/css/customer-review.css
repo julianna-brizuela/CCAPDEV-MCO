@@ -48,7 +48,12 @@ html, body {
     margin: 2.5% 2.5% 5% 0;
 }
 
-.content-header {
+fieldset {
+    border: 0px solid black;
+    padding: 0px;
+}
+
+#content-header {
     font-family: corsario-variable, sans-serif;
     font-variation-settings: "opsz" 16, "wght" 1000;
     font-size: 2rem;
@@ -133,7 +138,7 @@ html, body {
     color: var(--default-text);
 }
 
-.review-text {
+.review_description {
     resize: none;
     border: none;
     box-sizing: border-box;

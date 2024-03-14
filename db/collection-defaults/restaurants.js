@@ -14,7 +14,9 @@ const documents = [
         resto_reviews: reviewsCollection.find({ restaurant: 'Botejyu' }),
         rating: 4.3,
         review_num:3,
-        star: ['star','star','star','star','blank-star']
+        star: ['star','star','star','star','blank-star'],
+        map_link: 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15468.978442286172!2d121.0566135!3d14.238948!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd7da0f1d4f6e9%3A0x9eb79c89e5e3895e!2sBotejyu%20Ayala%20Malls%20Solenad!5e0!3m2!1sen!2sph!4v1708076830088!5m2!1sen!2sph'
+
     },
     {
         restaurant_name: 'The Wholesome Table', 
@@ -29,7 +31,9 @@ const documents = [
         resto_reviews: reviewsCollection.find({ restaurant: 'The Wholesome Table' }),
         rating: 4,
         review_num:3,
-        star: ['star','star','star','star','blank-star']
+        star: ['star','star','star','star','blank-star'],
+        map_link: 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15446.685486773113!2d121.0252846!3d14.5607759!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c90706584b91%3A0x65c52d44b537dc62!2sThe%20Wholesome%20Table%20Salcedo!5e0!3m2!1sen!2sph!4v1708076619292!5m2!1sen!2sph'
+
     },
     {
         restaurant_name: 'Manam', 
@@ -44,7 +48,9 @@ const documents = [
         resto_reviews: reviewsCollection.find({ restaurant: 'Manam' }),
         rating: 4,
         review_num:3,
-        star: ['star','star','star','star','blank-star']
+        star: ['star','star','star','star','blank-star'],
+        map_link: 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15456.192933856557!2d121.0265372!3d14.4243831!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397d10b28e488cb%3A0xe54f8aa0b470fa5d!2sManam%20Caf%C3%A9!5e0!3m2!1sen!2sph!4v1708077005775!5m2!1sen!2sph'
+
     },
     {
         restaurant_name: 'King Bee', 
@@ -59,7 +65,9 @@ const documents = [
         resto_reviews: reviewsCollection.find({ restaurant: 'King Bee' }),
         rating: 4.6,
         review_num:3,
-        star: ['star','star','star','star','half-star']
+        star: ['star','star','star','star','half-star'],
+        map_link: 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15468.425994037885!2d121.0615841!3d14.2470093!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd7d3f5adce0eb%3A0xe7ebec9b55fdd237!2sKing%20Bee%20%7C%20Santa%20Rosa!5e0!3m2!1sen!2sph!4v1708077728233!5m2!1sen!2sph'
+
     },
     {
         restaurant_name: 'UCC Clockwork', 
@@ -74,7 +82,9 @@ const documents = [
         resto_reviews: reviewsCollection.find({ restaurant: 'UCC Clockwork' }),
         rating: 4.6,
         review_num:3,
-        star: ['star','star','star','star','half-star']
+        star: ['star','star','star','star','half-star'],
+        map_link:'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3867.262426696296!2d121.05419771136005!3d14.237907786149087!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd7defb24ebea9%3A0x51bfc358671a8786!2sUCC%20Clockwork!5e0!3m2!1sen!2sph!4v1708078019706!5m2!1sen!2sph'
+
     },
 ];
 
