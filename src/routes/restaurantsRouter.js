@@ -21,10 +21,21 @@ restaurantRouter.get("/browse", (req, res) => {
     });
 });
 
-restaurantRouter.get("restaurant/:restaurant", (req, res) => {
-    res.render("restaurant", {
-        
-    });
+restaurantRouter.get("/:restaurant", (req, res) => {
+    let restaurant_route = req.params.restaurant;
+
+    //this matches the restaurant_route (which is in lowercase and without spaces) with an entry of the restaurants objects in data.js
+    function validRestaurant(restaurant) {
+        let restaurant_name = restaurant.restaurant_name;
+        restaurant_name = restaurant_name.replace(/\s/g, '');
+        restaurant_name = restaurant_name.toLowerCase();
+        return restaurant_name===restaurant_route;
+    }
+
+    let restaurant = data.restaurants.find(validRestaurant);
+
+    res.render("restaurant", restaurant);
+
 });
 
 module.exports = restaurantRouter;

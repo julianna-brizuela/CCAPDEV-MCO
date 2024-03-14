@@ -1,0 +1,104 @@
+<link rel="stylesheet" type="text/css" href="static/css/establishment.css"/>
+<div class="main-restaurant-info">
+
+    <div class="name">  <h1> {{restaurant_name}} </h1>  </div>
+
+    <div class="pictures">
+        <div class="pic1" style="background-image:url('/static/img/restaurant-images/{{restaurant_name}}/{{images.[0]}}'); background-size:cover"></div>
+        <div class="second-half">
+            <div class="pic2" style="background-image:url('/static/img/restaurant-images/{{restaurant_name}}/{{images.[1]}}'); background-size:cover"></div>
+            <div class="pic3" style="background-image:url('/static/img/restaurant-images/{{restaurant_name}}/{{images.[2]}}'); background-size:cover"></div>
+            <div class="pic4" style="background-image:url('/static/img/restaurant-images/{{restaurant_name}}/{{images.[3]}}'); background-size:cover"></div>
+            <div class="pic5" style="background-image:url('/static/img/restaurant-images/{{restaurant_name}}/{{images.[4]}}'); background-size:cover"></div>
+        </div>
+        
+    </div>
+
+    <div class="group1">
+        <div class="description"> 
+            <p> 
+                {{description}}
+            </p>
+        </div>
+        
+        <div class="ratings">
+            <div class="review-stars">
+                <ul class="star-spritegroup"> 
+                    {{#each star}} 
+                        <li class="{{this}}"></li>
+                    {{/each}}
+                </ul>
+            </div>
+
+            <div class="review-rating">
+                {{rating}}
+                <span class="subtext">({{review_num}} reviews)</span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class ="misc-info">
+        <div class="price"> {{price}} |  </div>
+        <div class="tag-container">
+            {{#each tags}}
+                <div class="tag">{{this}}</div>
+            {{/each}}
+        </div>
+    </div>
+
+</div>
+
+<div class="hr"></div>
+
+<div class="restaurant-info">
+    <div class="group2"> 
+        <div class="action-group">
+            <!--add functionality-->
+            <div class="button share-sprite"> <i class="share"></i> Share </div>
+            <div class="button bookmark-sprite"> <i class="bookmark"></i> <span> Save </span> </div>
+            <div class="button photo-sprite"> <i class="photo"></i> <span> Add Photo </span> </div>
+        </div>
+        <div class="button-review">
+            <!--reroute reveiws-->
+            <form action="/{{restaurant_name}}/writeareview">
+                <button type="submit" class="button write-review">Write a Review</button> 
+            </form>
+        </div>
+    </div>
+    <div class="group3">
+
+        <div class="content"> 
+            <div class="hr2"> </div>
+            <div class="bold">Menu </div>
+            <iframe src= "/static/pdf/{{menu}}" class="image-container menu"></iframe>
+
+            <div class="hr2"> </div>
+            
+            <div class="reviews-section">
+                <div class="bold">Recommended Reviews </div>
+                <div> Average rating will appear after 3 reviews </div>
+                <br>
+                <div class="customer-reviews">
+                    {{#each resto_reviews}}
+                        {{> review}}
+                    {{/each}}
+                </div>
+            </div>
+                
+        </div>
+
+        <div class="side-bar"> 
+            <div class="loc-info"> <span class="location-sprite"> </span> <span class="bold"> Location </span> </div>
+            
+            <!-- make the source a handlebar -->
+            <iframe class="image-container directions" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15468.425994037885!2d121.0615841!3d14.2470093!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd7d3f5adce0eb%3A0xe7ebec9b55fdd237!2sKing%20Bee%20%7C%20Santa%20Rosa!5e0!3m2!1sen!2sph!4v1708077728233!5m2!1sen!2sph" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            
+            <div>
+                <span class="details"> {{address}} </span> 
+            </div>
+            <div class="number"> <span class="phone-sprite"></span> <span class="num">| {{phone_number}} </span></div>
+        </div>
+
+    </div>
+</div>
