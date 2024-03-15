@@ -3,7 +3,7 @@
 
 <div class="overall-container">
     <div class="main-restaurant-info">
-        <div class="name"> <h1> {{restaurant.restaurant_name}} </h1> </div>
+        <div class="name"> <h1 id="restaurant-name">{{restaurant.restaurant_name}}</h1> </div>
 
         <div class="pictures">
             <div class="pic1"></div>
@@ -11,9 +11,7 @@
 
         <div class="group1">
             <div class="description"> 
-                <p> 
-                {{restaurant.description}}
-                </p>
+                <p>{{restaurant.description}}</p>
             </div>
             
             <div class="ratings">
@@ -53,10 +51,13 @@
                     <div class="post-header">
                         <img class="post-profile-pic" src="">
                         <div class="post-info">
-                            <div class="post-info-name">{{reviewer_name}}</div>
+                            <div class="post-info-name" id="reviewer-name-{{@index}}">{{reviewer_name}}</div>
+                            <div class="post-rating">
+                                <ul class="rating-scale" id="rating-{{@index}}">{{review_rating}}</ul>
+                            </div>
                         </div>
                     </div>
-                    <span class="post-date">{{date_of_review}}</span>
+                    <span class="post-date" id="date-of-review-{{@index}}">{{date_of_review}}</span>
                     <p class="post-review" id="review-description-{{@index}}">{{{review_description}}}</p>
                     <div class="admin-reply"> 
                         <form id="edit-reply-{{@index}}">
