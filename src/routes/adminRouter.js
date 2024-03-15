@@ -25,7 +25,7 @@ adminRouter.get("/:username/restaurant", async (req, res) => {
             toLink: toLink
         });
     } else {
-        res.status(404).send('User not found');
+        res.status(404).render('404_error_template', {title: "Sorry, page not found"});
     }
  });
 

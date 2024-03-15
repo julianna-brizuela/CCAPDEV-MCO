@@ -49,3 +49,4 @@ function addRestaurant(){
 function enableProfilePicture() {
     document.getElementById("profile-picture").style.display = "block";
 }
+
