@@ -6,7 +6,7 @@
         <div class="name"> <h1 id="restaurant-name">{{restaurant.restaurant_name}}</h1> </div>
 
         <div class="pictures">
-            <div class="pic1"></div>
+            <div class="pic1" style="background-image:url('/static/img/restaurant-images/{{toLink restaurant.restaurant_name}}/{{restaurant.pfp}}'); background-size:contain; background-position: center;"></div>
         </div>
 
         <div class="group1">
@@ -49,11 +49,63 @@
             {{#each reviews}}
                 <div class="post" id="post-{{@index}}">
                     <div class="post-header">
-                        <img class="post-profile-pic" src="">
+                        <img class="post-profile-pic" src="/static/img/profile-pics/{{reviewer_pfp}}">
                         <div class="post-info">
                             <div class="post-info-name" id="reviewer-name-{{@index}}">{{reviewer_name}}</div>
                             <div class="post-rating">
-                                <ul class="rating-scale" id="rating-{{@index}}">{{review_rating}}</ul>
+                                <ul class="star-spritegroup" id="rating-{{@index}}">
+                                    {{#if (isEqual review_rating 5)}}
+                                        <li class="star"></li>
+                                        <li class="star"></li>
+                                        <li class="star"></li>
+                                        <li class="star"></li>
+                                        <li class="star"></li>
+                                    {{/if}}
+
+                                    {{#if (isEqual review_rating 4)}}
+                                        <li class="star"></li>
+                                        <li class="star"></li>
+                                        <li class="star"></li>
+                                        <li class="star"></li>
+                                        <li class="blank-star"></li>
+                                        
+                                    {{/if}}
+
+                                    {{#if (isEqual review_rating 3)}}
+                                        <li class="star"></li>
+                                        <li class="star"></li>
+                                        <li class="star"></li>
+                                        <li class="blank-star"></li>
+                                        <li class="blank-star"></li>
+                                        
+                                    {{/if}}
+                                    {{#if (isEqual review_rating 2)}}
+                                        <li class="star"></li>
+                                        <li class="star"></li>
+                                        <li class="blank-star"></li>
+                                        <li class="blank-star"></li>
+                                        <li class="blank-star"></li>
+                                        
+                                    {{/if}}
+
+                                    {{#if (isEqual review_rating 1)}}
+                                        <li class="star"></li>
+                                        <li class="blank-star"></li>
+                                        <li class="blank-star"></li>
+                                        <li class="blank-star"></li>
+                                        <li class="blank-star"></li>
+                                        
+                                    {{/if}}
+
+                                    {{#if (isEqual review_rating 0)}}
+                                        <li class="blank-star"></li>
+                                        <li class="blank-star"></li>
+                                        <li class="blank-star"></li>
+                                        <li class="blank-star"></li>
+                                        <li class="blank-star"></li>
+                                        
+                                    {{/if}}
+                                </ul>
                             </div>
                         </div>
                     </div>
