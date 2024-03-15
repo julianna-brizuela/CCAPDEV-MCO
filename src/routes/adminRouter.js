@@ -4,6 +4,10 @@ const database = require('../../db/database.js');
 let documents;
 
 
+function toLink(str) {
+    return str.toLowerCase().replace(/\s+/g, '');
+}
+
 adminRouter.get("/:username/restaurant", async (req, res) => {
     let username = req.params.username;
     username = decodeURIComponent(username);
@@ -17,7 +21,8 @@ adminRouter.get("/:username/restaurant", async (req, res) => {
         res.render("admin-restaurant", {
             title: "MUNCH | Where your cravings are served!",
             reviews: restaurantReviews,
-            restaurant: adminRestaurant
+            restaurant: adminRestaurant,
+            toLink: toLink
         });
     } else {
         res.status(404).send('User not found');

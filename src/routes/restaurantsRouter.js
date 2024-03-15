@@ -220,7 +220,10 @@ restaurantRouter.post('/:restaurant/writeareview', async (req, res) => {
 
         //checking if it inserted correctly
         if (prev_length < database.collections['reviews'].getLength()) {
-            res.sendStatus(200);
+            const username = req.body['reviewer_name'];
+            const name = database.collections['users'].find({ username })[0].name;
+            res.status(200).json({ name });
+
             if (restaurant) {
                 const update = await database.collections['restaurants'].updateOne({restaurant_name: restaurant.restaurant_name}, {
                     resto_reviews: database.collections['reviews'].find({restaurant: restaurant.restaurant_name}), 
