@@ -1,14 +1,14 @@
+
+<link rel="stylesheet" type="text/css" href="/static/css/user.css"/>
 <div class="content-container">
     <div class="left">
-
         <div class="profile">
             <div class="profile-pic">
-                <img src="images\profile-pics\profile-pic-1.jpg">
+                <img src="/static/img/profile-pics/{{reviewer_pfp}}">
             </div>
 
             <div class="profile-information">
-                <h4>Josh Hutcherson</h4>
-                <span class="loc"> Binan, Laguna </span>
+                <h4>{{name}}</h4>
             </div>
 
             <div class="profile-controls">
@@ -76,35 +76,9 @@
                 <hr>
 
                 <div class="customer-reviews">
-                    <div class="post" id="post-1">
-                        <div class="post-header">
-                            <img class="restaurant-pic" src="images/restaurant-images/botejyu/botejyupfp.jpg">
-                            <div class="post-info">
-                                <div class="post-info-name">Botejyu</div>
-                                <div class="post-location"> Sta. Rosa, Laguna </div>
-                                <div class="tag-container">
-                                    <div class="tag"> Good service </div>
-                                    <div class="tag"> Yummy </div>
-                                    <div class="tag"> Recommended</div>
-                                </div>
-                                
-                            </div>
-                        </div>
-                        <div class="post-rating">
-                            <ul class="rating-scale" id="rating-1">
-                                <li class="star"></li>
-                                <li class="star"></li>
-                                <li class="star"></li>
-                                <li class="star"></li>
-                                <li class="star"></li>
-                            </ul>
-                            <span class="post-date"> 01/01/2000 </span>
-                        </div>
-                        
-                        <p class="post-review">Good place to go to satisfy your Japanese food cravings.
-                            <br><br>It's inside Solenad, Nuvali so parking is not a problem. They still accept customers after 8:30pm unlike the other Japanese resto beside them which by the way was our first choice.
-                            <br><br>Food is great and reasonably priced. Will go back and try other items in the menu.</p>
-                    </div>
+                    {{#each reviews}} 
+                        {{>review}}
+                    {{/each}}
                 </div>
             </div>
 

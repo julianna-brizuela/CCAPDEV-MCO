@@ -1,15 +1,18 @@
 const { Router } = require('express');
 const userRouter = Router();
 const express = require('express');
-const router = express.Router();
+const database = require('../../db/database.js');
 
-userRouter.get('/:username', (req, res)=> {
+userRouter.get('/:username', async (req, res) => {
     let username_route = req.params.username;
+    username_route = decodeURIComponent(username_route);
+    console.log("USER ROUTE")
+    console.log(username_route)
 
     function findUser(user) {
         let username = user.username;
-        username = restaurant_name.replace(/\s/g, '');
-        username = restaurant_name.toLowerCase();
+        username = username.replace(/\s/g, '');
+        username = username.toLowerCase();
         return username===username_route;
     }
 
@@ -22,4 +25,4 @@ userRouter.get('/:username', (req, res)=> {
     res.render("user", user);
 })
 
-module.exports = router;
+module.exports = userRouter;

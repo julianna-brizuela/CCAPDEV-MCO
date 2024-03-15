@@ -53,9 +53,9 @@ $(document).ready(function() {
 
             const userType = JSON.parse(strData)['user-type'];
             if (userType === 'user') {
-
-                document.getElementById("picture").action="/".concat(username.toLowerCase());
-
+                let username_modified = username.toLowerCase();
+                
+                window.location.href = `/${username_modified}`;
             } else if (userType === 'admin')
                 window.location.href = `/${username}/restaurant`;
 
