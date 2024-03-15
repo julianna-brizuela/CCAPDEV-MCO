@@ -297,6 +297,7 @@ a, a:visited {
 }
 
 #submit-response {
-    color: var(--default-text) !important; 
+    color: var(--default-button) !important; 
     font-size: 10px;
+    text-align: center;
 }

@@ -17,26 +17,24 @@ function closeSignupForm() {
 
 // DOM Event Handlers
 $(document).ready(function() {
+    $('#submit-response').css('display', 'none');
 
     $('#logo').ready(function() {
         const userId = sessionStorage.getItem('munch_auth_userID');
         console.log(`munch_auth_userID: ${userId}`);
     });
-    
-    $('#submit-response').ready(function() {
-        $('#submit-response').css('display', 'none');
-    });
-    
+
     $('#login-form').submit(async function(event) {
         event.preventDefault();
         const responseMessage = $('#submit-response');
 
         try {
             const formData = new FormData(event.target);
-            const response = await fetch('/login', {
+            const strData = JSON.stringify(Object.fromEntries(formData));
+            let response = await fetch('/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(Object.fromEntries(formData)),
+                body: strData,
             });
     
             if (!response.ok)
@@ -45,21 +43,20 @@ $(document).ready(function() {
             const responseData = await response.json();
             if (responseData.login_status !== 'successful')
                 return;
-    
-            sessionStorage.setItem('munch_auth_userID', responseData['userID']);
 
-            if (formData['user-type'] === 'user')
+            const username = responseData['username'];
+            sessionStorage.setItem('munch-account-username', username);
+
+            const userType = JSON.parse(strData)['user-type'];
+            if (userType === 'user')
                 window.location.href = window.location.href;
-            
-            else if (formData['user-type'] === 'admin') {
-                // await fetch(`${}/restaurant`);
-            }
 
-    
+            else if (userType === 'admin')
+                window.location.href = `/${username}/restaurant`;
+
         } catch(error) {
             responseMessage.text('Login failed. Please try again.');
             $('#submit-response').css('display', 'block');
         }
     });
-    
 });
