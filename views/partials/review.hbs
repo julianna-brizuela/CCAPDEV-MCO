@@ -15,4 +15,10 @@
     </div>
     <span class="post-date">{{date_of_review}}</span>
     <p class="post-review">{{{review_description}}}
+    {{#if owner_response}}
+        <div class="owner-reply-container">
+            <span class="owner-label"> Owner response: </span> 
+            <p>{{owner_response}}</p>
+        </div>
+    {{/if}}
 </div>
