@@ -103,6 +103,7 @@ h1 {
 .background> span {
     margin-left: 15%;
     font-size: .7rem;
+    user-select: none;
 }
 
 .background > .background-image-author, .background-image-source {
@@ -132,6 +133,7 @@ h1 {
     text-align: left;
     font-size: 5rem;
     color: var(--yellow);
+    user-select: none;
 }
 
 .search-bar-container {

@@ -1,6 +1,5 @@
 const express = require('express');
 const adminRouter = express.Router();
-const data = require('./data');
 const database = require('../../db/database.js');
 let documents;
 
@@ -26,6 +25,7 @@ adminRouter.get("/:username/restaurant", async (req, res) => {
  });
 
  adminRouter.post("/:username/restaurant", async (req, res) => {
+    console.log('HELLO')
     try {
         const { restaurant, reviewer_name, review_rating, date_of_review, review_description, owner_response } = req.body;
 
@@ -37,10 +37,6 @@ adminRouter.get("/:username/restaurant", async (req, res) => {
         documents = database.collections['reviews'].find({ reviewer_name: req.body.reviewer_name,
                                                             restaurant: req.body.restaurant,
                                                             review_description: req.body.review_description})[0];
-        console.log('\n\n---------- UPDATE ONE ----------');
-        console.log(documents);
-
-
     } catch (error) {
         console.error('Error updating owner response:', error);
         res.status(500).send('Internal server error');

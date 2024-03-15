@@ -7,11 +7,11 @@
             <div class="link-container">
                 <div class="links">
                     <h2> <a id="logo" href="/home">munch</a></h2>
-                    <p> <a href="/browse">Browse Restaurants</a></p>
+                    <p > <a href="/browse" id="browse-resto">Browse Restaurants</a></p>
                 </div>
             </div>
 
-            <div class="searchbar"> 
+            <div id="searchbar" class="searchbar"> 
                 <!--change action-->
                 <form class="search-establishment" action="establishmentlist.html">
                         <input type="text" class="search-bar" id="search-bar" placeholder="Japanese" onkeyup="filterBySearch()"> 
@@ -21,7 +21,7 @@
                 </form>
             </div>
 
-            <div class="action-buttons">
+            <div id="action-buttons" class="action-buttons">
                 <button type="button" class="login" onclick="openLoginForm()">Log In</button>
                 <!-- Login Form-->
                 <div id="login-form-modal" class="popup">
@@ -29,20 +29,20 @@
                         <span class="close" onclick="closeLoginForm()">&times;</span>
                         <h2>Log In</h2> 
 
-                        <form id="login-form" class="form" action="/login" method="POST">
+                        <form id="login-form" class="form">
                             <div class="form-element">
                                 <label for="login-email"> Email </label>
-                                <input type="email" id="login-email" name="login-email" placeholder="Enter email">
+                                <input type="email" id="login-email" name="login-email" placeholder="Enter email" required>
                             </div>
                             <div class="form-element">
                                 <label for="login-password"> Password </label>
-                                <input type="password" id="login-password" name="login-password" placeholder="Enter password">
+                                <input type="password" id="login-password" name="login-password" placeholder="Enter password" required>
                             </div>
                             <span id="submit-response"> Invalid Email or Password </span> 
                             <div class="form-element">
-                                <input type="radio" name="user-type" id="login-admin">
+                                <input type="radio" name="user-type" id="login-admin" value="admin" required>
                                 <label for="login-admin"> Admin </label>
-                                <input type="radio" name="user-type" id="login-user">
+                                <input type="radio" name="user-type" id="login-user" value="user" required>
                                 <label for="login-user"> User </label>
                             </div>
                             <div class="form-element">
@@ -66,23 +66,23 @@
                         <form id="signup-form" id="login-form"class="form" action="/signup" method="post">
                             <div class="form-element">
                                 <label for="first-name"> First Name </label>
-                                <input type="text" id="first-name" placeholder="Enter First Name">
+                                <input type="text" id="first-name" placeholder="Enter First Name" required>
                             </div>
                             <div class="form-element">
                                 <label for="last-name"> Last Name </label>
-                                <input type="text" id="last-name" placeholder="Enter Last Name">
+                                <input type="text" id="last-name" placeholder="Enter Last Name" required>
                             </div>
                             <div class="form-element">
                                 <label for="signup-email"> Email </label>
-                                <input type="text" id="signup-email" placeholder="Enter email">
+                                <input type="text" id="signup-email" placeholder="Enter email" required>
                             </div>
                             <div class="form-element">
                                 <label for="signup-password"> Password </label>
-                                <input type="password" id="signup-password" placeholder="Enter password">
+                                <input type="password" id="signup-password" placeholder="Enter password" required>
                             </div>
                             <div class="form-element">
                                 <label for="confirm-password"> Confirm Password </label>
-                                <input type="password" id="confirm-password" placeholder="Confirm password">
+                                <input type="password" id="confirm-password" placeholder="Confirm password" required>
                             </div>
                             <div class="form-element">
                                 <input type="file" id="profile-picture" hidden>
@@ -93,6 +93,7 @@
                                 <input type="checkbox" id="terms-and-conditions">
                                 <label for="terms-and-conditions"> Agree to terms and conditions </label>
                             </div>
+
                             <div class="form-element">
                                 <input type="submit" value="Signup">
                             </div>        

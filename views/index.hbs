@@ -1,18 +1,19 @@
 <link rel="stylesheet" type="text/css" href="/static/css/index.css"/>
 
+
+
 <div class="background">
     <div class="background-image"> </div>
     <section class="tagline-searchbar-container">
         <div class="tagline-container">
-            <!-- <hr class="tagline-vertical-border"> -->
             <h1>What are you<br><u>craving</u> for?</h1>
         </div>
         <div class="search-bar-container">
-            <form class="search-bar" action="#">
+            <form class="search-bar" action="/browse" method="GET">
                 <input id="food-type" type="text" placeholder="Japanese">
                 <div class="location-icon-container"><span id="location-icon"></span></div>
                 <input id="location" type="text" placeholder="Makati, Metro Manila">
-                <div class="search-icon-container"><input id="search-icon" type="button" value="&#160;"></div>
+                 <div class="search-icon-container"><button id="search-icon" type="submit" value="&#160;"></button></div>
             </form>
         </div>
     </section>
