@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="/static/css/navigationbar.css">
+<script src="/static/js/search-key.js" defer></script>
 
 <div class="top-container"> 
     <div class="navbar-container">
@@ -13,9 +14,9 @@
 
             <div id="searchbar" class="searchbar"> 
                 <!--change action-->
-                <form class="search-establishment" action="establishmentlist.html">
+                <form class="search-establishment">
                         <input type="text" class="search-bar" id="search-bar" placeholder="Japanese" onkeyup="filterBySearch()"> 
-                        <button type="submit" class="submit-search">
+                        <button type="submit" class="submit-search" id="submit-search">
                             <span class="search-button"></span>
                         </button>
                 </form>
@@ -63,34 +64,34 @@
                         <span class="close" onclick="closeSignupForm()">&times;</span>
                         <h2>Signup</h2> 
 
-                        <form id="signup-form" id="login-form"class="form" action="/signup" method="post">
+                        <form id="signup-form" class="form">
                             <div class="form-element">
                                 <label for="first-name"> First Name </label>
-                                <input type="text" id="first-name" placeholder="Enter First Name" required>
+                                <input type="text" id="first-name" name="first-name" placeholder="Enter First Name" required>
                             </div>
                             <div class="form-element">
                                 <label for="last-name"> Last Name </label>
-                                <input type="text" id="last-name" placeholder="Enter Last Name" required>
+                                <input type="text" id="last-name" name="last-name" placeholder="Enter Last Name" required>
                             </div>
                             <div class="form-element">
                                 <label for="signup-email"> Email </label>
-                                <input type="text" id="signup-email" placeholder="Enter email" required>
+                                <input type="text" id="signup-email" name="signup-email" placeholder="Enter email" required>
                             </div>
                             <div class="form-element">
                                 <label for="signup-password"> Password </label>
-                                <input type="password" id="signup-password" placeholder="Enter password" required>
+                                <input type="password" id="signup-password" name="signup-password" placeholder="Enter password" required>
                             </div>
                             <div class="form-element">
                                 <label for="confirm-password"> Confirm Password </label>
-                                <input type="password" id="confirm-password" placeholder="Confirm password" required>
+                                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm password" required>
                             </div>
                             <div class="form-element">
-                                <input type="file" id="profile-picture" hidden>
+                                <input type="file" id="profile-picture" name="profile-picture" hidden>
                                 <label class="picture-upload" for="profile-picture"> Upload Profile Picture </label>
 
                             </div>
                             <div class="form-element">
-                                <input type="checkbox" id="terms-and-conditions">
+                                <input type="checkbox" id="terms-and-conditions" name="terms-and-conditions" required>
                                 <label for="terms-and-conditions"> Agree to terms and conditions </label>
                             </div>
 

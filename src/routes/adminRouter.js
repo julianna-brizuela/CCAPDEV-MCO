@@ -29,8 +29,6 @@ adminRouter.get("/:username/restaurant", async (req, res) => {
     try {
         const { restaurant, reviewer_name, review_rating, date_of_review, review_description, owner_response } = req.body;
 
-
-
         database.collections['reviews'].updateOne({ reviewer_name: req.body.reviewer_name,
                                                     restaurant: req.body.restaurant,
                                                     review_description: req.body.review_description}, { owner_response: req.body.owner_response });
