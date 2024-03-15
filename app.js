@@ -17,6 +17,13 @@ app.engine('hbs', hbs.engine({
                 return text.toLowerCase(); 
             }
             
+        },
+        isEqual: function(arg1, arg2) {
+            if (arg1 === arg2) { 
+                return 1
+            } else {
+                return 0
+            } 
         }
     } 
 }));

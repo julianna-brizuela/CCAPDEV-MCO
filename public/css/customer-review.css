@@ -77,6 +77,12 @@ fieldset {
     padding-bottom: 2rem;
 }
 
+#rating-buttons {
+    display: flex;
+    flex-direction: row;
+    margin-right:20px;
+}
+
 .rating-scale {
     display: flex;
     flex-direction: row;
@@ -84,47 +90,18 @@ fieldset {
     padding: 0 1rem 0 0;
 }
 
-.rating-scale > li {
+.star-button {
     display: inline-block;
     background-image: url('/static/img/spritesheet.png');
+    background-color:transparent;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 10.5% center;
-    padding: 0 .1rem;
-    width: 1.2rem; /* Adjust the width as needed */
-    height: 1.2rem; /* Adjust the height as needed */
+    border-width: 0px;
+    width: 40px; /* Adjust the width as needed */
+    height: 40px; /* Adjust the height as needed */
 }
 
-#rating-0.rating-scale > li {
-    cursor: pointer;
-    background-position: 10.5% center;
-    padding: 0 .1rem;
-    width: 40px;
-    height: 40px;
-}
-
-#rating-0.rating-scale > li:hover {
-    background-position: 0 center;
-}
-
-#rating-1.rating-scale > li:nth-child(-n+3) {
-    background-position: 0 center;
-}
-
-#rating-2.rating-scale > li:nth-child(-n+5) {
-    background-position: 0 center;
-}
-
-#rating-3.rating-scale > li:nth-child(-n+4) {
-    background-position: 0 center;
-}
-
-#rating-3.rating-scale > li:nth-child(4) {
-    background-position: 5.9% center;
-}
-
-/* .rating-guide {
-} */
 
 .rating-tags {
     padding: .5rem 0 2rem 0;
