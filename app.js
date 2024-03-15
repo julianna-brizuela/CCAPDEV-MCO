@@ -11,14 +11,14 @@ app.use(express.json());
 app.engine('hbs', hbs.engine({
     extname: 'hbs',
     helpers: {
-        toLink: function (text) { 
+        'toLink': function (text) { 
             if (text) {
                 text = text.replace(/\s/g, '');
                 return text.toLowerCase(); 
             }
             
         },
-        isEqual: function(arg1, arg2) {
+        'isEqual': function(arg1, arg2) {
             if (arg1 === arg2) { 
                 return 1
             } else {
