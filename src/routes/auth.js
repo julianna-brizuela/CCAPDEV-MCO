@@ -8,15 +8,17 @@ router.post('/login', (req, res) => {
     const password = req.body['login-password'];
     const userDocument = database.collections['users'].find({ email, password })?.[0];
 
-    if (userDocument) {
-        const login_status = 'successful';
-        const userID = userDocument['_id'];
-        res.status(200).json({ login_status, userID });
-    }
-
-    else {
-        res.status(401).json({ login_status: 'unsuccessful' });
-    }
+    if (userDocument)
+        res.status(200).json({ 
+            login_status: 'successful', 
+            userID: userDocument['_id'],
+        });
+        
+    else
+        res.status(401).json({ 
+            login_status: 'unsuccessful',
+            userID: null,
+        });
 });
 
 module.exports = router;
