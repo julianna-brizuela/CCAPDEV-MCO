@@ -44,8 +44,8 @@ app.use('/', home);
 app.use('/', auth);
 app.use('/', adminRouter);
 app.use('/', indexRouter);
-app.use(usersRouter);
 app.use(restaurantRouter);
+app.use(usersRouter);
 
 
 
