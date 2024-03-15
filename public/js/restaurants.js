@@ -6,5 +6,3 @@ $(document).ready(function() {
         $('#write-review').removeAttr('href');
 
 });
-
-console.log('SDKJAHFKLJ')

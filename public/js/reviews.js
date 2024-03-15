@@ -48,6 +48,8 @@ ratingBtnWrapper.addEventListener("click", (event) => {
 })
 
 submitReview?.addEventListener("click", async(e) => {
+    const username = sessionStorage.getItem('munch-account-username');
+    username
     e.preventDefault;
 
     let data = new FormData(reviewForm);
@@ -62,7 +64,7 @@ submitReview?.addEventListener("click", async(e) => {
     if (getLoginStatus()) {
         //how to retrieve user?
     } else {
-        data["reviewer_name"] = "Anonymous"
+        data["reviewer_name"] = username;
     }
 
     data["owner_response"] = ""
