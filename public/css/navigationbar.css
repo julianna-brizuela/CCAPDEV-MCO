@@ -227,6 +227,7 @@ a, a:visited {
     font-size:15px;
     font-weight:bold;
     background: var(--default-button);
+    color: var(--white);
     border-radius:10px;
     cursor:pointer;
 }

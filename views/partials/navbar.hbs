@@ -64,26 +64,34 @@
                         <span class="close" onclick="closeSignupForm()">&times;</span>
                         <h2>Signup</h2> 
 
+                        <form id="signup-form" class="form">
                             <div class="form-element">
                                 <label for="first-name"> First Name </label>
+                                <input type="text" id="first-name" name="first-name" placeholder="Enter First Name" required>
                             </div>
                             <div class="form-element">
                                 <label for="last-name"> Last Name </label>
+                                <input type="text" id="last-name" name="last-name" placeholder="Enter Last Name" required>
                             </div>
                             <div class="form-element">
                                 <label for="signup-email"> Email </label>
+                                <input type="text" id="signup-email" name="signup-email" placeholder="Enter email" required>
                             </div>
                             <div class="form-element">
                                 <label for="signup-password"> Password </label>
+                                <input type="password" id="signup-password" name="signup-password" placeholder="Enter password" required>
                             </div>
                             <div class="form-element">
                                 <label for="confirm-password"> Confirm Password </label>
+                                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm password" required>
                             </div>
                             <div class="form-element">
+                                <input type="file" id="profile-picture" name="profile-picture" hidden>
                                 <label class="picture-upload" for="profile-picture"> Upload Profile Picture </label>
 
                             </div>
                             <div class="form-element">
+                                <input type="checkbox" id="terms-and-conditions" name="terms-and-conditions" required>
                                 <label for="terms-and-conditions"> Agree to terms and conditions </label>
                             </div>
 

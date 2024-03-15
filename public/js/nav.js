@@ -62,6 +62,40 @@ $(document).ready(function() {
         }
     });
 
+    $('#signup-form').submit(async function(event) {
+        event.preventDefault();
+        // const responseMessage = $('#submit-response');
+
+        console.log(1, event)
+        try {
+            const formData = new FormData(event.target);
+            console.log(2, formData)
+            const strData = JSON.stringify(Object.fromEntries(formData));
+            console.log(3)
+            console.log(4, strData)
+            let response = await fetch('/signup', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: strData,
+            });
+            
+            if (!response.ok)
+                throw new Error('Network response was not ok');
+
+            const responseData = await response.json();
+            if (responseData.signup_status !== 'successful')
+                return;
+
+            const username = responseData['username'];
+            sessionStorage.setItem('munch-account-username', username);
+            window.location.href = window.location.href;
+
+        } catch(error) {
+            // responseMessage.text('Signup failed. Please try again.');
+            console.error(error)
+            // $('#submit-response').css('display', 'block');
+        }
+    });
 });
 
 function enableProfilePicture() {
