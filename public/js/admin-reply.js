@@ -47,7 +47,7 @@ async function reply(reviewNum){
     console.log("jstring:");
     console.log(jstring);
     try {
-        const review = await fetch("/admin/:username", {
+        const review = await fetch("/:username/restaurant", {
             method: 'POST',
             body: jstring,
             headers: {
