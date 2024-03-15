@@ -28,6 +28,9 @@ $(document).ready(function() {
         event.preventDefault();
         const responseMessage = $('#submit-response');
 
+        document.querySelector(".action-buttons").style.display = "none";
+        document.querySelector("#picture").style.display = "block";
+
         try {
             const formData = new FormData(event.target);
             const strData = JSON.stringify(Object.fromEntries(formData));
@@ -49,10 +52,11 @@ $(document).ready(function() {
             sessionStorage.setItem('munch-account-username', username);
 
             const userType = JSON.parse(strData)['user-type'];
-            if (userType === 'user')
-                window.location.href = window.location.href;
+            if (userType === 'user') {
 
-            else if (userType === 'admin')
+                document.getElementById("picture").action="/".concat(username.toLowerCase());
+
+            } else if (userType === 'admin')
                 window.location.href = `/${username}/restaurant`;
 
         } catch(error) {
