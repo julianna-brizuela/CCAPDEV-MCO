@@ -7,7 +7,6 @@ const database = require('../../db/database.js');
 
 //GET for Viewing All Restaurants
 restaurantRouter.get('/browse', (req, res) => {
-
    res.render("restaurant-list", {
         title: "MUNCH | Where your cravings are served!",
         tags: database.collections['tags'].documents[0]['tags'],
@@ -45,15 +44,17 @@ restaurantRouter.get('/browse/category=:category/filter=:filter', (req, res) => 
         let arr = []
         console.log(filter);
 
-        function findTags(restaurant) {
-            tags = restaurant.tags;
 
-            for (let j = 0; j < tags.length; j++) {
-                tags[j] = tags[j].replace(/\s/g, '');
-                tags[j] = tags[j].toLowerCase();
+        function findTags(restaurant) {
+            let tempTags = []
+            Object.assign(tempTags, restaurant.tags);
+
+            for (let j = 0; j < tempTags.length; j++) {
+                tempTags[j] = tempTags[j].replace(/\s/g, '');
+                tempTags[j] = tempTags[j].toLowerCase();
             }
 
-            if (tags.find(tag => tag === filter)) {
+            if (tempTags.find(tag => tag === filter)) {
                 console.log(restaurant.restaurant_name);
                 return restaurant.restaurant_name;
             } else {
@@ -73,7 +74,6 @@ restaurantRouter.get('/browse/category=:category/filter=:filter', (req, res) => 
 
                 
             }
-
             return arr;
         }
     

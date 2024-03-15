@@ -22,7 +22,7 @@
             <h4> Tags </h4>
         <div id="tag-list"> 
             {{#each tags}} 
-                <button class="tag-filter-button" onclick="location.href='/browse/category=tags/filter={{toLink this}}'" method="GET">{{this}}</button>
+                <button class="tag-filter-button" onclick="location.href='/browse/category=tags/filter={{toLink this}}'" method="GET">{{{this}}}</button>
             {{/each}}
         </div>
 
