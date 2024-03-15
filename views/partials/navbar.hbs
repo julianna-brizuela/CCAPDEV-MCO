@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="/static/css/navigationbar.css">
+<script src="/static/js/search-key.js" defer></script>
 
 <div class="top-container"> 
     <div class="navbar-container">
@@ -13,9 +14,9 @@
 
             <div class="searchbar"> 
                 <!--change action-->
-                <form class="search-establishment" action="establishmentlist.html">
+                <form class="search-establishment">
                         <input type="text" class="search-bar" id="search-bar" placeholder="Japanese" onkeyup="filterBySearch()"> 
-                        <button type="submit" class="submit-search">
+                        <button type="submit" class="submit-search" id="submit-search">
                             <span class="search-button"></span>
                         </button>
                 </form>

@@ -43,9 +43,6 @@ async function reply(reviewNum){
     data = Object.assign(objectOrder, data);
     const jstring = JSON.stringify(data); 
 
-    console.log(data);
-    console.log("jstring:");
-    console.log(jstring);
     try {
         const review = await fetch("/:username/restaurant", {
             method: 'POST',
@@ -55,7 +52,7 @@ async function reply(reviewNum){
             }
         });    
         if (review.status == 200) {
-            location.reload(); // refresh the page
+            location.reload(); 
         } else {
             const message = `An error has occured. Status code: ${review.status}`;
             alert(message);
