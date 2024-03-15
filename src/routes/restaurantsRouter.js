@@ -151,8 +151,11 @@ restaurantRouter.get('/:restaurant', (req, res) => {
 
     if (restaurant) {
         res.locals.title = "MUNCH | " + restaurant['restaurant_name'];
+        res.render("restaurant", restaurant);
+    } else {
+        res.status(404).render('404_error_template', {title: "Sorry, page not found"});
     }
-    res.render("restaurant", restaurant);
+    
 });
 
 //POST for Adding a Photo or Saving
@@ -197,9 +200,12 @@ restaurantRouter.get('/:restaurant/writeareview', (req, res) => {
 
     if(restaurant) {
         res.locals.title = "MUNCH | Write a Review for " + restaurant['restaurant_name'];
+        res.render("writeareview", restaurant);
+    } else {
+        res.status(404).render('404_error_template', {title: "Sorry, page not found"});
     }
 
-    res.render("writeareview", restaurant);
+    
 });
 
 //POST for Writing a Review (DO NOT TOUCH)
