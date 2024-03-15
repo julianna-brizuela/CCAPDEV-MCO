@@ -89,6 +89,10 @@ submitReview?.addEventListener("click", async(e) => {
             }
         });
 
+        const reviewData = await review.json();
+        console.log(reviewData)
+        console.log(reviewData.name)
+
     
         if (review.status == 200) {
             location.reload(); // refresh the page
@@ -99,8 +103,5 @@ submitReview?.addEventListener("click", async(e) => {
         }
     } catch (err) {
         console.error(err);
-        }
-    
-    
-    
+    }   
 });
