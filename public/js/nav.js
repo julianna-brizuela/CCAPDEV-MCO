@@ -20,8 +20,8 @@ $(document).ready(function() {
     $('#submit-response').css('display', 'none');
 
     $('#logo').ready(function() {
-        const userId = sessionStorage.getItem('munch_auth_userID');
-        console.log(`munch_auth_userID: ${userId}`);
+        const username = sessionStorage.getItem('munch-account-username');
+        console.log(`munch-account-username: ${username}`);
     });
 
     $('#login-form').submit(async function(event) {
@@ -31,20 +31,21 @@ $(document).ready(function() {
         try {
             const formData = new FormData(event.target);
             const strData = JSON.stringify(Object.fromEntries(formData));
+            console.log(strData)
             let response = await fetch('/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: strData,
             });
-    
+            
             if (!response.ok)
                 throw new Error('Network response was not ok');
-            
             const responseData = await response.json();
             if (responseData.login_status !== 'successful')
                 return;
 
             const username = responseData['username'];
+            
             sessionStorage.setItem('munch-account-username', username);
 
             const userType = JSON.parse(strData)['user-type'];
@@ -56,6 +57,7 @@ $(document).ready(function() {
 
         } catch(error) {
             responseMessage.text('Login failed. Please try again.');
+            console.error(error)
             $('#submit-response').css('display', 'block');
         }
     });
