@@ -42,6 +42,10 @@ main, footer {
     width: 100%;
 }
 
+.searchbar {
+    border: 0px;
+}
+
 
 * {
     margin: 0;
@@ -114,7 +118,7 @@ h1 {
     display: flex;
     justify-content: flex-start;
     min-width: 300px;
-    margin: 90px 10% 20px;
+    margin: 100px 10% 30px;
 }
 
 .tagline-container > hr {
@@ -132,7 +136,7 @@ h1 {
 
 .search-bar-container {
     height: 70px;
-    margin: 80px 10% 75px;
+    margin: 90px 10% 75px;
     border: 0; 
     background-color: transparent;
 }

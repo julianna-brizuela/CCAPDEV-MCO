@@ -3,30 +3,13 @@ const adminRouter = express.Router();
 const data = require('./data');
 const database = require('../../db/database.js');
 let documents;
-//
-adminRouter.get("/admin", (req, res) => {
 
-    res.render("admin-restaurant-list", {
-         title: "MUNCH | Where your cravings are served!",
-         tags: data.tags,
-         restaurants: data.restaurants,
- 
-         helpers: {
-             toLink: function (text) { 
-                       text = text.replace(/\s/g, '');
-                       return text.toLowerCase(); 
-                   }
-           }
-     });
- });
 
- adminRouter.get("/admin/:username", (req, res) => {
-
+adminRouter.get("/:username/restaurant", async (req, res) => {
     let username = req.params.username;
     username = decodeURIComponent(username);
 
     admin = database.collections['admins'].find({username: username})[0];
-    console.log(admin);
     if(admin){
         
         const restaurantReviews = database.collections['reviews'].find({restaurant: admin.restaurant_name});
@@ -42,27 +25,26 @@ adminRouter.get("/admin", (req, res) => {
     }
  });
 
+ adminRouter.post("/:username/restaurant", async (req, res) => {
+    try {
+        const { restaurant, reviewer_name, review_rating, date_of_review, review_description, owner_response } = req.body;
 
-// adminRouter.get("/admin/:username", (req, res) => {
-    
-//     let username = req.params.username;
-//     username = decodeURIComponent(username);
 
-//     const admin = data.admins.find(admin => admin.username === username);
-//     if(admin){
-//         const restaurantReviews = data.reviews.filter(review => review.restaurant === admin.restaurant_name)
-//         const adminRestaurant = data.restaurants.find(restaurant => restaurant.restaurant_name === admin.restaurant_name);
-//         console.log("Hello");
-//         const title = `MUNCH | ${admin.restaurant_name}`;
-//         res.render("admin-restaurant", {
-//             title: title,
-//             reviews: restaurantReviews,
-//             restaurant: adminRestaurant
-//         });
-//     } else {
-//         res.status(404).send('User not found');
-//     }
-//  });
 
+        database.collections['reviews'].updateOne({ reviewer_name: req.body.reviewer_name,
+                                                    restaurant: req.body.restaurant,
+                                                    review_description: req.body.review_description}, { owner_response: req.body.owner_response });
+        documents = database.collections['reviews'].find({ reviewer_name: req.body.reviewer_name,
+                                                            restaurant: req.body.restaurant,
+                                                            review_description: req.body.review_description})[0];
+        console.log('\n\n---------- UPDATE ONE ----------');
+        console.log(documents);
+
+
+    } catch (error) {
+        console.error('Error updating owner response:', error);
+        res.status(500).send('Internal server error');
+    }
+});
 
 module.exports = adminRouter;

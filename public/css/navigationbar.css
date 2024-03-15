@@ -277,6 +277,10 @@ a, a:visited {
     width:50px;
 }
 
+.submit-search:hover {
+    background-color:#873b3b;
+}
+
 #picture {
     margin-left:20px;
     display:none;
