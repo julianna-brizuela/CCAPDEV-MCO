@@ -14,7 +14,8 @@ function average(document) {
 }
 
 const documents = [
-    {
+    {   
+        pfp: 'botejyupfp.jpg',
         restaurant_name: 'Botejyu', 
         location: 'Sta. Rosa, Laguna', 
         address:'Space no. M-38 BLDG-2, Solenad 2, Nuvali, Sto. Domingo of Sta. Rosa', 
@@ -31,7 +32,8 @@ const documents = [
         map_link: 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15468.978442286172!2d121.0566135!3d14.238948!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd7da0f1d4f6e9%3A0x9eb79c89e5e3895e!2sBotejyu%20Ayala%20Malls%20Solenad!5e0!3m2!1sen!2sph!4v1708076830088!5m2!1sen!2sph'
 
     },
-    {
+    {   
+        pfp: 'wholesometablepfp.jpg',
         restaurant_name: 'The Wholesome Table', 
         location: 'Salcedo, Makati', 
         address:'Salcedo, Makati | Infinity Tower Ground Floor, LP Leviste Street Salcedo Village Makati, 1227 Metro Manila Philippines', 
@@ -49,6 +51,7 @@ const documents = [
 
     },
     {
+        pfp: 'manampfp.jpg',
         restaurant_name: 'Manam', 
         location: 'Alabang, Muntinlupa', 
         address:'Molito Complex Madrigal Ave, Ayala Alabang, Muntinlupa, 1780 Metro Manila', 
@@ -66,6 +69,7 @@ const documents = [
 
     },
     {
+        pfp: 'kingbeepfp.png',
         restaurant_name: 'King Bee', 
         location: 'Sta. Rosa, Laguna', 
         address: 'Sta. Rosa Estate, Brgy. Don Jose, Santa Rosa, Luzon 4026 Philippines', 
@@ -74,7 +78,7 @@ const documents = [
         tags: ['Cantonese', 'Asian', 'Chinese'], 
         price: '₱₱', 
         menu: 'kingbeemenu.pdf', 
-        images: ['kingbee1.jpg', 'kingbee2.jpg','kingbee3.jpg','kingbee4.jpg','kingbee5.jpg'], 
+        images: ['kingbee1.jpg', 'kingbee2.jpg','kingbee3.png','kingbee4.jpg','kingbee5.jpg'], 
         resto_reviews: reviewsCollection.find({ restaurant: 'King Bee' }),
         rating: average(reviewsCollection.find({ restaurant: 'King Bee' })),
         review_num:reviewsCollection.find({ restaurant: 'King Bee' }).length,
@@ -83,6 +87,7 @@ const documents = [
 
     },
     {
+        pfp: 'uccpfp.jpg',
         restaurant_name: 'UCC Clockwork', 
         location: 'Sta. Rosa, Laguna', 
         address: 'Bldg. G, Nuvali, Ayala Malls Solenad, Don Jose, Santa Rosa, 4026 Laguna', 

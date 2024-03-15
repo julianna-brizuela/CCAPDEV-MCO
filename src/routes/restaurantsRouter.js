@@ -16,7 +16,6 @@ restaurantRouter.get('/browse', (req, res) => {
 });
 
 restaurantRouter.get('/browse/category=:category/filter=:filter', (req, res) => {
-
    let category = req.params.category;
    let filter = req.params.filter;
    console.log(category);
