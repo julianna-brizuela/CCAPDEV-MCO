@@ -49,7 +49,7 @@ ratingBtnWrapper.addEventListener("click", (event) => {
 
 submitReview?.addEventListener("click", async(e) => {
     const username = sessionStorage.getItem('munch-account-username');
-    username
+    
     e.preventDefault;
 
     let data = new FormData(reviewForm);
@@ -61,11 +61,9 @@ submitReview?.addEventListener("click", async(e) => {
     data["restaurant"] = document.getElementById("content-header").innerText;
     data["review_rating"] = review_rating  //change soon
 
-    if (getLoginStatus()) {
-        //how to retrieve user?
-    } else {
+    if (username !== null) {
         data["reviewer_name"] = username;
-    }
+    } 
 
     data["owner_response"] = ""
 

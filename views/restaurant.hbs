@@ -61,13 +61,17 @@
             <button class="button bookmark-sprite" id="save-button"> <i class="bookmark"></i> <span> Save </span> </button>
             <button class="button photo-sprite" id="add-photo-button"> <i class="photo"></i> <span> Add Photo </span> </button>
         </div>
-        <div id="write-a-review" class="button-review">
+        <div>
+            <div id="write-a-review" class="button-review">
             <!--reroute reveiws-->
             <a id="write-review" href="/{{toLink restaurant_name}}/writeareview" >
             {{!-- <a id="write-review"></a> --}}
                 <button type="button" class="button write-review">Write a Review</button>
             </a>
+            </div>
+            <div id="error-message" style="display: none; color: #873b3b;">You must be logged in to write a review.</div>
         </div>
+        
     </div>
     <div class="group3">
 
