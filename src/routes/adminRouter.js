@@ -1,6 +1,5 @@
 const express = require('express');
 const adminRouter = express.Router();
-const data = require('./data');
 const database = require('../../db/database.js');
 let documents;
 
@@ -26,6 +25,7 @@ adminRouter.get("/:username/restaurant", async (req, res) => {
  });
 
  adminRouter.post("/:username/restaurant", async (req, res) => {
+    console.log('HELLO')
     try {
         const { restaurant, reviewer_name, review_rating, date_of_review, review_description, owner_response } = req.body;
 

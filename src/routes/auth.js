@@ -6,16 +6,22 @@ const router = express.Router();
 router.post('/login', (req, res) => {
     const email = req.body['login-email'];
     const password = req.body['login-password'];
-    const userDocument = database.collections['users'].find({ email, password })?.[0];
+    const userType = req.body['user-type'] + 's';
+    const userDocument = database.collections[userType].find({ email, password })?.[0];
+    console.log('Requested')
 
     if (userDocument) {
-        const login_status = 'successful';
-        const userID = userDocument['_id'];
-        res.status(200).json({ login_status, userID });
-    }
-
-    else {
-        res.status(401).json({ login_status: 'unsuccessful' });
+        res.status(200).json({ 
+            login_status: 'successful', 
+            userID: userDocument['_id'],
+            username: userDocument['username'],
+        });
+    } else {
+        res.status(401).json({ 
+            login_status: 'unsuccessful',
+            userID: null,
+            username: null,
+        });
     }
 });
 

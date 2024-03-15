@@ -1,5 +1,6 @@
 <link rel="stylesheet" type="text/css" href="static/css/establishment.css"/>
-<script src="/static/js/restaurant.js" defer></script>
+<script src="/static/js/restaurants.js" defer></script>
+
 <div class="main-restaurant-info">
 
     <div id="name">  <h1> {{restaurant_name}} </h1>  </div>
@@ -62,10 +63,10 @@
         </div>
         <div class="button-review">
             <!--reroute reveiws-->
-            <a href="/{{toLink restaurant_name}}/writeareview">
+            <a id="write-review" href="/{{toLink restaurant_name}}/writeareview" >
+            {{!-- <a id="write-review"></a> --}}
                 <button type="button" class="button write-review">Write a Review</button>
             </a>
-             
         </div>
     </div>
     <div class="group3">

@@ -1,57 +1,56 @@
-<link rel="stylesheet" type="text/css" href="static/css/establishmentlist.css"/>
-<script src="static/js/filters.js"></script>
+<link rel="stylesheet" type="text/css" href="/static/css/establishmentlist.css"/>
+<script src="/static/js/filters.js" defer></script>
 
 <div class="content-container">
-
     <div class="filter-list">
             <h4>Prices</h4>
-        <div class="price-filters">
-            <button class="price-filter-button">
+        <div id="price-filters">
+            <button class="price-filter-button" onclick="location.href='/browse/category=price/filter=low'" method="GET">
                 ₱
             </button>
-            <button class="price-filter-button">
+            <button class="price-filter-button" onclick="location.href='/browse/category=price/filter=average'" method="GET">
                 ₱₱
             </button>
-            <button class="price-filter-button">
+            <button class="price-filter-button" onclick="location.href='/browse/category=price/filter=high'" method="GET">
                 ₱₱₱
             </button>
-            <button class="price-filter-button">
-                ₱₱₱
+            <button class="price-filter-button" onclick="location.href='/browse/category=price/filter=extreme'" method="GET"> 
+                ₱₱₱₱
             </button>
         </div>
         <hr>
             <h4> Tags </h4>
-        <div class="tag-list"> 
+        <div id="tag-list"> 
             {{#each tags}} 
-                <button class="tag-filter-button">{{this}}</button>
+                <button class="tag-filter-button" onclick="location.href='/browse/category=tags/filter={{this}}'" method="GET">{{this}}</button>
             {{/each}}
         </div>
 
         <hr>
         <h4> Rating </h4>
-        <div class="star-filter"> 
-            <button class="star-filter-button">
+        <div id="star-filter"> 
+            <button class="star-filter-button" onclick="location.href='/browse/category=star/filter=one'" method="GET">
                 <span class="star"></span>
             </button>
-            <button class="star-filter-button">
+            <button class="star-filter-button" onclick="location.href='/browse/category=star/filter=two'" method="GET">
                 <span class="star"></span>
                 <span class="star"></span>
                 
             </button>
-            <button class="star-filter-button">
-                <span class="star"></span>
-                <span class="star"></span>
-                <span class="star"></span>
-                
-            </button>
-            <button class="star-filter-button">
-                <span class="star"></span>
+            <button class="star-filter-button" onclick="location.href='/browse/category=star/filter=three'" method="GET">
                 <span class="star"></span>
                 <span class="star"></span>
                 <span class="star"></span>
                 
             </button>
-            <button class="star-filter-button">
+            <button class="star-filter-button" onclick="location.href='/browse/category=star/filter=four'" method="GET">
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                
+            </button>
+            <button class="star-filter-button" onclick="location.href='/browse/category=star/filter=five'" method="GET">
                 <span class="star"></span>
                 <span class="star"></span>
                 <span class="star"></span>

@@ -44,6 +44,7 @@ async function reply(reviewNum){
     const jstring = JSON.stringify(data); 
 
     try {
+        console.log(1)
         const review = await fetch("/:username/restaurant", {
             method: 'POST',
             body: jstring,
@@ -51,6 +52,7 @@ async function reply(reviewNum){
                 'Content-Type': 'application/json'
             }
         });    
+        console.log(2)
         if (review.status == 200) {
             location.reload(); 
         } else {
@@ -60,21 +62,8 @@ async function reply(reviewNum){
         }
         
     } catch (err) {
+        console.log(3)
         console.error(err);
-        }
+        console.log(3)
+    }
 }
-
-// document.addEventListener("DOMContentLoaded", function() {
-//     // Function to handle the button click
-//     function handleClick(event) {
-//         event.preventDefault(); // Prevents the default behavior (page reload) of the button click
-//         console.log("Button clicked!");
-        
-//     }
-
-//     // Attach the handleClick function to the button click event
-//     const submitButton = document.getElementById("button-0");
-//     submitButton.addEventListener("click", handleClick);
-// });
-
-

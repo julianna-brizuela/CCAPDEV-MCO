@@ -142,7 +142,7 @@ div.tag-container div {
     
 }
 
-.tag-list {
+#tag-list {
     display:flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -154,11 +154,11 @@ div.tag-container div {
 	height: 85px;
 }
 
-.star-filter button {
+#star-filter button {
     display:inline-block;
 }
 
-.star-filter .star {
+#star-filter .star {
     padding:12.5px;
     background-image:url('/static/img/spritesheet.png');
     background-repeat: no-repeat;
