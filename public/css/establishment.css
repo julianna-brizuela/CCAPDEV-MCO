@@ -508,3 +508,7 @@ ul {
     font-size: 0.8rem;
 }
 
+.rating-scale > li {
+    display: inline-block;
+    
+}

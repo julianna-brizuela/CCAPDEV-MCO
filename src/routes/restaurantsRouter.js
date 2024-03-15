@@ -15,6 +15,102 @@ restaurantRouter.get('/browse', (req, res) => {
     });
 });
 
+restaurantRouter.get('/browse/category=:category/filter=:filter', (req, res) => {
+
+   let category = req.params.category;
+   let filter = req.params.filter;
+   console.log(category);
+   console.log(filter);
+   let restaurants;
+
+   switch (category) {
+    case "price":
+        switch(filter) {
+            case "low":
+                restaurants = database.collections['restaurants'].find({price: '₱'});
+                console.log(restaurants)
+                break;
+            case "average":
+                restaurants = database.collections['restaurants'].find({price: '₱₱'});
+                console.log(restaurants)
+                break;
+            case "high":
+                restaurants = database.collections['restaurants'].find({price: '₱₱₱'});
+                console.log(restaurants)
+                break;
+            case "extreme":
+                restaurants = database.collections['restaurants'].find({price: '₱₱₱₱'});
+                break;  
+        }
+        console.log(restaurants)
+        break;
+    case "tags":
+        let arr = []
+        for (let i = 0; i < database.collections['restaurants'].documents.length; i++) {
+            restaurant = database.collections['restaurants'].documents[i];
+            tags = restaurant.tags;
+            
+            arr.push(restaurant.tags.filter(x => x === filter));
+            console.log(arr);
+            restaurants = arr;
+        }
+        
+        break;
+    case "star":
+        let star_filter
+        switch (filter) {
+            case "one":
+                star_filter = ['star','blank-star','blank-star','blank-star','blank-star'];
+                break;
+            case "two":
+                star_filter = ['star','star','blank-star','blank-star','blank-star'];
+                break;
+            case "three":
+                star_filter = ['star','star','star','blank-star','blank-star'];
+                break;
+            case "four":
+                star_filter = ['star','star','star','star','blank-star'];
+                break;
+            case "five":
+                star_filter = ['star','star','star','star','star'];
+                break;
+        }
+
+        function findStars(restaurant) {
+            if (JSON.stringify(restaurant.star) == JSON.stringify(star_filter)) {
+                console.log(restaurant.restaurant_name)
+                return restaurant.restaurant_name
+            }
+            else {
+                return 0
+            }
+        }
+
+        
+        function pushIntoArray(arr) {
+            for (let i = 0; i < database.collections['restaurants'].documents.length; i++) {
+                vname = findStars(database.collections['restaurants'].documents[i])
+                if (vname !== 0) {
+                    arr.push(database.collections['restaurants'].find({restaurant_name: vname}));
+                }
+            }
+            console.log(arr);
+            return arr;
+
+        }
+
+        restaurants = pushIntoArray([]);
+        restaurants = restaurants.flat(1)
+        break;
+   }
+
+    res.render("restaurant-list", {
+         title: "MUNCH | Where your cravings are served!",
+         tags: database.collections['tags'].documents[0]['tags'],
+         restaurants: restaurants
+     });
+ });
+
 //GET for Viewing a Restaurant
 restaurantRouter.get('/:restaurant', (req, res) => {
     let restaurant_route = req.params.restaurant;
