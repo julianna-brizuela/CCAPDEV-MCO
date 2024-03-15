@@ -18,8 +18,6 @@ restaurantRouter.get('/browse', (req, res) => {
 restaurantRouter.get('/browse/category=:category/filter=:filter', (req, res) => {
    let category = req.params.category;
    let filter = req.params.filter;
-   console.log(category);
-   console.log(filter);
    let restaurants;
 
    switch (category) {
@@ -45,18 +43,46 @@ restaurantRouter.get('/browse/category=:category/filter=:filter', (req, res) => 
         break;
     case "tags":
         let arr = []
-        for (let i = 0; i < database.collections['restaurants'].documents.length; i++) {
-            restaurant = database.collections['restaurants'].documents[i];
+        console.log(filter);
+
+        function findTags(restaurant) {
             tags = restaurant.tags;
-            
-            arr.push(restaurant.tags.filter(x => x === filter));
-            console.log(arr);
-            restaurants = arr;
+
+            for (let j = 0; j < tags.length; j++) {
+                tags[j] = tags[j].replace(/\s/g, '');
+                tags[j] = tags[j].toLowerCase();
+            }
+
+            if (tags.find(tag => tag === filter)) {
+                console.log(restaurant.restaurant_name);
+                return restaurant.restaurant_name;
+            } else {
+                return 0
+            }
         }
+
+        function push(arr) {
+            for (let i = 0; i < database.collections['restaurants'].documents.length; i++) {
+                vname = findTags(database.collections['restaurants'].documents[i]);
+                console.log(database.collections['restaurants'].documents[i].restaurant_name)
+                console.log(vname)
+
+                if (vname !== 0) {
+                    arr.push(database.collections['restaurants'].find({restaurant_name: vname}));
+                }
+
+                
+            }
+
+            return arr;
+        }
+    
+        restaurants = push([]);
+        restaurants = restaurants.flat(1);
         
         break;
     case "star":
-        let star_filter
+        let star_filter = []
         switch (filter) {
             case "one":
                 star_filter = ['star','blank-star','blank-star','blank-star','blank-star'];
@@ -93,7 +119,7 @@ restaurantRouter.get('/browse/category=:category/filter=:filter', (req, res) => 
                     arr.push(database.collections['restaurants'].find({restaurant_name: vname}));
                 }
             }
-            console.log(arr);
+            
             return arr;
 
         }
