@@ -1,3 +1,5 @@
+
+
 function filterBySearch() {
     //solution from: https://stackoverflow.com/questions/43821938/search-div-for-text
     var input = document.getElementById("search-bar");
@@ -13,12 +15,12 @@ function filterBySearch() {
     }
 }
 
-function filterByButton(filter) {
-    var filter = filter.toLowerCase();
+function filterByButton() {
     var restaurants = document.getElementsByClassName("restaurant");
 
     
 
-
 }
+
+
 

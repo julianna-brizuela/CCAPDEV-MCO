@@ -9,7 +9,7 @@
 
 }
 
-.name {
+#name {
     margin-bottom: -30px;
 
 }
@@ -115,7 +115,7 @@
 }
 
 .half-star {
-    background-image: url('images/spritesheet.png');
+    background-image: url('/static/img/spritesheet.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: -30px center;
@@ -488,33 +488,6 @@ ul {
     margin-bottom:auto;
 }
 
-.rating-scale > li {
-    display: inline-block;
-    background-image: url('/static/img/spritesheet.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 10.5% center;
-    padding: 0;
-    width: 1.2rem; /* Adjust the width as needed */
-    height: 1.2rem; /* Adjust the height as needed */
-}
-
-#rating-1.rating-scale > li:nth-child(-n+3) {
-    background-position: 0 center;
-}
-
-#rating-2.rating-scale > li:nth-child(-n+5) {
-    background-position: 0 center;
-}
-
-#rating-3.rating-scale > li:nth-child(-n+4) {
-    background-position: 0 center;
-}
-
-#rating-3.rating-scale > li:nth-child(4) {
-    background-position: 5.9% center;
-}
-
 .owner-reply-container {
     display: inline-block;
     margin-top:20px;
@@ -534,3 +507,4 @@ ul {
     word-wrap: break-word;
     font-size: 0.8rem;
 }
+

@@ -4,11 +4,60 @@
         <div class="post-info">
             <div class="post-info-name">{{reviewer_name}}</div>
             <div class="post-rating">
-                <ul class="rating-scale" id="rating-1">
-                    <!-- s in stars ∈ "star", "half-star", or "blank-star"-->
-                    {{#each star}}
-                        <li class="{{this}}"></li>
-                    {{/each}}
+                <ul class="rating-scale" id="rating">
+                    {{#if (isEqual review_rating 5)}}
+                        <li class="star"></li>
+                        <li class="star"></li>
+                        <li class="star"></li>
+                        <li class="star"></li>
+                        <li class="star"></li>
+                        
+                    {{/if}}
+
+                    {{#if (isEqual review_rating 4)}}
+                        <li class="star"></li>
+                        <li class="star"></li>
+                        <li class="star"></li>
+                        <li class="star"></li>
+                        <li class="blank-star"></li>
+                        
+                    {{/if}}
+
+                    {{#if (isEqual review_rating 3)}}
+                        <li class="star"></li>
+                        <li class="star"></li>
+                        <li class="star"></li>
+                        <li class="blank-star"></li>
+                        <li class="blank-star"></li>
+                        
+                    {{/if}}
+                    {{#if (isEqual review_rating 2)}}
+                        <li class="star"></li>
+                        <li class="star"></li>
+                        <li class="blank-star"></li>
+                        <li class="blank-star"></li>
+                        <li class="blank-star"></li>
+                        
+                    {{/if}}
+
+                    {{#if (isEqual review_rating 1)}}
+                        <li class="star"></li>
+                        <li class="blank-star"></li>
+                        <li class="blank-star"></li>
+                        <li class="blank-star"></li>
+                        <li class="blank-star"></li>
+                        
+                    {{/if}}
+
+                    {{#if (isEqual review_rating 0)}}
+                        <li class="blank-star"></li>
+                        <li class="blank-star"></li>
+                        <li class="blank-star"></li>
+                        <li class="blank-star"></li>
+                        <li class="blank-star"></li>
+                        
+                    {{/if}}
+                    
                 </ul>
             </div>
         </div>

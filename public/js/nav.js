@@ -60,3 +60,35 @@ $(document).ready(function() {
         }
     });
 });
+
+$("#login-form").submit(async event => {
+    event.preventDefault();
+    const responseMessage = $('#submit-response');
+    const formData = new FormData(event.target);
+
+    try {
+        const response = await fetch('/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(Object.fromEntries(formData)),
+        });
+
+        if (!response.ok)
+            throw new Error('Network response was not ok');
+        
+        const responseData = await response.json();
+        if (responseData.login_status !== 'successful')
+            return;
+
+        sessionStorage.setItem('userId', responseData['userID']);
+        window.location.href = window.location.href;
+
+    } catch(error) {
+        responseMessage.text('Login failed. Please try again.');
+        $('#submit-response').css('display', 'block');
+    }
+});
+
+function enableProfilePicture() {
+    document.getElementById("profile-picture").style.display = "block";
+}
