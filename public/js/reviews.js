@@ -28,6 +28,8 @@ reviewBtn?.addEventListener("click", async(e) => {
         data["reviewer_name"] = "Anonymous"
     }
 
+    data["owner_response"] = ""
+
     const objectOrder = {
         'restaurant': null,
         'reviewer_name': null,
@@ -37,11 +39,7 @@ reviewBtn?.addEventListener("click", async(e) => {
     }
 
     data = Object.assign(objectOrder, data);
-
-    console.log(data)
-    console.log(data);
     const jstring = JSON.stringify(data); 
-    console.log(jstring);
 
     try {
         const review = await fetch('/:restaurant/writeareview', {
@@ -51,9 +49,7 @@ reviewBtn?.addEventListener("click", async(e) => {
                 'Content-Type': 'application/json'
             }
         });
-        
-        console.log("REVIEW")
-        console.log(review);
+
     
         if (review.status == 200) {
             location.reload(); // refresh the page
@@ -64,8 +60,7 @@ reviewBtn?.addEventListener("click", async(e) => {
         }
     } catch (err) {
         console.error(err);
-        console.log("get rekted")
-    }
+        }
     
     
     

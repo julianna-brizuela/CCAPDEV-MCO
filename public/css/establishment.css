@@ -347,7 +347,7 @@ i {
 
 .customer-reviews {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 
@@ -356,8 +356,9 @@ i {
     flex-direction: column;
     padding-top: 1rem;
     padding-bottom: 1rem;
-    width:33%;
-    margin-bottom:50px;
+    width:100%;
+    margin-bottom:20px;
+    border-bottom: 2px solid #383030;
 }
 
 .post-header {

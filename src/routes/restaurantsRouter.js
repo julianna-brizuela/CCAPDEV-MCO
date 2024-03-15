@@ -29,6 +29,7 @@ restaurantRouter.get('/:restaurant', (req, res) => {
 
     if (restaurant) {
         res.locals.title = "MUNCH | " + restaurant['restaurant_name'];
+        //console.log(restaurant.resto_reviews);
 
     }
     res.render("restaurant", restaurant);
@@ -54,19 +55,36 @@ restaurantRouter.get('/:restaurant/writeareview', (req, res) => {
 });
 
 restaurantRouter.post('/:restaurant/writeareview', async (req, res) => {
-    console.log("POST request received for /posts");
-    console.log(req.body);
+    let restaurant_route = req.body.restaurant;
 
-    
-        
-        // TODO 2.2: Find matching user document with the given Id
+    function validRestaurant(restaurant) {
+        let restaurant_name = restaurant.restaurant_name;
+        return restaurant_name===restaurant_route;
+    }
+
+    const prev_length = database.collections['reviews'].getLength();
+
+    let restaurant = database.collections['restaurants'].documents.find(validRestaurant);
+
+    try {
+        //inserts new entry into the database
         const review = await database.collections['reviews'].insertOne(req.body);
-        // TODO 2.4: if successful, send statuscode 200. Otherwise send 500.
-        documents = database.collections['reviews'].find({restaurant: 'Botejyu'});
-        console.log(documents);
-        res.sendStatus(200);
+        console.log(database.collections['reviews'])
 
-    //TODO: retrieve data from the form and input it into the database
+        //checking if it inserted correctly
+        if (prev_length < database.collections['reviews'].getLength()) {
+            res.sendStatus(200);
+            if (restaurant) {
+                const update = await database.collections['restaurants'].updateOne({restaurant_name: restaurant.restaurant_name}, {resto_reviews: database.collections['reviews'].find({restaurant: restaurant.restaurant_name})});
+                
+            }
+        } else {
+            res.sendStatus(500);
+        }
+    } catch (err) {
+        console.error(err);
+        res.sendStatus(500);
+    }
     
 });
 

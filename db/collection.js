@@ -84,6 +84,10 @@ class Collection {
         });
         return originalLength !== this.documents.length; // Return true if any document was deleted
     }
+
+    getLength() {
+        return this.documents.length;
+    }
 }
 
 module.exports = Collection;
