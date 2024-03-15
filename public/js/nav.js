@@ -52,3 +52,7 @@ $("#login-form").submit(async event => {
         $('#submit-response').css('display', 'block');
     }
 });
+
+function enableProfilePicture() {
+    document.getElementById("profile-picture").style.display = "block";
+}
