@@ -1,8 +1,7 @@
 const express = require('express');
-const router = express.Router();
+const indexRouter = express.Router();
 
-//
-router.get('/search', (req, res) => {
+indexRouter.get('/search', (req, res) => {
     // Retrieve the search value from the query parameters
     const searchValue = req.query.key;
 
@@ -13,4 +12,4 @@ router.get('/search', (req, res) => {
     res.send(`You searched for: ${searchValue}`);
 });
 
-module.exports = router;
+module.exports = indexRouter;
