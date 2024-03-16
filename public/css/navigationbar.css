@@ -264,7 +264,7 @@ a, a:visited {
     padding:20px;
     height:100%;
     width:60px;
-    background-image:url('/static/img/spritesheet.png');
+    background-image:url('/img/spritesheet.png');
     background-repeat: no-repeat;
     background-size:720px 36px;
     background-position:-179px center;
@@ -288,7 +288,7 @@ a, a:visited {
 
 .profile-picture {
     border:none;
-    background: url("/static/img/spritesheet.png");
+    background: url("/img/spritesheet.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: -360px center;

@@ -106,7 +106,7 @@ div.tag-container div {
 }
 
 .half-star {
-    background-image: url('/static/img/spritesheet.png');
+    background-image: url('/img/spritesheet.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: -30px center;
@@ -115,7 +115,7 @@ div.tag-container div {
 }
 
 .blank-star {
-    background-image: url('/static/img/spritesheet.png');
+    background-image: url('/img/spritesheet.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: -60px center;
@@ -124,7 +124,7 @@ div.tag-container div {
 }
 
 .star {
-    background: url('/static/img/spritesheet.png');
+    background: url('/img/spritesheet.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: -4px center;
@@ -149,7 +149,7 @@ div.tag-container div {
 }
 
 .peso {
-    background: url('/static/img/spritesheet.png') no-repeat -393px -7px;
+    background: url('/img/spritesheet.png') no-repeat -393px -7px;
 	width: 78px;
 	height: 85px;
 }
@@ -160,7 +160,7 @@ div.tag-container div {
 
 #star-filter .star {
     padding:12.5px;
-    background-image:url('/static/img/spritesheet.png');
+    background-image:url('/img/spritesheet.png');
     background-repeat: no-repeat;
     background-size:500px 25px;
     background-position:0px center;

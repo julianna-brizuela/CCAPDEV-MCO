@@ -69,7 +69,7 @@ main, footer {
     background-color: var(--darkdesert);
     background-image: 
         linear-gradient(to top, rgba(255,0,0,0), rgba(0, 0, 0, 0.718)),
-        url("/static/img/pizza.jpeg");
+        url("/img/pizza.jpeg");
     background-size: 100% auto;
     background-position: center;
     /* background-repeat: no-repeat; */
@@ -197,7 +197,7 @@ h1 {
 .search-bar-container > .search-bar #location-icon {
     display: block; /*so the bg image displays without needing content*/
     background-color: transparent;
-    background-image: url('/static/img/spritesheet.png');
+    background-image: url('//img/spritesheet.png');
     background-position: 16.2% center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -227,7 +227,7 @@ h1 {
 .search-bar-container > .search-bar #search-icon {
     border-radius: inherit;
     background-color: transparent;
-    background-image: url('/static/img/spritesheet.png');
+    background-image: url('//img/spritesheet.png');
     background-position: 26.5% center;
     background-repeat: no-repeat;
     background-size: cover;

@@ -1,12 +1,12 @@
-<link rel="stylesheet" type="text/css" href="/static/css/admin.css"/>
-<script src="/static/js/admin-reply.js" defer></script>
+<link rel="stylesheet" type="text/css" href="css/admin.css"/>
+<script src="js/admin-reply.js" defer></script>
 
 <div class="overall-container">
     <div class="main-restaurant-info">
         <div class="name"> <h1 id="restaurant-name">{{restaurant.restaurant_name}}</h1> </div>
 
         <div class="pictures">
-            <div class="pic1" style="background-image:url('/static/img/restaurant-images/{{toLink restaurant.restaurant_name}}/{{restaurant.pfp}}'); background-size:contain; background-position: center;"></div>
+            <div class="pic1" style="background-image:url('img/restaurant-images/{{toLink restaurant.restaurant_name}}/{{restaurant.pfp}}'); background-size:contain; background-position: center;"></div>
         </div>
 
         <div class="group1">
@@ -49,7 +49,7 @@
             {{#each reviews}}
                 <div class="post" id="post-{{@index}}">
                     <div class="post-header">
-                        <img class="post-profile-pic" src="/static/img/profile-pics/{{reviewer_pfp}}">
+                        <img class="post-profile-pic" src="img/profile-pics/{{reviewer_pfp}}">
                         <div class="post-info">
                             <div class="post-info-name" id="reviewer-name-{{@index}}">{{reviewer_name}}</div>
                             <div class="post-rating">

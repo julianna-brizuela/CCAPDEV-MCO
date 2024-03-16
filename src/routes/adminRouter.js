@@ -12,7 +12,7 @@ adminRouter.get("/:username/restaurant", async (req, res) => {
     let username = req.params.username;
     username = decodeURIComponent(username);
 
-    admin = database.collections['admins'].find({username: username})[0];
+    admin = database.collections['admins'].find({ username })[0];
     if(admin){
         
         const restaurantReviews = database.collections['reviews'].find({restaurant: admin.restaurant_name});
@@ -22,7 +22,7 @@ adminRouter.get("/:username/restaurant", async (req, res) => {
             title: "MUNCH | Where your cravings are served!",
             reviews: restaurantReviews,
             restaurant: adminRestaurant,
-            toLink: toLink
+            toLink,
         });
     } else {
         res.status(404).render('404_error_template', {title: "Sorry, page not found"});

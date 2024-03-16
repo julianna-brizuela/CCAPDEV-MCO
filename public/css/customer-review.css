@@ -93,7 +93,7 @@ fieldset {
 
 .star-button {
     display: inline-block;
-    background-image: url('/static/img/spritesheet.png');
+    background-image: url('/img/spritesheet.png');
     background-color:transparent;
     background-size: cover;
     background-repeat: no-repeat;

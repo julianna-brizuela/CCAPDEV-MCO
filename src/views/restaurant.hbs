@@ -1,17 +1,17 @@
-<link rel="stylesheet" type="text/css" href="static/css/establishment.css"/>
-<script src="/static/js/restaurants.js" defer></script>
+<link rel="stylesheet" type="text/css" href="css/establishment.css"/>
+<script src="js/restaurants.js" defer></script>
 
 <div class="main-restaurant-info">
 
     <div id="name">  <h1> {{restaurant_name}} </h1>  </div>
 
     <div class="pictures">
-        <div class="pic1" style="background-image:url('/static/img/restaurant-images/{{toLink restaurant_name}}/{{images.[0]}}'); background-size:cover"></div>
+        <div class="pic1" style="background-image:url('img/restaurant-images/{{toLink restaurant_name}}/{{images.[0]}}'); background-size:cover"></div>
         <div class="second-half">
-            <div class="pic2" style="background-image:url('/static/img/restaurant-images/{{toLink restaurant_name}}/{{images.[1]}}'); background-size:cover"></div>
-            <div class="pic3" style="background-image:url('/static/img/restaurant-images/{{toLink restaurant_name}}/{{images.[2]}}'); background-size:cover"></div>
-            <div class="pic4" style="background-image:url('/static/img/restaurant-images/{{toLink restaurant_name}}/{{images.[3]}}'); background-size:cover"></div>
-            <div class="pic5" style="background-image:url('/static/img/restaurant-images/{{toLink restaurant_name}}/{{images.[4]}}'); background-size:cover"></div>
+            <div class="pic2" style="background-image:url('img/restaurant-images/{{toLink restaurant_name}}/{{images.[1]}}'); background-size:cover"></div>
+            <div class="pic3" style="background-image:url('img/restaurant-images/{{toLink restaurant_name}}/{{images.[2]}}'); background-size:cover"></div>
+            <div class="pic4" style="background-image:url('img/restaurant-images/{{toLink restaurant_name}}/{{images.[3]}}'); background-size:cover"></div>
+            <div class="pic5" style="background-image:url('img/restaurant-images/{{toLink restaurant_name}}/{{images.[4]}}'); background-size:cover"></div>
         </div>
         
     </div>
@@ -78,7 +78,7 @@
         <div class="content"> 
             <div class="hr2"> </div>
             <div class="bold">Menu </div>
-            <iframe src= "/static/pdf/{{menu}}" class="image-container menu"></iframe>
+            <iframe src= "pdf/{{menu}}" class="image-container menu"></iframe>
 
             <div class="hr2"> </div>
             

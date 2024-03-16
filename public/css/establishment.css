@@ -115,7 +115,7 @@
 }
 
 .half-star {
-    background-image: url('/static/img/spritesheet.png');
+    background-image: url('/img/spritesheet.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: -30px center;
@@ -124,7 +124,7 @@
 }
 
 .blank-star {
-    background-image: url('/static/img/spritesheet.png');
+    background-image: url('/img/spritesheet.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: -60px center;
@@ -133,7 +133,7 @@
 }
 
 .star {
-    background: url('/static/img/spritesheet.png');
+    background: url('/img/spritesheet.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: -4px center;
@@ -247,7 +247,7 @@ i {
     display: inline-block;
     width: 30px;
     height: 30px;
-    background-image: url('/static/img/spritesheet.png');
+    background-image: url('/img/spritesheet.png');
     background-size: cover;
     background-position: 90px 0px;
 }
@@ -257,7 +257,7 @@ i {
     display: inline-block;
     width: 30px; 
     height: 30px; 
-    background-image: url('/static/img/spritesheet2.png');
+    background-image: url('/img/spritesheet2.png');
     background-size: cover;
     background-position: -60px center; 
 }
@@ -267,7 +267,7 @@ i {
     display: inline-block;
     width: 30px;
     height: 30px;
-    background-image: url('/static/img/spritesheet.png');
+    background-image: url('/img/spritesheet.png');
     background-size: cover;
     background-position: 60px 0px;
 }
@@ -277,7 +277,7 @@ i {
     display: inline-block;
     width: 30px;
     height: 30px;
-    background-image: url('/static/img/spritesheet2.png');
+    background-image: url('/img/spritesheet2.png');
     background-size: cover;
     background-position: -150px center; 
 }
@@ -287,7 +287,7 @@ i {
     display: inline-block;
     width: 30px;
     height: 30px;
-    background-image: url('/static/img/spritesheet2.png');
+    background-image: url('/img/spritesheet2.png');
     background-size: cover;
     background-position: -120px center; 
 }
@@ -397,7 +397,7 @@ ul {
 
 #rating-1.rating-scale > li {
     display: inline-block;
-    background-image: url('/static/img/spritesheet.png');
+    background-image: url('/img/spritesheet.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 10.5% center;
@@ -455,7 +455,7 @@ ul {
     display: inline-block;
     height:30px;
     width:30px;
-    background-image:url('/static/img/spritesheet.png');
+    background-image:url('/img/spritesheet.png');
     background-repeat: no-repeat;
     background-size:600px 30px;
     background-position:-86px center;
@@ -471,7 +471,7 @@ ul {
     display: inline-block;
     height:30px;
     width:30px;
-    background-image:url('/static/img/spritesheet2.png');
+    background-image:url('/img/spritesheet2.png');
     background-repeat: no-repeat;
     background-size:180px 30px;
     background-position: -90px center;

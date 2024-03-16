@@ -1,11 +1,11 @@
-const saveBtn = document.getElementById("save-button");
+const saveBtn = document.getElementById('save-button');
 
 
-saveBtn?.addEventListener("click", async(e) => {
+saveBtn?.addEventListener('click', async(e) => {
     //add this restaurant into the list of saved restaurants of a user
-    console.log("click")
+    console.log('click')
     let data = {}
-    data['restaurant_name'] = document.getElementById("name").innerText;
+    data['restaurant_name'] = document.getElementById('name').innerText;
     const jstring = JSON.stringify(data); 
     console.log(jstring)
 
