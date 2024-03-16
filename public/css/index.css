@@ -79,6 +79,7 @@ main, footer {
 
 .navbar-content {
     color:var(--yellow);
+    padding: 25px 0px;
 }
 
 a, a:visited {

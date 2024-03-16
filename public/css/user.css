@@ -69,6 +69,8 @@ hr {
 .profile-pic img{
     border: 2px solid var(--default-text);
     border-radius: 100px;
+    height: 200px;
+    width: 200px;
 }
 
 .profile-controls {
@@ -110,7 +112,7 @@ hr {
 
 .profile-controls .edit-profile {
     padding:17.5px;
-    background-image:url('images/spritesheet.png');
+    background-image:url('/static/img/spritesheet.png');
     background-repeat: no-repeat;
     background-size:500px 25px;
     background-position:-370px center;
@@ -118,7 +120,7 @@ hr {
 
 .profile-controls .add-photo {
     padding:17.5px;
-    background-image:url('images/spritesheet.png');
+    background-image:url('/static/img/spritesheet.png');
     background-repeat: no-repeat;
     background-size:600px 30px;
     background-position:-268px center;
@@ -126,7 +128,7 @@ hr {
 
 .profile-controls .delete-profile {
     padding:17.5px;
-    background-image:url('images/spritesheet.png');
+    background-image:url('/static/img/spritesheet.png');
     background-repeat: no-repeat;
     background-size:600px 30px;
     background-position:-388px center;

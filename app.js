@@ -42,10 +42,11 @@ const usersRouter = require('./src/routes/usersRouter.js');
 app.use(express.json());
 app.use('/', home);
 app.use('/', auth);
+app.use(usersRouter);
 app.use('/', adminRouter);
 app.use('/', indexRouter);
 app.use(restaurantRouter);
-app.use(usersRouter);
+
 
 
 

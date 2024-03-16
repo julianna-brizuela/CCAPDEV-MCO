@@ -1,5 +1,3 @@
-/* this is the default navigation bar used for all webpages except index.html */
-
 @import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url("https://use.typekit.net/mch3zne.css");
 
@@ -288,7 +286,7 @@ a, a:visited {
 
 .profile-picture {
     border:none;
-    background: url("/static/img/spritesheet.png");
+    background: url("/img/spritesheet.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: -360px center;
