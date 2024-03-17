@@ -28,8 +28,8 @@ $(document).ready(function() {
         event.preventDefault();
         const responseMessage = $('#submit-response');
 
-        document.querySelector('.action-buttons').style.display = 'none';
-        document.querySelector('#picture').style.display = 'block';
+        // document.querySelector('.action-buttons').style.display = 'none';
+        // document.querySelector('#picture').style.display = 'block';
 
         try {
             const formData = new FormData(event.target);

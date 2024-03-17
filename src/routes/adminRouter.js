@@ -25,7 +25,8 @@ adminRouter.get("/:username/restaurant", async (req, res) => {
             toLink,
         });
     } else {
-        res.status(404).render('404_error_template', {title: "Sorry, page not found"});
+        // res.status(404).render('404_error_template', {title: "Sorry, page not found"});
+        res.redirect('error');
     }
  });
 

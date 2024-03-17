@@ -1,9 +1,8 @@
-const { Router } = require('express');
-const userRouter = Router();
 const express = require('express');
+const profile = express.Router();
 const database = require('../../db/database.js');
 
-userRouter.get('/:username', async (req, res) => {
+profile.get('/profile/:username', async (req, res) => {
     let username_route = req.params.username;
     username_route = decodeURIComponent(username_route);
     console.log('USER ROUTE')
@@ -19,9 +18,9 @@ userRouter.get('/:username', async (req, res) => {
     let user = database.collections['users'].documents.find(findUser);
 
     if (user)
-        res.locals.title = 'MUNCH | ' + user['username'];
+        res.locals.title = `MUNCH | ${user['username']}`;
 
     res.render('user', user);
 });
 
-module.exports = userRouter;
+module.exports = profile;

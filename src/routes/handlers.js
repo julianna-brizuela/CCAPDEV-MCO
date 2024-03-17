@@ -6,13 +6,15 @@ const auth = require('#routes/auth.js');
 const adminRouter = require('#routes/adminRouter.js');
 const indexRouter = require('#routes/indexRouter.js');
 const restaurantRouter = require('#routes/restaurantsRouter.js');
-const usersRouter = require('#routes/usersRouter.js');
+const profile = require('#routes/user-profile.js');
+const error = require('#routes/error.js');
 
 router.use(home);
 router.use(auth);
 router.use(adminRouter);
 router.use(indexRouter);
 router.use(restaurantRouter);
-router.use(usersRouter); 
+router.use(profile);
+router.use(error);
 
 module.exports = router;
