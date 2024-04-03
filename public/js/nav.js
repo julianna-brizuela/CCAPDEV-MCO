@@ -53,7 +53,8 @@ $(document).ready(function() {
 
             const userType = JSON.parse(strData)['user-type'];
             if (userType === 'user') {
-                let username_modified = username.toLowerCase();
+                let username_modified = username.replace(/_/g, '');
+                
                 
                 window.location.href = `/${username_modified}`;
             } else if (userType === 'admin')

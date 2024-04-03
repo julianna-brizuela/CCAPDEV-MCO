@@ -4,6 +4,8 @@ const hbs = require('express-handlebars');
 const app = express();
 const PORT = process.env.PORT;
 
+const { connect } = require('./src/models/conn.js');
+
 // Configurations
 app.use('/static', express.static(__dirname + '/public'));
 // app.use(express.urlencoded({ extended: true }));
@@ -47,51 +49,14 @@ app.use('/', indexRouter);
 app.use(restaurantRouter);
 app.use(usersRouter);
 
-
-
-//  // ---------- MAKESHIFT DATABASE METHODS  ---------- 
-//  // Importing the db object
-//  const database = require('./db/database.js')
-//  let documents;
-
-//  // Creating a new document
-//  database.collections['users'].insertOne( {_id: 'Skibidi Toilet'} );
-//  documents = database.collections['users'].find({_id: 'Skibidi Toilet'})[0];
-//  console.log('---------- CREATE/INSERT ----------');
-//  console.log(documents);
-
-//  // Finding documents (returns an array with the matched documents)
-//  documents = database.collections['users'].find({ name: 'Josh Hutcherson' });
-//  console.log('\n\n---------- READ/FIND ----------');
-//  console.log(documents);
-
-//  // Updating one document (updates the first document matched by the query)
-//  database.collections['users'].updateOne({ name: 'Josh Hutcherson' }, { name: 'JOSH HUTCHERSON' });
-//  documents = database.collections['users'].find({ name: 'JOSH HUTCHERSON' })[0];
-//  console.log('\n\n---------- UPDATE ONE ----------');
-//  console.log(documents);
-
-//  // Updating many documents (updates all documents matched by the query)
-//  database.collections['users'].updateOne({ name: 'JOSH HUTCHERSON' }, { name: 'Josh Hutcherson' });
-//  documents = database.collections['users'].find({ name: 'Josh Hutcherson' });
-//  console.log('\n\n---------- UPDATE MANY ----------');
-//  console.log(documents);
-
-//  // Deleting a document (that match the query)
-//  database.collections['restaurants'].deleteOne({ restaurant_name: 'Manam' });
-//  documents = database.collections['restaurants'];
-//  console.log('\n\n---------- DELETE ONE ----------');
-//  console.log(documents);
-
-//  // Deleting many documents (that match the query)
-//  database.collections['restaurants'].deleteMany({ restaurant_name: 'Botejyu' });
-//  documents = database.collections['restaurants'];
-//  console.log('\n\n---------- DELETE MANY ----------');
-//  console.log(documents);
-
-//  // ---------- MAKESHIFT DATABASE METHODS  ---------- 
-
 // Server Startup
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+app.listen(process.env.PORT, async function() {
+    console.log(`express app is now listening on port ${process.env.PORT}`);
+    try {
+        await connect();
+        console.log(`Now connected to MongoDB`);
+    } catch (err) {
+        console.log('Connection to MongoDB failed: ');
+        console.error(err);
+    }
 });
