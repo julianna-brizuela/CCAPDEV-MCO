@@ -3,49 +3,60 @@
  */
 const { Router } = require('express');
 const restaurantRouter = Router();
+
+//DATABASES
+const Users = require("#models/Users.js");
+const Admins = require("#models/Admins.js");
+const Restaurants = require("#models/Restaurants.js");
+const Reviews = require("#models/Reviews.js");
+const Tags = require("#models/Tags.js");
+
+//REMOVE LATER
 const database = require('../../db/database.js');
 
+const {nestedQuery, nestedQueryNoProject, getAverageRating } = require("#helpers/js-helpers.js");
+
 //GET for Viewing All Restaurants
-restaurantRouter.get('/browse', (req, res) => {
+restaurantRouter.get('/browse', async (req, res) => {
+    const restaurants = await Restaurants.find({}).lean().exec();
+
+    //retrieves the tag_name field from the Tags collection
+    const tags = await Tags.find({}, {tag_name:1, _id:0}).lean().exec();
+    const tags_array = tags.map(tag => tag.tag_name.toString());
+
    res.render("restaurant-list", {
         title: "MUNCH | Where your cravings are served!",
-        tags: database.collections['tags'].documents[0]['tags'],
-        restaurants: database.collections['restaurants'].documents
+        tags: tags_array,
+        restaurants: restaurants
     });
 });
 
-restaurantRouter.get('/browse/category=:category/filter=:filter', (req, res) => {
+restaurantRouter.get('/browse/category=:category/filter=:filter', async (req, res) => {
    let category = req.params.category;
    let filter = req.params.filter;
-   let restaurants;
+   let restaurants = await Restaurants.find({}).lean().exec();
 
    switch (category) {
     case "price":
         switch(filter) {
             case "low":
-                restaurants = database.collections['restaurants'].find({price: '₱'});
-                console.log(restaurants)
+                restaurants = await Restaurants.find({price: '₱'}).lean().exec();
                 break;
             case "average":
-                restaurants = database.collections['restaurants'].find({price: '₱₱'});
-                console.log(restaurants)
+                restaurants = await Restaurants.find({price: '₱₱'}).lean().exec();
                 break;
             case "high":
-                restaurants = database.collections['restaurants'].find({price: '₱₱₱'});
-                console.log(restaurants)
+                restaurants = await Restaurants.find({price: '₱₱₱'}).lean().exec();
                 break;
             case "extreme":
-                restaurants = database.collections['restaurants'].find({price: '₱₱₱₱'});
+                restaurants = await Restaurants.find({price: '₱₱₱₱'}).lean().exec();
                 break;  
         }
-        console.log(restaurants)
         break;
     case "tags":
         let arr = []
-        console.log(filter);
 
-
-        function findTags(restaurant) {
+        function findMatchingTags(restaurant) {
             let tempTags = []
             Object.assign(tempTags, restaurant.tags);
 
@@ -55,31 +66,29 @@ restaurantRouter.get('/browse/category=:category/filter=:filter', (req, res) => 
             }
 
             if (tempTags.find(tag => tag === filter)) {
-                console.log(restaurant.restaurant_name);
                 return restaurant.restaurant_name;
             } else {
                 return 0
             }
         }
 
-        function push(arr) {
-            for (let i = 0; i < database.collections['restaurants'].documents.length; i++) {
-                vname = findTags(database.collections['restaurants'].documents[i]);
-                console.log(database.collections['restaurants'].documents[i].restaurant_name)
-                console.log(vname)
+        //TODO turn this into helper function
+        async function push(arr) {
+            for (let i = 0; i < restaurants.length; i++) {
+                restaurantName = findMatchingTags(restaurants[i]);
 
-                if (vname !== 0) {
-                    arr.push(database.collections['restaurants'].find({restaurant_name: vname}));
+                if (restaurantName !== 0) {
+                    //pushes the restaurants whose tags match the filter into the array to be displayed
+                    const restaurant = await Restaurants.find({restaurant_name: restaurantName}).lean().exec()
+                    arr.push(restaurant);
                 }
-
-                
             }
-            return arr;
+            
+            
+            return arr.flat(1);
         }
     
-        restaurants = push([]);
-        restaurants = restaurants.flat(1);
-        
+        restaurants = await push([]);
         break;
     case "star":
         let star_filter = []
@@ -101,7 +110,7 @@ restaurantRouter.get('/browse/category=:category/filter=:filter', (req, res) => 
                 break;
         }
 
-        function findStars(restaurant) {
+        function findMatchingStars(restaurant) {
             if (JSON.stringify(restaurant.star) == JSON.stringify(star_filter)) {
                 console.log(restaurant.restaurant_name)
                 return restaurant.restaurant_name
@@ -111,43 +120,37 @@ restaurantRouter.get('/browse/category=:category/filter=:filter', (req, res) => 
             }
         }
 
-        
-        function pushIntoArray(arr) {
-            for (let i = 0; i < database.collections['restaurants'].documents.length; i++) {
-                vname = findStars(database.collections['restaurants'].documents[i])
-                if (vname !== 0) {
-                    arr.push(database.collections['restaurants'].find({restaurant_name: vname}));
+        async function pushIntoArray(arr) {
+            for (let i = 0; i < restaurants.length; i++) {
+                restaurantName = findMatchingStars(restaurants[i])
+                if (restaurantName !== 0) {
+                    const restaurant = await Restaurants.find({restaurant_name: restaurantName}).lean().exec()
+                    arr.push(restaurant);
                 }
             }
-            
-            return arr;
-
+            return arr.flat(1);
         }
 
-        restaurants = pushIntoArray([]);
-        restaurants = restaurants.flat(1)
+        restaurants = await pushIntoArray([]);
+
         break;
    }
 
+    const tags = await Tags.find({}, {tag_name:1, _id:0}).lean().exec();
+    const tags_array = tags.map(tag => tag.tag_name.toString());
+
     res.render("restaurant-list", {
          title: "MUNCH | Where your cravings are served!",
-         tags: database.collections['tags'].documents[0]['tags'],
+         tags: tags_array,
          restaurants: restaurants
      });
  });
 
 //GET for Viewing a Restaurant
-restaurantRouter.get('/:restaurant', (req, res) => {
+restaurantRouter.get('/:restaurant', async (req, res) => {
     let restaurant_route = req.params.restaurant;
 
-    function validRestaurant(restaurant) {
-        let restaurant_name = restaurant.restaurant_name;
-        restaurant_name = restaurant_name.replace(/\s/g, '');
-        restaurant_name = restaurant_name.toLowerCase();
-        return restaurant_name===restaurant_route;
-    }
-
-    let restaurant = database.collections['restaurants'].documents.find(validRestaurant);
+    let restaurant = await Restaurants.findOne({routeparameter: restaurant_route}).lean().exec();
 
     if (restaurant) {
         res.locals.title = "MUNCH | " + restaurant['restaurant_name'];
@@ -155,7 +158,6 @@ restaurantRouter.get('/:restaurant', (req, res) => {
     } else {
         res.status(404).render('404_error_template', {title: "Sorry, page not found"});
     }
-    
 });
 
 //POST for Adding a Photo or Saving
@@ -186,17 +188,15 @@ restaurantRouter.post('/:restaurant', async (req, res) => {
 })
 
 //GET for Writing a Review
-restaurantRouter.get('/:restaurant/writeareview', (req, res) => {
+restaurantRouter.get('/:restaurant/writeareview', async (req, res) => {
     let restaurant_route = req.params.restaurant;
 
-    function validRestaurant(restaurant) {
-        let restaurant_name = restaurant.restaurant_name;
-        restaurant_name = restaurant_name.replace(/\s/g, '');
-        restaurant_name = restaurant_name.toLowerCase();
-        return restaurant_name===restaurant_route;
-    }
-
-    let restaurant = database.collections['restaurants'].documents.find(validRestaurant);
+    let restaurant = await Restaurants.findOne({routeparameter: restaurant_route}).lean().populate({
+        path: 'resto_reviews',
+        populate: {
+            path: 'reviewer',
+        }
+    }).exec();
 
     if(restaurant) {
         res.locals.title = "MUNCH | Write a Review for " + restaurant['restaurant_name'];
@@ -204,21 +204,14 @@ restaurantRouter.get('/:restaurant/writeareview', (req, res) => {
     } else {
         res.status(404).render('404_error_template', {title: "Sorry, page not found"});
     }
-
-    
 });
 
 //POST for Writing a Review (DO NOT TOUCH)
 restaurantRouter.post('/:restaurant/writeareview', async (req, res) => {
     let restaurant_route = req.body.restaurant;
-
-    function validRestaurant(restaurant) {
-        let restaurant_name = restaurant.restaurant_name;
-        return restaurant_name===restaurant_route;
-    }
-
-    const prev_length = database.collections['reviews'].getLength();
-    let restaurant = database.collections['restaurants'].documents.find(validRestaurant);
+    
+    const prev_length = Reviews.find({}).lean().exec().length;
+    let restaurant = Restaurants.find({routeparameter: restaurant_route}).lean().exec();
 
     try {
         //inserts new entry into the database

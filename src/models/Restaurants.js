@@ -9,6 +9,9 @@ const restaurantsSchema = new Schema({
         type: SchemaTypes.String,
         required: true,
     },
+    routeparameter: {
+        type: SchemaTypes.String,
+    },
     location: {
         type: SchemaTypes.String,
         required: true,
@@ -65,6 +68,13 @@ const restaurantsSchema = new Schema({
         required: true,
     },
 });
+
+restaurantsSchema.pre("save", function (next) {
+    let restaurant = this;
+    restaurant.routeparameter = restaurant.restaurant_name.replace(/\s/g, '');
+    restaurant.routeparameter = restaurant.routeparameter.toLowerCase();
+    next();
+})
 
 const restaurants = model('restaurants', restaurantsSchema);
  

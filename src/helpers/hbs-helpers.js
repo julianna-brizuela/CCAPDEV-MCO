@@ -1,7 +1,7 @@
 module.exports = {
     toLink: function (text) { 
         if (text) {
-            text = text.replace(/\s/g, '');
+            text = text.toString().replace(/\s/g, '');
             return text.toLowerCase(); 
         }
         

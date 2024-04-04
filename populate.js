@@ -1,10 +1,27 @@
 require("dotenv/config");   // loads .env variables
-const { connect, disconnect } = require("./src/models/conn.js");
-const Users = require("./src/models/Users.js");
-const Admins = require("./src/models/Admins.js");
-const Restaurants = require("./src/models/Restaurants.js");
-const Reviews = require("./src/models/Reviews.js");
-const Tags = require("./src/models/Tags.js");
+const { connect, disconnect } = require("#models/conn.js");
+const Users = require("#models/Users.js");
+const Admins = require("#models/Admins.js");
+const Restaurants = require("#models/Restaurants.js");
+const Reviews = require("#models/Reviews.js");
+const Tags = require("#models/Tags.js");
+const {nestedQuery, nestedQueryNoProject, getAverageRating } = require("#helpers/js-helpers.js");
+
+async function updateRestaurant(restaurant) {
+    const Restaurant_Review = await nestedQueryNoProject(Reviews, 'restaurants', 'restaurant', '_id', '$reviewer', {'restaurant.restaurant_name': restaurant});
+    const Restaurant_ReviewString = Restaurant_Review.map(review => review._id.toString());
+
+    const Restaurant_ReviewNum = Restaurant_ReviewString.length
+    const Restaurant_Rating = getAverageRating(Restaurant_Review, Restaurant_ReviewNum)
+
+    const updatedRestaurant = await Restaurants.findOneAndUpdate({restaurant_name: restaurant}, 
+    { 
+     "$push": { "resto_reviews": Restaurant_ReviewString},
+     rating: Restaurant_Rating,
+     review_num: Restaurant_ReviewNum,
+    }
+    , {new: true, "upsert": true}).exec();
+}
 
 async function populateDB() {
     try {
@@ -273,8 +290,6 @@ async function populateDB() {
 
         const populated = await Reviews.find().populate('reviewer').exec();
 
-        //console.log(populated)
-
         const populateTags = await Tags.create([
             {
                 tag_name: "Japanese"
@@ -311,7 +326,7 @@ async function populateDB() {
             }
         ])
 
-        const populateAdmins = await Admins.create([
+        const populateAdmins = await Admins.create( [
             {
                 username: "Jane Doe",
                 name: "Jane Doe",
@@ -342,107 +357,35 @@ async function populateDB() {
             }
         ])
 
-        //solution from: https://stackoverflow.com/questions/19380738/mongoose-nested-query-on-model-by-field-of-its-referenced-model
-        const JH_reviews = await Reviews.aggregate([
-            {$lookup: {
-                from: 'users', 
-                localField: 'reviewer', 
-                foreignField: '_id', 
-                as: 'reviewer'}
-            },
-            {$unwind: {path: '$reviewer'}},
-            {$match: {'reviewer.username': 'Josh_Hutcherson'}},
-            {$project: {"_id": "$_id"}}
-        ]);
+        
 
-        const JH_reviews_string = JH_reviews.map(review => review._id.toString());
+        const JH_Review = await nestedQuery(Reviews, 'users', 'reviewer', '_id', '$reviewer', {'reviewer.username': 'Josh_Hutcherson'}, {"_id": "$_id"});
+        const JH_ReviewString = JH_Review.map(review => review._id.toString());
 
+        const SWB_Review = await nestedQuery(Reviews, 'users', 'reviewer', '_id', '$reviewer', {'reviewer.username': 'Sensei_Wu_Baby'}, {"_id": "$_id"});
+        const SWB_ReviewString = SWB_Review.map(review => review._id.toString());
 
-        const SWB_reviews=await Reviews.aggregate([
-            {$lookup: {
-                from: 'users', 
-                localField: 'reviewer', 
-                foreignField: '_id', 
-                as: 'reviewer'}
-            },
-            {$unwind: {path: '$reviewer'}},
-            {$match: {'reviewer.username': 'Sensei_Wu_Baby'}},
-            {$project: {"_id": "$_id"}}
-        ]);
-
-        const SWB_reviews_string = SWB_reviews.map(review => review._id.toString());
-
-
-        const MC_reviews=await Reviews.aggregate([
-            {$lookup: {
-                from: 'users', 
-                localField: 'reviewer', 
-                foreignField: '_id', 
-                as: 'reviewer'}
-            },
-            {$unwind: {path: '$reviewer'}},
-            {$match: {'reviewer.username': 'Mewing_Cat'}},
-            {$project: {"_id": "$_id"}}
-        ]);
-
-        const MC_reviews_string = MC_reviews.map(review => review._id.toString());
+        const MC_Review = await nestedQuery(Reviews, 'users', 'reviewer', '_id', '$reviewer', {'reviewer.username': 'Mewing_Cat'}, {"_id": "$_id"});
+        const MC_ReviewString = MC_Review.map(review => review._id.toString());
 
         //adds the reviews created by each user to their review collection
         const updatedJH = await Users.findOneAndUpdate({username: 'Josh_Hutcherson'}, 
-           { "$push": { "reviews": JH_reviews_string } }
+           { "$push": { "reviews": JH_ReviewString } }
         , {new: true, "upsert": true}).exec();
 
         const updatedSWB = await Users.findOneAndUpdate({username: 'Sensei_Wu_Baby'}, 
-           { "$push": { "reviews": SWB_reviews_string } }
+           { "$push": { "reviews": SWB_ReviewString } }
         , {new: true, "upsert": true}).exec();
 
         const updatedMC = await Users.findOneAndUpdate({username: 'Mewing_Cat'}, 
-           { "$push": { "reviews": MC_reviews_string } }
+           { "$push": { "reviews":  MC_ReviewString  } }
         , {new: true, "upsert": true}).exec();
 
-        const Botejyu_reviews = await Reviews.aggregate([
-            {$lookup: {
-                from: 'restaurants', 
-                localField: 'restaurant', 
-                foreignField: '_id', 
-                as: 'restaurant'}
-            },
-            {$unwind: {path: '$reviewer'}},
-            {$match: {'restaurant.restaurant_name': 'Botejyu'}},
-        ]);
-
-        const Botejyu_reviews_string = Botejyu_reviews.map(review => review._id.toString());
-
-        const Botejyu_review_num = Botejyu_reviews_string.length
-
-        function getRating(restaurant_reviews, num_reviews) {
-            average = 0
-
-            for (let i = 0; i < num_reviews; i++) {
-                console.log(restaurant_reviews[i])
-                console.log(restaurant_reviews[i].review_rating)
-                average = average + restaurant_reviews[i].review_rating;
-            }
-            
-            
-            return (average/num_reviews).toPrecision(3)
-        }
-
-        const Botejyu_rating = getRating(Botejyu_reviews, Botejyu_review_num)
-        
-
-        console.log(Botejyu_rating)
-
-        //updates the number of reviews, the average review rating, and the number of reviews
-        const updatedBotejyu = await Restaurants.findOneAndUpdate({restaurant_name: 'Botejyu'}, 
-           { 
-            "$push": { "resto_reviews": Botejyu_reviews_string},
-            rating: Botejyu_rating,
-            review_num: Botejyu_review_num,
-        }
-        , {new: true, "upsert": true}).exec();
-
-        
+        await updateRestaurant('Botejyu');
+        await updateRestaurant('Manam');
+        await updateRestaurant('King Bee');
+        await updateRestaurant('UCC Clockwork');
+        await updateRestaurant('The Wholesome Table');
 
         console.log("Database has been populated: ");
         disconnect();
