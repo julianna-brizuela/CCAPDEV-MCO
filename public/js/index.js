@@ -46,7 +46,7 @@ function addRestaurant(){
     window.location.href="addRestaurant.html";
 }
 
-function enableProfilePicture() {
-    document.getElementById("profile-picture").style.display = "block";
-}
+// function enableProfilePicture() {
+//     document.getElementById("profile-picture").style.display = "block";
+// }
 

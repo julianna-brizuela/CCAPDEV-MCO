@@ -1,4 +1,5 @@
 require("dotenv/config");   // loads .env variables
+const bcrypt = require('bcrypt');
 const { connect, disconnect } = require("#models/conn.js");
 const Users = require("#models/Users.js");
 const Admins = require("#models/Admins.js");
@@ -35,27 +36,27 @@ async function populateDB() {
         const populateUsers = await Users.create([
             {
                 username: 'Josh_Hutcherson',
-                name: 'Josh Hutcherson',
+                fullname: 'Josh Hutcherson',
                 email: 'josh_hutcherson@gmail.com',
-                password: '1234',
+                password: await bcrypt.hash('1234', 10),
                 pfp: 'profile-pic-1.jpg',
                 reviews: [],
                 favorites: [],
             },
             {
                 username: 'Sensei_Wu_Baby',
-                name: 'Sensei Wu Baby',
+                fullname: 'Sensei Wu Baby',
                 email: 'sensei_wu_baby@gmail.com',
-                password: '1234',
+                password: await bcrypt.hash('1234', 10),
                 pfp: 'profile-pic-2.jpg',
                 reviews: [],
                 favorites: [],
             },
             {
                 username: 'Mewing_Cat',
-                name: 'Mewing Cat',
+                fullname: 'Mewing Cat',
                 email: 'mewing_cat@gmail.com',
-                password: '1234',
+                password: await bcrypt.hash('1234', 10),
                 pfp: 'profile-pic-3.jpg',
                 reviews: [],
                 favorites: [],
@@ -329,30 +330,30 @@ async function populateDB() {
         const populateAdmins = await Admins.create( [
             {
                 username: "Jane Doe",
-                name: "Jane Doe",
+                fullname: "Jane Doe",
                 email: "jane_doe@gmail.com",
-                password: "123!",
+                password: await bcrypt.hash('123!', 10),
                 owned_restaurant: Botejyu.id
             },
             {
                 username: "Leon Kennedy",
-                name: "Leon Kennedy",
+                fullname: "Leon Kennedy",
                 email: "leon_kennedy@gmail.com",
-                password: "asdfghjkl",
+                password: await bcrypt.hash('asdfghjkl', 10),
                 owned_restaurant: UCC.id
             },
             {
                 username: "Gwen Stacy",
-                name: "Gwen Stacy",
+                fullname: "Gwen Stacy",
                 email: "gwen_stacy@gmail.com",
-                password: "qwerty1",
+                password: await bcrypt.hash('qwerty1', 10),
                 owned_restaurant: TWT.id
             },
             {
                 username: "Barry Benson",
-                name: "Barry Benson",
+                fullname: "Barry Benson",
                 email: "barry_benson@gmail.com",
-                password: "21bzzz",
+                password: await bcrypt.hash('21bzzz', 10),
                 owned_restaurant: KB.id
             }
         ])

@@ -4,7 +4,7 @@ const User = require('#models/Users.js');
 const Admin = require('#models/Admins.js');
 
 function configurePassport(passport) {
-    async function authenticateUser(req, email, password, done, options) {
+    async function authenticateUser(req, email, password, done) {
         try {
             const accountType = req.body['user-type'];
             const account =  (accountType == 'admin') ? await Admin.findOne({ email }).lean() : await User.findOne({ email }).lean();

@@ -3,14 +3,13 @@ const express = require('express');
 const passport = require('passport');
 const { requireAuth, requireNoAuth } = require('#middleware/auth.js');
 const User = require('#models/Users.js');
-const Admin = require('#models/Admins.js');
 
 const router = express.Router();
 router.use(express.urlencoded({ extended: false }));
 
 router.get('/login', requireNoAuth, (req, res) => {
     res.render('login', {
-        title: 'munch | Login',
+        title: 'MUNCH | Login',
         nav_context: { hide: true },
     });
 });
@@ -23,7 +22,7 @@ router.post('/login', requireNoAuth, passport.authenticate('local', {
 
 router.get('/signup', requireNoAuth, (req, res) => {
     res.render('signup', {
-        title: 'munch | Sign up',
+        title: 'MUNCH | Sign up',
         nav_context: { hide: true },
     });
 });
@@ -35,30 +34,29 @@ router.post('/signup', requireNoAuth, async (req, res, next) => {
     }
 
     try {
-        let document = (await Admin.findOne({ username: req.body.username }) || await User.findOne({ username: req.body.username }));
+        let document = await User.findOne({ username: req.body.username });
         if (document) {
             req.flash('error', 'Username already exists');
             return res.redirect('/signup');
         }
 
-        document = (await Admin.findOne({ email: req.body.email }) || await User.findOne({ email: req.body.email }));
+        document = await User.findOne({ email: req.body.email });
         if (document) {
             req.flash('error', 'Email is already registered');
             return res.redirect('/signup');
         }
 
-        const accountTypeCollection = (req.body['user-type'] === 'admin') ? Admin : User;
         const password = await bcrypt.hash(req.body.password, 10);
-        const account = (await accountTypeCollection.create({
+        const user = (await User.create({
             username: req.body.username,
             fullname: req.body.fullname,
             email: req.body.email,
             password,
         })).toObject();
 
-        console.log(account)
+        // console.log(user)
 
-        req.login(account, err => {
+        req.login(user, err => {
             if (err) return next(err);
             return res.redirect('/');
         });
@@ -68,6 +66,17 @@ router.post('/signup', requireNoAuth, async (req, res, next) => {
         req.flash('error', 'An error occured. Please try again later.');
     }
 });
+
+// router.get('/testing', (req, res) => {
+//     if (req.isAuthenticated()) {
+//         // Accessing user object
+//         const user = req.user;
+//         // Now you can use the user object as needed
+//         console.log(user);
+//     } else {
+//         res.redirect('/login');
+//     }
+// });
 
 router.delete('/logout', requireAuth, (req, res) => {
     req.logout(err => {
