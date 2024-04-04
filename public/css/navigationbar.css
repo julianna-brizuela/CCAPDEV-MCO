@@ -100,13 +100,15 @@ button {
 }
 
 .action-buttons {
+    display: flex;
+    flex-direction: row;
     margin-top:auto;
     margin-bottom:auto;
     
 }
 
 
-div.action-buttons > button {
+div.action-buttons button {
     margin-left:20px;
     font-size:1rem;
     padding:10px;
@@ -291,7 +293,7 @@ a, a:visited {
     background: url("/static/img/spritesheet.png");
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: -360px center;
+    background-position: -400px center;
     padding: 0 .1rem;
     width: 40px;
     height: 40px;
