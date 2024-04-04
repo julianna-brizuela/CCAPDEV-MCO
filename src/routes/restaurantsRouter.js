@@ -31,6 +31,7 @@ restaurantRouter.get('/browse', async (req, res) => {
     });
 });
 
+//GET for Viewing Filtered Restaurants
 restaurantRouter.get('/browse/category=:category/filter=:filter', async (req, res) => {
    let category = req.params.category;
    let filter = req.params.filter;
@@ -160,56 +161,35 @@ restaurantRouter.get('/:restaurant', async (req, res) => {
     }
 });
 
-//POST for Adding a Photo or Saving
-restaurantRouter.post('/:restaurant', async (req, res) => {
-    //when a user saves a restaurant into their profile
-    let restaurant_route = req.body.restaurant_name;
-
-    let user = database.collections['users'].documents[0]
-    //console.log(user)
-
-    try {
-        //update the users profile to include the new restaurant
-        const update = await database.collections['users'].updateOne({username: 'Josh_Hutcherson' }, {
-            //based on the average, get the new number of stars
-            
-            favorites: newFaves = function() {
-                let arr = database.collections['users'].find({username: 'Josh_Hutcherson' })['favorites'];
-
-                arr.push(req.body.restaurant_name);
-                console.log("ARRAY")
-                console.log(arr)
-                return arr;
-            }
-        });
-    } catch (err) {
-        console.log(err);
-    }
-})
-
 //GET for Writing a Review
 restaurantRouter.get('/:restaurant/writeareview', async (req, res) => {
     let restaurant_route = req.params.restaurant;
 
-    let restaurant = await Restaurants.findOne({routeparameter: restaurant_route}).lean().populate({
-        path: 'resto_reviews',
-        populate: {
-            path: 'reviewer',
-        }
-    }).exec();
+    if (req.isAuthenticated()) {
+        
+        let restaurant = await Restaurants.findOne({routeparameter: restaurant_route}).lean().populate({
+            path: 'resto_reviews',
+            populate: {
+                path: 'reviewer',
+            }
+        }).exec();
 
-    if(restaurant) {
-        res.locals.title = "MUNCH | Write a Review for " + restaurant['restaurant_name'];
-        res.render("writeareview", restaurant);
+        if(restaurant) {
+            res.locals.title = "MUNCH | Write a Review for " + restaurant['restaurant_name'];
+            res.render("writeareview", restaurant);
+        } else {
+            res.status(404).render('404_error_template', {title: "Sorry, page not found"});
+        }
     } else {
-        res.status(404).render('404_error_template', {title: "Sorry, page not found"});
+        res.redirect('/login')
     }
+    
 });
 
 //POST for Writing a Review (DO NOT TOUCH)
 restaurantRouter.post('/:restaurant/writeareview', async (req, res) => {
     let restaurant_route = req.body.restaurant;
-    
+
     const prev_length = Reviews.find({}).lean().exec().length;
     let restaurant = Restaurants.find({routeparameter: restaurant_route}).lean().exec();
 

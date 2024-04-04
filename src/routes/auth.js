@@ -2,8 +2,8 @@ const bcrypt = require('bcrypt');
 const express = require('express');
 const passport = require('passport');
 const { requireAuth, requireNoAuth } = require('#middleware/auth.js');
-const Admin = require('#models/admins.js');
-const User = require('#models/users.js');
+const User = require('#models/Users.js');
+const Admin = require('#models/Admins.js');
 
 const router = express.Router();
 router.use(express.urlencoded({ extended: false }));

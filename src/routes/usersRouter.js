@@ -3,7 +3,7 @@ const userRouter = Router();
 const express = require('express');
 const database = require('../../db/database.js');
 
-userRouter.get('/:username', async (req, res) => {
+userRouter.get('user/:username', async (req, res) => {
     let username_route = req.params.username;
     username_route = decodeURIComponent(username_route);
     console.log("USER ROUTE")
