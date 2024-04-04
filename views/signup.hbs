@@ -1,44 +1,45 @@
 <link rel="stylesheet" type="text/css" href="/static/css/login-signup.css"/>
 
 <div class = "overall-container">
-    <div class="signup-form"> 
+    <form class="signup-form" action="/signup" method="POST"> 
         <h2> <a href="index.html"> munch </a> </h2> 
         
+        {{#if messages.error}}
+            <p>{{messages.error}}</p>
+        {{/if}}
+
         <div class="form-element">
-            <label for="first-name"> First Name </label>
-            <input type="text" id="first-name" placeholder="Enter First Name">
+            <label for="first-name"> Username </label>
+            <input type="text" id="first-name" name="username" placeholder="Enter Username" required>
         </div>
         <div class="form-element">
-            <label for="last-name"> Last Name </label>
-            <input type="text" id="last-name" placeholder="Enter Last Name">
+            <label for="last-name"> Full Name </label>
+            <input type="text" id="last-name" name="fullname" placeholder="Enter Full Name" required>
         </div>
         <div class="form-element">
             <label for="signup-email"> Email </label>
-            <input type="text" id="signup-email" placeholder="Enter email">
+            <input type="text" id="signup-email" name="email" placeholder="Enter email" required>
         </div>
         <div class="form-element">
             <label for="signup-password"> Password </label>
-            <input type="password" id="signup-password" placeholder="Enter password">
+            <input type="password" id="signup-password" name="password" placeholder="Enter password" required>
         </div>
         <div class="form-element">
             <label for="confirm-password"> Confirm Password </label>
-            <input type="password" id="confirm-password" placeholder="Confirm password">
+            <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm password" required>
         </div>
         <div class="form-element">
-            <input type="file" id="profile-picture" hidden>
-            <label class="default-red-button" for="profile-picture"> Upload Profile Picture </label>
-
-        </div>
-        <div class="form-element">
-            <input type="checkbox" id="terms-and-conditions">
-            <label for="terms-and-conditions"> Agree to terms and conditions </label>
+            <input type="radio" name="user-type" id="login-admin" value="admin" required>
+            <label for="login-admin"> Admin </label>
+            <input type="radio" name="user-type" id="login-user" value="user">
+            <label for="login-user"> User </label>
         </div>
         <div class="form-element">
             <input type="submit" value="Signup">
-        </div>        
+        </div>
         <div class="to-login">
-            Already have an account? <a id="to-login" href="login-page.html"> Log In </a>
+            Already have an account? <a id="to-login" href="/login"> Log In </a>
         </div>
-        </div>
+        </form>
     </div>
 </div>

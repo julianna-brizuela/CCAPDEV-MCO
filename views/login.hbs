@@ -1,32 +1,34 @@
 <link rel="stylesheet" type="text/css" href="/static/css/login-signup.css"/>
 
-<div class = "overall-container">
-    <div class="login-form">
+<div class="overall-container">
+
+    <form class="login-form" action="/login" method="POST">
         <h2> <a href="index.html"> munch </a> </h2>
+        
+        {{#if messages.error}}
+            <p>{{messages.error}}</p>
+        {{/if}}
+
         <div class="form-element">
-            <label for="login-email"> Email </label>
-            <input type="email" id="login-email" placeholder="Enter email">
+            <label for="email"> Email </label>
+            <input type="email" id="email" name="email" placeholder="Enter email" required>
         </div>
         <div class="form-element">
-            <label for="login-password"> Password </label>
-            <input type="password" id="login-password" placeholder="Enter password">
+            <label for="password"> Password </label>
+            <input type="password" id="password" name="password" placeholder="Enter password" required>
         </div>
         <div class="form-element">
-            <input type="radio" name="user-type" id="login-admin">
+            <input type="radio" name="user-type" id="login-admin" value="admin" required>
             <label for="login-admin"> Admin </label>
-            <input type="radio" name="user-type" id="login-user">
+            <input type="radio" name="user-type" id="login-user" value="user">
             <label for="login-user"> User </label>
-        </div>
-        <div class="form-element">
-            <input type="checkbox" id="remember-me">
-            <label for="remember-me"> Remember me </label>
         </div>
         <div id="errorDiv"></div>
         <div class="form-element">
-            <input type="submit" onclick="validate()" value="Login">
+            <input type="submit" value="Login">
         </div>  
         <div class="to-signup">
-            Don't have an account? <a id="to-signup" href="signup-page.html"> Sign up </a>
+            Don't have an account? <a id="to-signup" href="/signup"> Sign up </a>
         </div>
-    </div>
+    </form>
 </div>
