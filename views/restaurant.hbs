@@ -1,6 +1,7 @@
 <link rel="stylesheet" type="text/css" href="static/css/establishment.css"/>
 <script src="/static/js/restaurants.js" defer></script>
 
+{{#with restaurant}}
 <div class="main-restaurant-info">
 
     <div id="name">  <h1> {{restaurant_name}} </h1>  </div>
@@ -61,16 +62,16 @@
             {{!-- <button class="button bookmark-sprite" id="save-button"> <i class="bookmark"></i> <span> Save </span> </button>
             <button class="button photo-sprite" id="add-photo-button"> <i class="photo"></i> <span> Add Photo </span> </button> --}}
         </div>
-        <div>
+        
+
             <div id="write-a-review" class="button-review">
-            <!--reroute reveiws-->
-            <a id="write-review" href="/{{toLink restaurant_name}}/writeareview" >
-            {{!-- <a id="write-review"></a> --}}
-                <button type="button" class="button write-review">Write a Review</button>
-            </a>
+            <form id="writeAReviewForm" action="/{{toLink restaurant_name}}/writeareview">
+            <button class="default-red-button review-submit" id="write-review" type="submit" method="GET">Write a Review</button>
+            </form>
             </div>
+            
             <div id="error-message" style="display: none; color: #873b3b;">You must be logged in to write a review.</div>
-        </div>
+        
         
     </div>
     <div class="group3">
@@ -109,3 +110,4 @@
 
     </div>
 </div>
+{{/with}}

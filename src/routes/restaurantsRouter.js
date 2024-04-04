@@ -27,7 +27,10 @@ restaurantRouter.get('/browse', async (req, res) => {
    res.render("restaurant-list", {
         title: "MUNCH | Where your cravings are served!",
         tags: tags_array,
-        restaurants: restaurants
+        restaurants: restaurants,
+        nav_context: {
+            isLoggedIn: req.isAuthenticated(),
+        },
     });
 });
 
@@ -143,7 +146,10 @@ restaurantRouter.get('/browse/category=:category/filter=:filter', async (req, re
     res.render("restaurant-list", {
          title: "MUNCH | Where your cravings are served!",
          tags: tags_array,
-         restaurants: restaurants
+         restaurants: restaurants,
+         nav_context: {
+             isLoggedIn: req.isAuthenticated(),
+         },
      });
  });
 
@@ -151,11 +157,21 @@ restaurantRouter.get('/browse/category=:category/filter=:filter', async (req, re
 restaurantRouter.get('/:restaurant', async (req, res) => {
     let restaurant_route = req.params.restaurant;
 
-    let restaurant = await Restaurants.findOne({routeparameter: restaurant_route}).lean().exec();
+    let restaurant = await Restaurants.findOne({routeparameter: restaurant_route}).lean().populate({
+        path: 'resto_reviews',
+        populate: {
+            path: 'reviewer',
+        }
+    }).exec();
 
     if (restaurant) {
         res.locals.title = "MUNCH | " + restaurant['restaurant_name'];
-        res.render("restaurant", restaurant);
+        res.render("restaurant", {
+            restaurant: restaurant,
+            nav_context: {
+                isLoggedIn: req.isAuthenticated(),
+            },
+        });
     } else {
         res.status(404).render('404_error_template', {title: "Sorry, page not found"});
     }
@@ -164,9 +180,10 @@ restaurantRouter.get('/:restaurant', async (req, res) => {
 //GET for Writing a Review
 restaurantRouter.get('/:restaurant/writeareview', async (req, res) => {
     let restaurant_route = req.params.restaurant;
+    let loggedIn = 0;
 
     if (req.isAuthenticated()) {
-        
+        loggedIn = 1;
         let restaurant = await Restaurants.findOne({routeparameter: restaurant_route}).lean().populate({
             path: 'resto_reviews',
             populate: {
@@ -176,13 +193,19 @@ restaurantRouter.get('/:restaurant/writeareview', async (req, res) => {
 
         if(restaurant) {
             res.locals.title = "MUNCH | Write a Review for " + restaurant['restaurant_name'];
-            res.render("writeareview", restaurant);
+            res.render("writeareview", {
+                restaurant: restaurant, 
+                nav_context: {
+                    isLoggedIn: req.isAuthenticated(),
+                },
+            });
         } else {
             res.status(404).render('404_error_template', {title: "Sorry, page not found"});
         }
     } else {
-        res.redirect('/login')
+        res.json({loggedIn, restaurant_route});
     }
+
     
 });
 

@@ -208,6 +208,10 @@ div.tag-container div {
     margin-right:20px;
 }
 
+#button {
+    height:100%;
+}
+
 .button {
     background-color: var(--default-button);
     color: var(--white);
@@ -220,11 +224,6 @@ div.tag-container div {
     display: flex;
     align-items: center; 
     
-}
-
-.button-review {
-    margin-top:auto;
-    margin-bottom:auto;
 }
 
 i {
