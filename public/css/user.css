@@ -29,6 +29,12 @@
     margin-left:auto;
 }
 
+/* form {
+    padding-left:10px;
+    padding-right:10px;
+    margin:0;
+} */
+
 h5 {
     font-family: 'Anonymous Pro', monospace;
     font-variation-settings: "opsz" 6, "wght" 200;
@@ -67,29 +73,28 @@ hr {
 }
 
 .profile-pic img{
+    width: 150px; /* Adjust the width as needed */
+    height: 150px;
     border: 2px solid var(--default-text);
     border-radius: 100px;
 }
 
-.profile-controls {
+ .profile-controls {
     display:flex;
     flex-direction:row;
     margin:auto;
     margin-top:20px;
     font-size: 0.6rem;
     width:100%;
+    
 }
 
 .profile-information {
-    display:flex;
-    flex-direction:column;
     margin:auto;
     text-align:center;
+    margin-bottom: -15px;
 }
 
-.loc {
-    margin-top: -15px;
-}
 
 .profile-controls button {
     border: 2px solid var(--default-text);
@@ -99,6 +104,7 @@ hr {
     font-family:'Anonymous Pro', monospace;
     margin:auto;
     margin-bottom:7px;
+    margin-top: 4px;
     cursor: pointer;
     width: 39px;
 }
@@ -110,7 +116,7 @@ hr {
 
 .profile-controls .edit-profile {
     padding:17.5px;
-    background-image:url('images/spritesheet.png');
+    background-image:url('/static/img/spritesheet.png');
     background-repeat: no-repeat;
     background-size:500px 25px;
     background-position:-370px center;
@@ -118,7 +124,7 @@ hr {
 
 .profile-controls .add-photo {
     padding:17.5px;
-    background-image:url('images/spritesheet.png');
+    background-image:url('/static/img/spritesheet.png');
     background-repeat: no-repeat;
     background-size:600px 30px;
     background-position:-268px center;
@@ -126,7 +132,7 @@ hr {
 
 .profile-controls .delete-profile {
     padding:17.5px;
-    background-image:url('images/spritesheet.png');
+    background-image:url('/static/img/spritesheet.png');
     background-repeat: no-repeat;
     background-size:600px 30px;
     background-position:-388px center;
@@ -157,7 +163,7 @@ hr {
 
 .star {
     display: inline-block;
-    background: url('images/spritesheet.png');
+    background: url('/static/img/spritesheet.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 0px center;
@@ -204,7 +210,7 @@ hr {
     display: inline-block;
     width: 20px;
     height: 20px;
-    background-image: url("images/spritesheet.png");
+    background-image: url("/static/img/spritesheet.png");
     background-size: cover;
     background-position: 89.25% 0;
     margin: auto 20px auto 4px;
@@ -350,7 +356,7 @@ ul {
 
 #rating-1.rating-scale > li {
     display: inline-block;
-    background-image: url("images/spritesheet.png");
+    background-image: url("/static/img/spritesheet.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 10.5% center;
@@ -381,3 +387,53 @@ ul {
 #rating-1.rating-scale > li:nth-child(-n+3) {
     background-position: 0 center;
 }
+
+.saved-restaurants {
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+}
+
+.resto {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 25px;
+    justify-content: space-between;
+    margin-right: 200px;
+}
+
+.resto-info {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.resto-name {
+    margin-top: 30px;
+    font-family: var(--default-title-text);
+    font-weight: 700;
+}
+
+.restaurant-button {
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer; /* Change cursor to pointer on hover */
+    /* Add any additional styling here */
+}
+
+.remove-resto {
+    padding: 17px;
+    border: 2px solid var(--default-text);
+    border-radius: 10px;
+    background: #cfc7aa url('/static/img/spritesheet.png') -388px center; /* Combine background properties */
+    background-size: 600px 30px;
+    font-family: 'Anonymous Pro', monospace;
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+.remove-resto:hover {
+    background-color: var(--darkdesert);
+}
+

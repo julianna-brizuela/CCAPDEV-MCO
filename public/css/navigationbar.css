@@ -20,6 +20,7 @@
     background-color:var(--bg);
 }
 
+
 .overall-container {
     display:flex;
     flex-direction:column;

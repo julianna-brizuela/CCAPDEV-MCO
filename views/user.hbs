@@ -8,7 +8,7 @@
             </div>
 
             <div class="profile-information">
-                <h4>{{name}}</h4>
+                <h4>{{name}} Josh hutcherson</h4> <!-- remove name -->
             </div>
 
             <div class="profile-controls">
@@ -76,9 +76,73 @@
                 <hr>
 
                 <div class="customer-reviews">
-                    {{#each reviews}} 
+                    <div class="post">
+                            <div class="post-header">
+                                <button type="button" class="restaurant-button">  
+                                    <img class="restaurant-pic" src="/static/img/restaurant-images/botejyu/botejyupfp.jpg"> 
+                                </button>
+                                <div class="post-info">
+                                    <div class="post-info-name">Botejyu</div>
+                                    <div class="post-location"> Sta. Rosa, Laguna </div>
+                                </div>
+                            </div>
+                            <div class="post-rating">
+                                <ul class="rating-scale" id="rating-1">
+                                    <li class="star"></li>
+                                    <li class="star"></li>
+                                    <li class="star"></li>
+                                    <li class="star"></li>
+                                    <li class="star"></li>
+                                </ul>
+                                <span class="post-date"> 01/01/2000 </span>
+                            </div>
+                            
+                            <p class="post-review">Good place to go to satisfy your Japanese food cravings.
+                                <br><br>It's inside Solenad, Nuvali so parking is not a problem. They still accept customers after 8:30pm unlike the other Japanese resto beside them which by the way was our first choice.
+                                <br><br>Food is great and reasonably priced. Will go back and try other items in the menu.</p>
+                        </div>
+
+
+                    {{!-- {{#each reviews}} 
                         {{>review}}
-                    {{/each}}
+                    {{/each}} --}}
+                </div>
+
+                <div class="heading">
+                    <h3> Saved Restaurants </h3>
+                </div>
+
+
+                <div class="saved-restaurants"> 
+                    <div class="resto">
+                        <div class="resto-info">
+                            <button type="button" class="restaurant-button">  
+                                <img class="restaurant-pic" src="/static/img/restaurant-images/botejyu/botejyupfp.jpg"> 
+                            </button>
+                            <div class="resto-name">
+                                Botejyu  
+                            </div>
+                        </div>
+                        <div>
+                            <button class="remove-resto"></button>
+                        </div>
+                        
+                    </div>
+                     <div class="resto">
+                        <div class="resto-info">
+                            <button type="button" class="restaurant-button"> 
+                                <img class="restaurant-pic" src="/static/img/restaurant-images/kingbee/kingbeepfp.png">
+                            </button>
+                            <div class="resto-name">
+                                Kingbee
+                            </div>
+                        </div>
+                        <div>
+                            <button class="remove-resto"></button>
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
 
