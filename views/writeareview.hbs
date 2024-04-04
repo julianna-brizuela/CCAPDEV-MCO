@@ -37,6 +37,8 @@
                     <textarea class="review_description" name="review_description" placeholder="Write your review..."></textarea>
                 
                     <button class="default-red-button review-submit" id="submit-button" type="button" method="POST">Submit Review</button>
+                    <button class="default-red-button review-submit" type="button" method="POST" onclick="document.getElementById('file-input').click();"> Upload Image </button>
+                    <input type="file" id="file-input" name="image" method="POST" enctype="multipart/form-data">
                 </div>
             </fieldset>
         </form>

@@ -45,6 +45,10 @@ const reviewsSchema = new Schema({
         type: SchemaTypes.String,
         required: false,
     },
+    image: {
+        type: SchemaTypes.String,
+        required: false,
+    }
 
 });
 

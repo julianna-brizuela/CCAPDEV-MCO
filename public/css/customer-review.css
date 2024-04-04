@@ -207,3 +207,7 @@ fieldset {
     word-wrap: break-word;
     font-size: 0.8rem;
 }
+
+#file-input {
+    display: none;
+}

@@ -1,33 +1,51 @@
 const express = require('express');
 const adminRouter = express.Router();
 const database = require('../../db/database.js');
-let documents;
+
+const Restaurants = require('#models/Restaurants.js');
+const Admins = require('#models/Admins.js');
+const Reviews = require('#models/Reviews.js');
+const { requireAuth } = require('#middleware/auth.js');
 
 
 function toLink(str) {
     return str.toLowerCase().replace(/\s+/g, '');
 }
 
-adminRouter.get("/:username/restaurant", async (req, res) => {
+adminRouter.get("/:username/restaurant", requireAuth, async (req, res) => {
     let username = req.params.username;
     username = decodeURIComponent(username);
 
-    admin = database.collections['admins'].find({username: username})[0];
-    if(admin){
-        
-        const restaurantReviews = database.collections['reviews'].find({restaurant: admin.restaurant_name});
-        const adminRestaurant = database.collections['restaurants'].find({restaurant_name: admin.restaurant_name})[0];
+    // const admin = database.collections['admins'].find({username: username})[0];
+    try {
+        const admin = await Admins.findOne({"username": username});
+        // const  
+        if(admin){
+            
+            const adminRestaurant = await Restaurants.findById(admin.owned_restaurant).lean()
+            console.log(adminRestaurant);
 
-        res.render("admin-restaurant", {
-            title: "MUNCH | Where your cravings are served!",
-            reviews: restaurantReviews,
-            restaurant: adminRestaurant,
-            toLink: toLink
-        });
-    } else {
-        res.status(404).render('404_error_template', {title: "Sorry, page not found"});
+            const restaurantReviews = await Reviews.find({"restaurant": adminRestaurant}).lean()
+            console.log(restaurantReviews);
+            
+            res.render("admin-restaurant", {
+                title: "MUNCH | Where your cravings are served!",
+                reviews: restaurantReviews,
+                restaurant: adminRestaurant,
+                toLink: toLink,
+                nav_context: {
+                    isLoggedIn: req.isAuthenticated(),
+                }
+            });
+        } else {
+            res.status(404).render('404_error_template', {title: "Sorry, page not found"});
+        }
+    } catch(err) {
+        console.error(err);
+        req.flash('error', 'An error occured. Please try again later.');
     }
- });
+    
+});
 
  adminRouter.post("/:username/restaurant", async (req, res) => {
     console.log('HELLO')

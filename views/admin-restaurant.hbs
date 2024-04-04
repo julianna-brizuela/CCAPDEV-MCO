@@ -51,7 +51,7 @@
                     <div class="post-header">
                         <img class="post-profile-pic" src="/static/img/profile-pics/{{reviewer_pfp}}">
                         <div class="post-info">
-                            <div class="post-info-name" id="reviewer-name-{{@index}}">{{reviewer_name}}</div>
+                            <div class="post-info-name" id="reviewer-name-{{@index}}">{{reviewer.fullname}}</div>
                             <div class="post-rating">
                                 <ul class="star-spritegroup" id="rating-{{@index}}">
                                     {{#if (isEqual review_rating 5)}}
