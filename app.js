@@ -35,6 +35,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(methodOverride('_method'));
+app.use('./public/img/uploads', express.static('uploads'))
 
 // Router Configuration
 app.use(routes);
