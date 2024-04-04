@@ -3,28 +3,26 @@ const { Schema, SchemaTypes, model } = require('mongoose');
 const adminsSchema = new Schema({
     username: {
         type: SchemaTypes.String,
-        required:true,
+        required: true,
     },
-    name:{
+    fullname: {
         type: SchemaTypes.String,
-        required:true,
+        required: true,
     },
-    email:{
+    email: {
         type: SchemaTypes.String,
-        required:true,
+        required: true,
         lowercase: true,
     },
-    password:{
+    password: {
         type: SchemaTypes.String,
-        required:true,
+        required: true,
     },
-    owned_restaurant:{
+    owned_restaurant: {
         type: SchemaTypes.ObjectId,
         ref: 'restaurants',
-        required: true,
-         
+        default: null,
     },
-
 });
 
 const admins = model('admins', adminsSchema);
