@@ -21,91 +21,28 @@
                         </button>
                 </form>
             </div>
-
-            <div id="action-buttons" class="action-buttons">
-                <button type="button" class="login" onclick="openLoginForm()">Log In</button>
-                <!-- Login Form-->
-                <div id="login-form-modal" class="popup">
-                    <div class="modal">
-                        <span class="close" onclick="closeLoginForm()">&times;</span>
-                        <h2>Log In</h2> 
-
-                        <form id="login-form" class="form">
-                            <div class="form-element">
-                                <label for="login-email"> Email </label>
-                                <input type="email" id="login-email" name="login-email" placeholder="Enter email" required>
-                            </div>
-                            <div class="form-element">
-                                <label for="login-password"> Password </label>
-                                <input type="password" id="login-password" name="login-password" placeholder="Enter password" required>
-                            </div>
-                            <span id="submit-response"> Invalid Email or Password </span> 
-                            <div class="form-element">
-                                <input type="radio" name="user-type" id="login-admin" value="admin" required>
-                                <label for="login-admin"> Admin </label>
-                                <input type="radio" name="user-type" id="login-user" value="user" required>
-                                <label for="login-user"> User </label>
-                            </div>
-                            <div class="form-element">
-                                <input type="checkbox" id="remember-me" name="remember-me">
-                                <label for="remember-me"> Remember me </label>
-                            </div>
-                            <div class="form-element">
-                                <input type="submit" value="Login">
-                            </div>        
-                        </form>
-                    </div>
-                </div>
-
-                <button type="button" class="signup" onclick="openSignupForm()">Sign Up</button>
-                <!-- Signup Form-->
-                <div id="signup-form-modal" class="popup">
-                    <div class="modal">
-                        <span class="close" onclick="closeSignupForm()">&times;</span>
-                        <h2>Signup</h2> 
-
-                        <form id="signup-form" class="form">
-                            <div class="form-element">
-                                <label for="first-name"> First Name </label>
-                                <input type="text" id="first-name" name="first-name" placeholder="Enter First Name" required>
-                            </div>
-                            <div class="form-element">
-                                <label for="last-name"> Last Name </label>
-                                <input type="text" id="last-name" name="last-name" placeholder="Enter Last Name" required>
-                            </div>
-                            <div class="form-element">
-                                <label for="signup-email"> Email </label>
-                                <input type="text" id="signup-email" name="signup-email" placeholder="Enter email" required>
-                            </div>
-                            <div class="form-element">
-                                <label for="signup-password"> Password </label>
-                                <input type="password" id="signup-password" name="signup-password" placeholder="Enter password" required>
-                            </div>
-                            <div class="form-element">
-                                <label for="confirm-password"> Confirm Password </label>
-                                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm password" required>
-                            </div>
-                            <div class="form-element">
-                                <input type="file" id="profile-picture" name="profile-picture" hidden>
-                                <label class="picture-upload" for="profile-picture"> Upload Profile Picture </label>
-
-                            </div>
-                            <div class="form-element">
-                                <input type="checkbox" id="terms-and-conditions" name="terms-and-conditions" required>
-                                <label for="terms-and-conditions"> Agree to terms and conditions </label>
-                            </div>
-
-                            <div class="form-element">
-                                <input type="submit" value="Signup">
-                            </div>        
-                        </form>
-                    </div>
-                </div>
-            </div>
-
             
-            <button id="picture" class="profile-picture" type="button"></button>
-           
+            {{#unless nav_context.hide }}
+                {{#if nav_context.isLoggedIn }}
+                    <div id="action-buttons" class="action-buttons">
+                        <form action="/logout?_method=DELETE" method="POST">
+                            <button type="submit" class="login">Log Out</button>
+                        </form>
+                        <form action="/" method="GET">
+                            <button id="picture" class="profile-picture" type="submit">PFP</button>
+                        </form>
+                    </div>
+                {{else}}
+                    <div id="action-buttons" class="action-buttons">
+                        <form action="/login" method="GET">
+                            <button type="submit" class="login">Log In</button>
+                        </form>
+                        <form action="/signup" method="GET">
+                            <button type="submit" class="signup">Sign Up</button>
+                        </form>
+                    </div>
+                {{/if}}
+            {{/unless}}
         </div>
         <hr>
     </div>

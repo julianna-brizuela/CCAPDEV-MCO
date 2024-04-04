@@ -6,7 +6,7 @@ const usersSchema = new Schema({
         required: true,
         unique: true,
     },
-    name: {
+    fullname: {
         type: SchemaTypes.String,
         required: true,
     },
@@ -21,21 +21,17 @@ const usersSchema = new Schema({
     },
     pfp: {
         type: SchemaTypes.String,
-        required: true,
+        default: null,
     },
     reviews: {
         type: [SchemaTypes.ObjectId],
         ref: 'reviews',
-        required: true,
-         
-        default: undefined,
+        default: null,
     },
     favorites: {
         type: [SchemaTypes.ObjectId],
         ref: 'restaurants',
-        required: true,
-         
-        default: undefined,
+        default: null,
     },
 });
 
