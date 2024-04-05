@@ -1,12 +1,11 @@
 {{#if review}}
-    <link rel="stylesheet" type="text/css" href="static/css/establishment.css"/>
     {{#with review}}
         <div class="post">
             <div class="post-header">
-                <img class="post-profile-pic" src="/static/img/profile-pics/profile-pic-1.jpg">
+                <img class="post-profile-pic" src="/static/img/restaurant-images/{{restaurant.routeparameter}}/{{restaurant.routeparameter}}pfp.jpg">
                 <div class="post-info">
                     <div class="post-info-name">
-                        <a href="profile/{{toLink reviewer.username}}">{{reviewer.fullname}}</a>
+                        <a href="/{{restaurant.routeparameter}}">{{restaurant.restaurant_name}}</a>
                     </div>
                     <div class="post-rating">
                         <ul class="rating-scale" id="rating">
