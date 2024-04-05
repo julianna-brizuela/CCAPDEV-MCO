@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const express = require('express');
 const passport = require('passport');
 const { requireAuth, requireNoAuth } = require('#middleware/auth.js');
+const Admin = require('#models/Admins.js');
 const User = require('#models/Users.js');
 
 const router = express.Router();
@@ -34,8 +35,11 @@ router.post('/signup', requireNoAuth, async (req, res, next) => {
     }
 
     try {
-        let document = await User.findOne({ username: req.body.username });
-        if (document) {
+        let document_exists = 
+            await User.findOne({ username: req.body.username }) ||
+            await Admin.findOne({ username: req.body.username });
+            
+        if (document_exists) {
             req.flash('error', 'Username already exists');
             return res.redirect('/signup');
         }

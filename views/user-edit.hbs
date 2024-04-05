@@ -10,26 +10,26 @@
 
         <div class="form-element">
             <label for="first-name"> Username </label>
-            <input type="text" id="first-name" name="username" placeholder="Enter Username" required>
+            <input type="text" id="first-name" name="username" placeholder="Enter Username" value="{{user.username}}" required>
         </div>
         <div class="form-element">
             <label for="last-name"> Full Name </label>
-            <input type="text" id="last-name" name="fullname" placeholder="Enter Full Name" required>
+            <input type="text" id="last-name" name="fullname" placeholder="Enter Full Name" value="{{user.fullname}}" required>
         </div>
         <div class="form-element">
             <label for="signup-email"> Email </label>
-            <input type="text" id="signup-email" name="email" placeholder="Enter email" disabled>
+            <input type="text" id="signup-email" name="email" placeholder="Enter email" value="{{user.email}}" disabled>
         </div>
         <div class="form-element">
-            <label for="signup-password"> Password </label>
-            <input type="password" id="signup-password" name="password" placeholder="Enter password" required>
+            <label for="signup-password"> New Password </label>
+            <input type="text" id="signup-password" name="password" placeholder="Enter new password" required>
         </div>
         <div class="form-element">
             <label for="confirm-password"> Confirm Password </label>
             <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm password" required>
         </div>
         <div class="form-element">
-            <input type="submit" value="Signup">
+            <input type="submit" value="Update">
         </div>
         <div class="to-login">
             Back to <a id="to-login" href="/user">Profile </a>
