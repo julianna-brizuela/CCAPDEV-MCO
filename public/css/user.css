@@ -477,3 +477,6 @@ ul {
     list-style-type: none;
 }
 
+.action-buttons {
+    margin-left: 0px;
+}
