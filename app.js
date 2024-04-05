@@ -9,9 +9,9 @@ const session = require('express-session');
 
 // Local File Imports
 const configurePassport = require('./src/config/passport-config.js');
-const helpers = require('../helpers/hbs-helpers.js');
-const { connect } = require('../models/conn.js');
-const routes = require('../routes/route-handler.js');
+const helpers = require('./src/helpers/hbs-helpers.js');
+const { connect } = require('./src/models/conn.js');
+const routes = require('./src/routes/route-handler.js');
 
 // Server Setup and Middleware
 const PORT = process.env.PORT ?? 3000;

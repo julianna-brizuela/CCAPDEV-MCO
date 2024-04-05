@@ -1,11 +1,11 @@
 require("dotenv/config");   // loads .env variables
 const bcrypt = require('bcrypt');
-const { connect, disconnect } = require("../models/conn.js");
-const Users = require("../models/Users.js");
-const Admins = require("../models/Admins.js");
-const Restaurants = require("../models/Restaurants.js");
-const Reviews = require("../models/Reviews.js");
-const Tags = require("../models/Tags.js");
+const { connect, disconnect } = require("./src/models/conn.js");
+const Users = require("./src/models/Users.js");
+const Admins = require("./src/models/Admins.js");
+const Restaurants = require("./src/models/Restaurants.js");
+const Reviews = require("./src/models/Reviews.js");
+const Tags = require("./src/models/Tags.js");
 const {nestedQuery, nestedQueryNoProject, getAverageRating, updateRestaurant, updateUser} = require("../helpers/js-helpers.js");
 
 async function populateDB() {
