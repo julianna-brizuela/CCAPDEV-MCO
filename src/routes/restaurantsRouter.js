@@ -5,11 +5,11 @@ const { Router } = require('express');
 const restaurantRouter = Router();
 
 //DATABASES
-const Users = require("./models/Users.js");
-const Admins = require("./models/Admins.js");
-const Restaurants = require("./models/Restaurants.js");
-const Reviews = require("./models/Reviews.js");
-const Tags = require("./models/Tags.js");
+const Users = require("../models/Users.js");
+const Admins = require("../models/Admins.js");
+const Restaurants = require("../models/Restaurants.js");
+const Reviews = require("../models/Reviews.js");
+const Tags = require("../models/Tags.js");
 
 const { requireAuth } = require('../middleware/auth.js');
 const upload = require('../middleware/upload.js')
