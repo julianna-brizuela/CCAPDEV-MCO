@@ -13,15 +13,17 @@ router.get('/user', requireAuth, (req, res) => {
 router.get('/user/:username/profile', requireAuth, restrictToOwnProfile, async (req, res) => {
     const user = await User
         .findById(req.user._id)
-        .populate('reviews')
+        .populate([{
+            path: 'reviews',
+            populate: { path: 'restaurant' },
+        }])
         .lean();
 
     console.log(user)
 
     res.render('user',  {
-        nav_context: {
-            isLoggedIn: req.isAuthenticated(),
-        },
+        nav_context: { isLoggedIn: req.isAuthenticated() },
+        user,
     });
 });
 
