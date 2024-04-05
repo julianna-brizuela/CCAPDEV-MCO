@@ -7,10 +7,10 @@ const router = express.Router();
 
 
 router.get('/user', requireAuth, (req, res) => {
-    res.redirect(`/user/${req.user.username}`);
+    res.redirect(`/user/${req.user.username}/profile`);
 });
 
-router.get('/user/:username', requireAuth, restrictToOwnProfile, async (req, res) => {
+router.get('/user/:username/profile', requireAuth, restrictToOwnProfile, async (req, res) => {
     const user = await User
         .findById(req.user._id)
         .populate('reviews')
@@ -22,7 +22,6 @@ router.get('/user/:username', requireAuth, restrictToOwnProfile, async (req, res
         nav_context: {
             isLoggedIn: req.isAuthenticated(),
         },
-
     });
 });
 
@@ -30,8 +29,18 @@ router.get('/user/edit', requireAuth, (req, res) => {
     res.redirect(`/user/${req.user.username}/edit`);
 });
 
-router.get('/user/:username/edit', requireAuth, restrictToOwnProfile, (req, res) => {
-    res.redirect(`/user/${req.user.username}/edit`);
+router.get('/user/:username/edit', requireAuth, restrictToOwnProfile, async (req, res) => {
+    const user = await User
+        .findById(req.user._id)
+        .populate('reviews')
+        .lean();
+    const reviews = user.reviews;
+    
+    res.render('user-edit', {
+        nav_context: {
+            isLoggedIn: req.isAuthenticated(),
+        },
+    });
 });
 
 module.exports = router;
