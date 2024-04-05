@@ -40,13 +40,11 @@ router.delete('/user/delete', requireAuth, async (req, res) => {
 router.get('/user/:username/profile', requireAuth, restrictToOwnProfile, async (req, res) => {
     const user = await User
         .findById(req.user._id)
-        .populate([{
+        .populate({
             path: 'reviews',
             populate: { path: 'restaurant' },
-        }])
+        })
         .lean();
-
-    console.log(user)
 
     res.render('user',  {
         nav_context: { isLoggedIn: req.isAuthenticated() },
