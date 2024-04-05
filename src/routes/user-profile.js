@@ -7,7 +7,6 @@ const User = require('#models/Users.js');
 
 const router = express.Router();
 
-
 router.get('/user', requireAuth, (req, res) => {
     res.redirect(`/user/${req.user.username}/profile`);
 });
@@ -24,8 +23,8 @@ router.post('/user/edit', requireAuth, async (req, res) => {
 
     try {
         let document_exists = 
-        await User.findOne({ username: req.body.username }) ||
-        await Admin.findOne({ username: req.body.username });
+            await User.findOne({ username: req.body.username }) ||
+            await Admin.findOne({ username: req.body.username });
 
         if (document_exists) {
             req.flash('error', 'Username already exists');
@@ -69,37 +68,113 @@ router.delete('/user/delete', requireAuth, async (req, res) => {
     }
 });
 
+router.get('/profile/:username', async (req, res) => {
+    try {
+        const user = await User
+            .findOne({ username: { '$regex': req.params.username, $options: 'i' }})
+            .populate({
+                path: 'reviews',
+                populate: { path: 'restaurant' },
+            })
+            .lean();
+        
+        switch (req.query['sort-by']) {
+            case 'latest':
+                user.reviews.sort((a, b) => new Date(b.date_of_review) - new Date(a.date_of_review));
+                break;
+
+            case 'oldest':
+                user.reviews.sort((a, b) => new Date(a.date_of_review) - new Date(b.date_of_review));
+                break;
+
+            case 'highest':
+                user.reviews.sort((a, b) => b.review_rating - a.review_rating);
+                break;
+
+            case 'lowest':
+                user.reviews.sort((a, b) => a.review_rating - b.review_rating);
+                break;
+        }
+
+        res.render('profile-view',  {
+            nav_context: { isLoggedIn: req.isAuthenticated() },
+            selected: {
+                latest: req.query['sort-by'] ? req.query['sort-by'] == 'latest' : true,
+                oldest: req.query['sort-by'] == 'oldest',
+                highest: req.query['sort-by'] == 'highest',
+                lowest: req.query['sort-by'] == 'lowest',
+            },
+            user,
+        });
+
+    } catch(err) {
+        console.error(err)
+        res.redirect('back');
+    }
+});
+
 router.get('/user/:username/profile', requireAuth, restrictToOwnProfile, async (req, res) => {
     try {
         const user = await User
-        .findById(req.user._id)
-        .populate({
-            path: 'reviews',
-            populate: { path: 'restaurant' },
-        })
-        .lean();
+            .findById(req.user._id)
+            .populate({
+                path: 'reviews',
+                populate: { path: 'restaurant' },
+            })
+            .lean();
+
+        console.log(req.query['sort-by'])
         
+        switch (req.query['sort-by']) {
+            case 'latest':
+                user.reviews.sort((a, b) => new Date(b.date_of_review) - new Date(a.date_of_review));
+                break;
+
+            case 'oldest':
+                user.reviews.sort((a, b) => new Date(a.date_of_review) - new Date(b.date_of_review));
+                break;
+
+            case 'highest':
+                user.reviews.sort((a, b) => b.review_rating - a.review_rating);
+                break;
+
+            case 'lowest':
+                user.reviews.sort((a, b) => a.review_rating - b.review_rating);
+                break;
+        }
+
         res.render('user',  {
             nav_context: { isLoggedIn: req.isAuthenticated() },
+            selected: {
+                latest: req.query['sort-by'] ? req.query['sort-by'] == 'latest' : true,
+                oldest: req.query['sort-by'] == 'oldest',
+                highest: req.query['sort-by'] == 'highest',
+                lowest: req.query['sort-by'] == 'lowest',
+            },
             user,
         });
+
     } catch(err) {
-        console.err(err)
+        console.error(err)
         res.redirect('/user');
     }
 });
 
 router.get('/user/:username/edit', requireAuth, restrictToOwnProfile, async (req, res) => {
-    const user = await User
-        .findById(req.user._id)
-        .lean();
+    try {
+        const user = await User
+            .findById(req.user._id)
+            .lean();
     
-    res.render('user-edit', {
-        nav_context: {
-            isLoggedIn: req.isAuthenticated(),
-        },
-        user,
-    });
+        res.render('user-edit', {
+            nav_context: { isLoggedIn: req.isAuthenticated() },
+            user,
+        });
+
+    } catch(err) {
+        console.error(err)
+        res.redirect('/user');
+    }
 });
 
 module.exports = router;

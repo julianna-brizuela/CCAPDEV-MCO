@@ -11,6 +11,7 @@ const Restaurants = require("#models/Restaurants.js");
 const Reviews = require("#models/Reviews.js");
 const Tags = require("#models/Tags.js");
 
+const { requireAuth } = require('#middleware/auth.js');
 const upload = require('#middleware/upload.js')
 
 //REMOVE LATER
@@ -185,7 +186,7 @@ restaurantRouter.get('/:restaurant', async (req, res) => {
 });
 
 //GET for Writing a Review
-restaurantRouter.get('/:restaurant/writeareview', async (req, res) => {
+restaurantRouter.get('/:restaurant/writeareview', requireAuth, async (req, res) => {
     let restaurant_route = req.params.restaurant;
 
     let restaurant = await Restaurants.findOne({routeparameter: restaurant_route}).lean().populate({
@@ -210,7 +211,7 @@ restaurantRouter.get('/:restaurant/writeareview', async (req, res) => {
     
 });
 
-restaurantRouter.post('/:restaurant/writeareview', upload.single("image"), async (req, res) => { 
+restaurantRouter.post('/:restaurant/writeareview', requireAuth, upload.single("image"), async (req, res) => { 
 
     let prev_length = await Reviews.find({}).lean().exec();
     prev_length = prev_length.length
