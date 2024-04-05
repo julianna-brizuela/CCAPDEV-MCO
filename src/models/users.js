@@ -28,11 +28,6 @@ const usersSchema = new Schema({
         ref: 'reviews',
         default: null,
     },
-    favorites: {
-        type: [SchemaTypes.ObjectId],
-        ref: 'restaurants',
-        default: null,
-    },
 });
 
 const users = model('users', usersSchema);

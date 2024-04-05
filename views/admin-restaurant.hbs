@@ -45,13 +45,14 @@
 
     <div class="restaurant-reviews">
 
+     
         <div class="customer-reviews">
             {{#each reviews}}
                 <div class="post" id="post-{{@index}}">
                     <div class="post-header">
-                        <img class="post-profile-pic" src="/static/img/profile-pics/{{reviewer_pfp}}">
+                        <img class="post-profile-pic" src="/static/img/profile-pics/{{this.reviewer.pfp}}">
                         <div class="post-info">
-                            <div class="post-info-name" id="reviewer-name-{{@index}}">{{reviewer.fullname}}</div>
+                            <div class="post-info-name" id="reviewer-name-{{@index}}">{{this.reviewer.fullname}}</div>
                             <div class="post-rating">
                                 <ul class="star-spritegroup" id="rating-{{@index}}">
                                     {{#if (isEqual review_rating 5)}}
@@ -110,24 +111,24 @@
                         </div>
                     </div>
                     <span class="post-date" id="date-of-review-{{@index}}">{{date_of_review}}</span>
-                    <p class="post-review" id="review-description-{{@index}}">{{{review_description}}}</p>
+                    <p class="post-review" id="{{_id}}">{{{review_description}}}</p>
                     <div class="admin-reply"> 
                         <form id="edit-reply-{{@index}}">
                                 {{#if owner_response}}
                                 <div class="left">
-                                    <input type="text" id="owner-response-{{@index}}" value="{{owner_response}}"> </input>
+                                    <input type="text" id="owner-response-{{_id}}" value="{{owner_response}}"> </input>
                                 </div>
                                 <div class="index-reply-button">
-                                    <button type="submit" class="index-reply" value="submit" id="button-{{@index}}" onclick="reply('{{@index}}')"> 
+                                    <button type="submit" class="index-reply" value="submit" id="button-{{@index}}" onclick="reply('{{_id}}')"> 
                                         <span class="index-submit-reply">Edit</span>
                                     </button>
                                 </div>
                                 {{else}}
                                 <div class="left">
-                                    <input type="text" id="owner-response-{{@index}}" placeholder="Reply to review ..."/>
+                                    <input type="text" id="owner-response-{{_id}}" placeholder="Reply to review ..."/>
                                 </div>
                                 <div class="index-reply-button">
-                                    <button type="submit" class="index-reply" value="submit" id="button-{{@index}}" onclick="reply('{{@index}}')"> 
+                                    <button type="submit" class="index-reply" value="submit" id="button-{{@index}}" onclick="reply('{{_id}}')"> 
                                         <span class="index-submit-reply">Reply</span>
                                     </button>
                                 </div>
