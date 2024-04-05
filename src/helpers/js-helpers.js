@@ -39,4 +39,73 @@ async function nestedQueryNoProject(Model, nestedModelString, modelString, forei
     return aggregatedData;
 }
 
-module.exports = {nestedQueryNoProject, nestedQuery,getAverageRating};
+async function updateRestaurant(restaurant, Modell, Model2) {
+    const Restaurant_Review = await nestedQueryNoProject(Modell, 'restaurants', 'restaurant', '_id', '$reviewer', {'restaurant.restaurant_name': restaurant});
+    const Restaurant_ReviewString = Restaurant_Review.map(review => review._id.toString());
+
+    const Restaurant_ReviewNum = Restaurant_ReviewString.length
+    const Restaurant_Rating = getAverageRating(Restaurant_Review, Restaurant_ReviewNum)
+
+    const Restaurant_Stars = function() {
+         //taken from: https://stackoverflow.com/questions/6137986/javascript-roundoff-number-to-nearest-0-5
+        function round(value, step) {
+            step || (step = 1.0);
+            var inv = 1.0 / step;
+            return Math.round(value * inv) / inv;
+        }
+
+        average = round(Restaurant_Rating, 0.5);
+
+        switch (average) {
+            case 0:
+                return ['blank-star','blank-star','blank-star','blank-star','blank-star']
+            case 0.5:
+                return ['half-star','blank-star','blank-star','blank-star','blank-star']
+            case 1:
+                return ['star','blank-star','blank-star','blank-star','blank-star']
+            case 1.5:
+                return ['star','half-star','blank-star','blank-star','blank-star']
+            case 2:
+                return ['star','star','blank-star','blank-star','blank-star']
+            case 2.5:
+                return ['star','star','half-star','blank-star','blank-star']
+            case 3:
+                return ['star','star','star','blank-star','blank-star']
+            case 3.5:
+                return ['star','star','star','half-star','blank-star']
+            case 4:
+                return ['star','star','star','star','blank-star']
+            case 4.5:
+                return ['star','star','star','star','half-star']
+            case 5:
+                return ['star','star','star','star','star']
+
+        }
+    }
+
+    const updatedRestaurant = await Model2.findOneAndUpdate({restaurant_name: restaurant}, 
+    { 
+     "$push": { "resto_reviews": Restaurant_ReviewString},
+     rating: Restaurant_Rating,
+     review_num: Restaurant_ReviewNum,
+     stars: Restaurant_Stars
+    }
+    , {new: true, "upsert": true}).exec();
+
+    console.log(updatedRestaurant)
+}
+
+async function updateUser(username, Model1, Model2) {
+    const User_Review = await nestedQuery(Model1, 'users', 'reviewer', '_id', '$reviewer', {'reviewer.username': username}, {"_id": "$_id"});
+    const User_ReviewString = User_Review.map(review => review._id.toString());
+
+    const updatedUser = await Model2.findOneAndUpdate({username: username}, 
+    { "$push": { "reviews": User_ReviewString } }
+    , {new: true, "upsert": true}).exec();
+
+    console.log(updatedUser)
+
+}
+
+
+module.exports = {nestedQueryNoProject, nestedQuery,getAverageRating, updateRestaurant, updateUser};

@@ -48,35 +48,34 @@ ratingBtnWrapper.addEventListener("click", (event) => {
 })
 
 submitReview?.addEventListener("click", async(e) => {
-    const username = sessionStorage.getItem('munch-account-username');
-    
     e.preventDefault;
 
-    let data = new FormData(reviewForm);
-    data = Object.fromEntries(data);
+    /*
+    review object has the following format:
+    - restaurant (objectID)
+    - reviewer (objectID)
+    - review_rating (int)
+    - date of review (string)
+    - review_description (string)
+    - owner response (string)
+    - image (string)
+    */
+
+    //retrieve data from the form and turn it into an object
+    let review = new FormData(reviewForm);
+    review = Object.fromEntries(review);
+
+    let date_of_review = new Date();
+    date_of_review = (date_of_review.getMonth() + 1) + "/" + date_of_review.getDate() + "/" + date_of_review.getFullYear();
+
+    review["date_of_review"] = date_of_review
     
-    let review_date = new Date();
-    review_date = (review_date.getMonth() + 1) + "/" + review_date.getDate() + "/" + review_date.getFullYear();
-    data["date_of_review"] = review_date;
-    data["restaurant"] = document.getElementById("content-header").innerText;
-    data["review_rating"] = review_rating  //change soon
+    review["restaurant"] = document.getElementById("content-header").innerText;
+    review["review_rating"] = review_rating
+    review["owner_response"] = ""
+ 
 
-    if (username !== null) {
-        data["reviewer_name"] = username;
-    } 
-
-    data["owner_response"] = ""
-
-    const objectOrder = {
-        'restaurant': null,
-        'reviewer_name': null,
-        'review_rating': null,
-        'date_of_review': null,
-        'review_description': null,
-    }
-
-    data = Object.assign(objectOrder, data);
-    const jstring = JSON.stringify(data); 
+    const jstring = JSON.stringify(review); 
 
     try {
         const review = await fetch('/:restaurant/writeareview', {
@@ -87,11 +86,9 @@ submitReview?.addEventListener("click", async(e) => {
             }
         });
 
-        const reviewData = await review.json();
-        console.log(reviewData)
-        console.log(reviewData.name)
+        const reviewData = await review.json(); 
+        console.log("REVIEW DATA" + reviewData)
 
-    
         if (review.status == 200) {
             location.reload(); // refresh the page
         } else {

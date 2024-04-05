@@ -11,10 +11,12 @@ const Restaurants = require("#models/Restaurants.js");
 const Reviews = require("#models/Reviews.js");
 const Tags = require("#models/Tags.js");
 
+const upload = require('#middleware/upload.js')
+
 //REMOVE LATER
 const database = require('../../db/database.js');
 
-const {nestedQuery, nestedQueryNoProject, getAverageRating } = require("#helpers/js-helpers.js");
+const {nestedQuery, nestedQueryNoProject, getAverageRating, updateRestaurant, updateUser} = require("#helpers/js-helpers.js");
 
 //GET for Viewing All Restaurants
 restaurantRouter.get('/browse', async (req, res) => {
@@ -164,6 +166,8 @@ restaurantRouter.get('/:restaurant', async (req, res) => {
         }
     }).exec();
 
+    console.log(restaurant_route)
+
     if (restaurant) {
         res.locals.title = "MUNCH | " + restaurant['restaurant_name'];
         res.render("restaurant", {
@@ -171,142 +175,126 @@ restaurantRouter.get('/:restaurant', async (req, res) => {
             nav_context: {
                 isLoggedIn: req.isAuthenticated(),
             },
+            isLoggedIn:req.isAuthenticated(),
+            routeparameter: restaurant_route,
         });
     } else {
         res.status(404).render('404_error_template', {title: "Sorry, page not found"});
     }
+
 });
 
 //GET for Writing a Review
 restaurantRouter.get('/:restaurant/writeareview', async (req, res) => {
     let restaurant_route = req.params.restaurant;
-    let loggedIn = 0;
 
-    if (req.isAuthenticated()) {
-        loggedIn = 1;
-        let restaurant = await Restaurants.findOne({routeparameter: restaurant_route}).lean().populate({
-            path: 'resto_reviews',
-            populate: {
-                path: 'reviewer',
-            }
-        }).exec();
-
-        if(restaurant) {
-            res.locals.title = "MUNCH | Write a Review for " + restaurant['restaurant_name'];
-            res.render("writeareview", {
-                restaurant: restaurant, 
-                nav_context: {
-                    isLoggedIn: req.isAuthenticated(),
-                },
-            });
-        } else {
-            res.status(404).render('404_error_template', {title: "Sorry, page not found"});
+    let restaurant = await Restaurants.findOne({routeparameter: restaurant_route}).lean().populate({
+        path: 'resto_reviews',
+        populate: {
+            path: 'reviewer',
         }
+    }).exec();
+
+    if(restaurant) {
+        res.locals.title = "MUNCH | Write a Review for " + restaurant['restaurant_name'];
+        res.render("writeareview", {
+            restaurant: restaurant, 
+            nav_context: {
+                isLoggedIn: req.isAuthenticated(),
+            },
+        });
     } else {
-        res.json({loggedIn, restaurant_route});
+        res.status(404).render('404_error_template', {title: "Sorry, page not found"});
     }
 
     
 });
 
-//POST for Writing a Review (DO NOT TOUCH)
-restaurantRouter.post('/:restaurant/writeareview', async (req, res) => {
-    let restaurant_route = req.body.restaurant;
+restaurantRouter.post('/:restaurant/writeareview', upload.single("image"), async (req, res) => { 
 
-    const prev_length = Reviews.find({}).lean().exec().length;
-    let restaurant = Restaurants.find({routeparameter: restaurant_route}).lean().exec();
+    let prev_length = await Reviews.find({}).lean().exec();
+    prev_length = prev_length.length
+    console.log("PREV" + prev_length)
 
+    let restaurant = await Restaurants.findOne({restaurant_name: req.body.restaurant}).lean().exec();
+   
     try {
-        //inserts new entry into the database
-        const review = await database.collections['reviews'].insertOne(req.body);
+        restaurant = restaurant._id
+        const review_description = req.body.review_description;
+        const reviewer = req.user._id
+        const review_rating = req.body.review_rating
+        const date_of_review = req.body.date_of_review
+        const owner_response = req.body.owner_response
+        let image
 
-        //checking if it inserted correctly
-        if (prev_length < database.collections['reviews'].getLength()) {
-            const username = req.body['reviewer_name'];
-            const name = database.collections['users'].find({ username })[0].name;
-            res.status(200).json({ name });
+        console.log(req.file)
 
-            if (restaurant) {
-                const update = await database.collections['restaurants'].updateOne({restaurant_name: restaurant.restaurant_name}, {
-                    resto_reviews: database.collections['reviews'].find({restaurant: restaurant.restaurant_name}), 
-                    review_num: database.collections['reviews'].find({restaurant: restaurant.restaurant_name}).length,
+        if (req.file) {
+            image = req.file.path
+        }
+        
+        console.log("IMAGE:" + image)
 
-                    //get the average of all ratings thus far
-                    rating: average = function() {
-                        const len = database.collections['reviews'].find({restaurant: restaurant.restaurant_name}).length;
-                        const arr = database.collections['reviews'].find({restaurant: restaurant.restaurant_name})
-                        let avg = 0
-                        for (let i = 0; i < len; i++) {
-                            avg = avg + arr[i].review_rating
-                        }
+        try {
+            let createReview
 
-                        avg = avg / len
-
-                        return avg.toPrecision(3)
-                    },
-                    //based on the average, get the new number of stars
-                    star: stars = function() {
-
-                        function avg(len, arr) {
-                            let avg = 0
-                            for (let i = 0; i < len; i++) {
-                                avg = avg + arr[i].review_rating
-                            }
-    
-                            avg = avg / len
-
-                            return avg.toPrecision(3)
-                        }
-
-                        let average = avg(database.collections['reviews'].find({restaurant: restaurant.restaurant_name}).length, database.collections['reviews'].find({restaurant: restaurant.restaurant_name}))
-
-
-                        //taken from: https://stackoverflow.com/questions/6137986/javascript-roundoff-number-to-nearest-0-5
-                        function round(value, step) {
-                            step || (step = 1.0);
-                            var inv = 1.0 / step;
-                            return Math.round(value * inv) / inv;
-                        }
-
-                        average = round(average, 0.5);
-
-                        switch (average) {
-                            case 0:
-                                return ['blank-star','blank-star','blank-star','blank-star','blank-star']
-                            case 0.5:
-                                return ['half-star','blank-star','blank-star','blank-star','blank-star']
-                            case 1:
-                                return ['star','blank-star','blank-star','blank-star','blank-star']
-                            case 1.5:
-                                return ['star','half-star','blank-star','blank-star','blank-star']
-                            case 2:
-                                return ['star','star','blank-star','blank-star','blank-star']
-                            case 2.5:
-                                return ['star','star','half-star','blank-star','blank-star']
-                            case 3:
-                                return ['star','star','star','blank-star','blank-star']
-                            case 3.5:
-                                return ['star','star','star','half-star','blank-star']
-                            case 4:
-                                return ['star','star','star','star','blank-star']
-                            case 4.5:
-                                return ['star','star','star','star','half-star']
-                            case 5:
-                                return ['star','star','star','star','star']
-
-                        }
-
-                    }
+            if (image) {
+                createReview = await Reviews.create({
+                    restaurant: restaurant,
+                    reviewer: reviewer,
+                    review_rating: review_rating,
+                    date_of_review: date_of_review,
+                    review_description: review_description,
+                    owner_response: owner_response,
+                    image: image
+                });
+            } else {
+                createReview = await Reviews.create({
+                    restaurant: restaurant,
+                    reviewer: reviewer,
+                    review_rating: review_rating,
+                    date_of_review: date_of_review,
+                    review_description: review_description,
+                    owner_response: owner_response,
                 });
             }
+            
+        } catch (err) {
+            console.log("this did not work!")
+            console.log(err)
+        }
+
+        let new_length = await Reviews.find({}).lean().exec()
+        new_length = new_length.length
+
+        console.log("NEW" + new_length)
+        console.log(req.body.restaurant)
+        //checks if the reviews have been updated successfully
+        if (prev_length < new_length) {
+            res.sendStatus(200);
+
+            restaurant = await Restaurants.findOne({restaurant_name: req.body.restaurant}).lean().exec();
+            console.log(restaurant)
+            
+
+            if (restaurant) {
+                await Users.deleteMany({}).exec();
+                await Restaurants.deleteMany({}).exec();
+                await updateRestaurant(req.body.restaurant, Reviews, Restaurants)
+                await updateUser(req.user.username, Reviews, Users)
+            }
+
         } else {
             res.sendStatus(500);
         }
+        
+
     } catch (err) {
         console.error(err);
         res.sendStatus(500);
     }
-    
+
+
 });
 
 module.exports = restaurantRouter;

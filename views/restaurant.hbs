@@ -1,6 +1,11 @@
 <link rel="stylesheet" type="text/css" href="static/css/establishment.css"/>
 <script src="/static/js/restaurants.js" defer></script>
 
+<script>
+    window.isLoggedIn = {{isLoggedIn}}
+    window.routeparameter = "{{routeparameter}}"
+</script>
+
 {{#with restaurant}}
 <div class="main-restaurant-info">
 
@@ -63,14 +68,18 @@
             <button class="button photo-sprite" id="add-photo-button"> <i class="photo"></i> <span> Add Photo </span> </button> --}}
         </div>
         
+        <div>
+             <div id="write-a-review" class="button-review">
 
-            <div id="write-a-review" class="button-review">
-            <form id="writeAReviewForm" action="/{{toLink restaurant_name}}/writeareview">
-            <button class="default-red-button review-submit" id="write-review" type="submit" method="GET">Write a Review</button>
-            </form>
-            </div>
+                <a id="write-review" href="/{{toLink restaurant_name}}/writeareview" >
+                <button type="button" id="write-review" class="button write-review">Write a Review</button>
+                </a>
+                </div>
             
             <div id="error-message" style="display: none; color: #873b3b;">You must be logged in to write a review.</div>
+
+        </div>
+           
         
         
     </div>

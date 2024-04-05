@@ -6,23 +6,7 @@ const Admins = require("#models/Admins.js");
 const Restaurants = require("#models/Restaurants.js");
 const Reviews = require("#models/Reviews.js");
 const Tags = require("#models/Tags.js");
-const {nestedQuery, nestedQueryNoProject, getAverageRating } = require("#helpers/js-helpers.js");
-
-async function updateRestaurant(restaurant) {
-    const Restaurant_Review = await nestedQueryNoProject(Reviews, 'restaurants', 'restaurant', '_id', '$reviewer', {'restaurant.restaurant_name': restaurant});
-    const Restaurant_ReviewString = Restaurant_Review.map(review => review._id.toString());
-
-    const Restaurant_ReviewNum = Restaurant_ReviewString.length
-    const Restaurant_Rating = getAverageRating(Restaurant_Review, Restaurant_ReviewNum)
-
-    const updatedRestaurant = await Restaurants.findOneAndUpdate({restaurant_name: restaurant}, 
-    { 
-     "$push": { "resto_reviews": Restaurant_ReviewString},
-     rating: Restaurant_Rating,
-     review_num: Restaurant_ReviewNum,
-    }
-    , {new: true, "upsert": true}).exec();
-}
+const {nestedQuery, nestedQueryNoProject, getAverageRating, updateRestaurant, updateUser} = require("#helpers/js-helpers.js");
 
 async function populateDB() {
     try {
@@ -373,35 +357,15 @@ async function populateDB() {
             }
         ])
 
-        
+        await updateUser('Josh_Hutcherson', Reviews, Users)
+        await updateUser('Sensei_Wu_Baby', Reviews, Users )
+        await updateUser('Mewing_Cat', Reviews, Users)
 
-        const JH_Review = await nestedQuery(Reviews, 'users', 'reviewer', '_id', '$reviewer', {'reviewer.username': 'Josh_Hutcherson'}, {"_id": "$_id"});
-        const JH_ReviewString = JH_Review.map(review => review._id.toString());
-
-        const SWB_Review = await nestedQuery(Reviews, 'users', 'reviewer', '_id', '$reviewer', {'reviewer.username': 'Sensei_Wu_Baby'}, {"_id": "$_id"});
-        const SWB_ReviewString = SWB_Review.map(review => review._id.toString());
-
-        const MC_Review = await nestedQuery(Reviews, 'users', 'reviewer', '_id', '$reviewer', {'reviewer.username': 'Mewing_Cat'}, {"_id": "$_id"});
-        const MC_ReviewString = MC_Review.map(review => review._id.toString());
-
-        //adds the reviews created by each user to their review collection
-        const updatedJH = await Users.findOneAndUpdate({username: 'Josh_Hutcherson'}, 
-           { "$push": { "reviews": JH_ReviewString } }
-        , {new: true, "upsert": true}).exec();
-
-        const updatedSWB = await Users.findOneAndUpdate({username: 'Sensei_Wu_Baby'}, 
-           { "$push": { "reviews": SWB_ReviewString } }
-        , {new: true, "upsert": true}).exec();
-
-        const updatedMC = await Users.findOneAndUpdate({username: 'Mewing_Cat'}, 
-           { "$push": { "reviews":  MC_ReviewString  } }
-        , {new: true, "upsert": true}).exec();
-
-        await updateRestaurant('Botejyu');
-        await updateRestaurant('Manam');
-        await updateRestaurant('King Bee');
-        await updateRestaurant('UCC Clockwork');
-        await updateRestaurant('The Wholesome Table');
+        await updateRestaurant('Botejyu', Reviews, Restaurants);
+        await updateRestaurant('Manam', Reviews, Restaurants);
+        await updateRestaurant('King Bee', Reviews, Restaurants);
+        await updateRestaurant('UCC Clockwork', Reviews, Restaurants);
+        await updateRestaurant('The Wholesome Table', Reviews, Restaurants);
 
         console.log("Database has been populated: ");
         disconnect();
