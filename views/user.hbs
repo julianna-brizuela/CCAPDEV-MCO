@@ -1,4 +1,3 @@
-
 <link rel="stylesheet" type="text/css" href="/static/css/user.css"/>
 <div class="content-container">
     <div class="left">
@@ -6,34 +5,29 @@
             <div class="profile-pic">
                 <img src="/static/img/profile-pics/{{reviewer_pfp}}">
             </div>
-
             <div class="profile-information">
                 <h4>{{name}} Josh hutcherson</h4> <!-- remove name -->
             </div>
-
             <div class="profile-controls">
                 <div>
-                    <button class="edit-profile">
-                    </button>
+                    <form action="/user/edit">
+                        <button class="edit-profile"></button>
+                    </form>
                     Edit Profile
                 </div>
                 <div>
-                    <button class="add-photo">
-                    </button>
+                    <form action="">
+                        <button class="add-photo"></button>
+                    </form>
                     Add Photo
-
                 </div>
-
                 <div>
-                    <button class="delete-profile">
-                    </button>
+                    <form action="">
+                        <button class="delete-profile"></button>
+                    </form>
                     Delete Profile
-
                 </div>
-
             </div>
-
-
         </div>
         <div class="reviews-container">
             <button class="my-reviews">
@@ -42,16 +36,6 @@
                     <h4>My Reviews</h4>
                 </div>
                 <h5 class="profile-num"> 5 Reviews </h5>
-            </button>
-        </div>
-
-        <div class ="saved-container">
-            <button class="my-saves">
-                <div class="group">
-                    <span class="saved"></span>
-                    <h4> My Saved Restaurants </h4>
-                </div>
-                <h5 class="profile-num"> 2 Saved </h5>
             </button>
         </div>
 
@@ -77,75 +61,36 @@
 
                 <div class="customer-reviews">
                     <div class="post">
-                            <div class="post-header">
-                                <button type="button" class="restaurant-button">  
-                                    <img class="restaurant-pic" src="/static/img/restaurant-images/botejyu/botejyupfp.jpg"> 
-                                </button>
-                                <div class="post-info">
-                                    <div class="post-info-name">Botejyu</div>
-                                    <div class="post-location"> Sta. Rosa, Laguna </div>
-                                </div>
-                            </div>
-                            <div class="post-rating">
-                                <ul class="rating-scale" id="rating-1">
-                                    <li class="star"></li>
-                                    <li class="star"></li>
-                                    <li class="star"></li>
-                                    <li class="star"></li>
-                                    <li class="star"></li>
-                                </ul>
-                                <span class="post-date"> 01/01/2000 </span>
-                            </div>
-                            
-                            <p class="post-review">Good place to go to satisfy your Japanese food cravings.
-                                <br><br>It's inside Solenad, Nuvali so parking is not a problem. They still accept customers after 8:30pm unlike the other Japanese resto beside them which by the way was our first choice.
-                                <br><br>Food is great and reasonably priced. Will go back and try other items in the menu.</p>
-                        </div>
-
-
-                    {{!-- {{#each reviews}} 
-                        {{>review}}
-                    {{/each}} --}}
-                </div>
-
-                <div class="heading">
-                    <h3> Saved Restaurants </h3>
-                </div>
-
-
-                <div class="saved-restaurants"> 
-                    <div class="resto">
-                        <div class="resto-info">
+                        <div class="post-header">
                             <button type="button" class="restaurant-button">  
                                 <img class="restaurant-pic" src="/static/img/restaurant-images/botejyu/botejyupfp.jpg"> 
                             </button>
-                            <div class="resto-name">
-                                Botejyu  
+                            <div class="post-info">
+                                <div class="post-info-name">Botejyu</div>
+                                <div class="post-location"> Sta. Rosa, Laguna </div>
                             </div>
                         </div>
-                        <div>
-                            <button class="remove-resto"></button>
+                        <div class="post-rating">
+                            <ul class="rating-scale" id="rating-1">
+                                <li class="star"></li>
+                                <li class="star"></li>
+                                <li class="star"></li>
+                                <li class="star"></li>
+                                <li class="star"></li>
+                            </ul>
+                            <span class="post-date"> 01/01/2000 </span>
                         </div>
                         
-                    </div>
-                     <div class="resto">
-                        <div class="resto-info">
-                            <button type="button" class="restaurant-button"> 
-                                <img class="restaurant-pic" src="/static/img/restaurant-images/kingbee/kingbeepfp.png">
-                            </button>
-                            <div class="resto-name">
-                                Kingbee
-                            </div>
-                        </div>
-                        <div>
-                            <button class="remove-resto"></button>
-                        </div>
+                        <p class="post-review">Good place to go to satisfy your Japanese food cravings.
+                            <br><br>It's inside Solenad, Nuvali so parking is not a problem. They still accept customers after 8:30pm unlike the other Japanese resto beside them which by the way was our first choice.
+                            <br><br>Food is great and reasonably priced. Will go back and try other items in the menu.</p>
                     </div>
 
-
+                    {{#each reviews}} 
+                        {{> review}}
+                    {{/each}}
                 </div>
             </div>
-
         </div>
     </div>
 </div>

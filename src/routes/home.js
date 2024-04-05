@@ -20,8 +20,4 @@ router.get('/home', (req, res) => {
     res.redirect('/');
 });
 
-router.get('/testing', (req, res) => {
-    res.render('user');
-});
-
 module.exports = router;
