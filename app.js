@@ -14,7 +14,7 @@ const { connect } = require('./src/models/conn.js');
 const routes = require('./src/routes/route-handler.js');
 
 // Server Setup and Middleware
-const PORT = process.env.PORT ?? 3000;
+const PORT = process.env.PORT;
 const app = express();
 const hbs = exphbs.create({ extname: 'hbs', helpers });
 configurePassport(passport);
