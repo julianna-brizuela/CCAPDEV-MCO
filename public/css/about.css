@@ -2,8 +2,8 @@
 @import url("https://use.typekit.net/mch3zne.css");
 
 .background {
-    position: fixed; /* Anchor the div to the viewport */
-    top: 0;
+    position: absolute; 
+    top: 0px; 
     min-width: fit-content; 
     min-height: auto;
     height: 350px;
@@ -15,7 +15,7 @@
         url("/static/img/pizza.jpeg");
     background-size: 100% auto;
     background-position: center;
-    /* background-repeat: no-repeat; */
+    background-attachment: scroll; 
     z-index: -5;
     width: 100%;
 }
@@ -42,5 +42,42 @@ hr {
 h1 {
     color: var(--yellow);
     text-align: center;
+    font-size: 100px;
     
+}
+
+.profile-picture {
+    border:none;
+    background: url("/static/img/spritesheet.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: -400px center;
+    padding: 0 .1rem;
+    width: 40px;
+    height: 40px;
+}
+
+.searchbar {
+    border: 0px;
+}
+
+.content {
+    margin-left: 300px;
+    margin-top: 100px;
+    margin-right: 200px;
+}
+
+ul {
+    list-style-type: circle;
+    column-count: 2; /* Split the list into two columns */
+    column-gap: 50px; 
+}
+
+li {
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+p {
+    font-weight: bold;
 }
