@@ -10,6 +10,33 @@ router.get('/user', requireAuth, (req, res) => {
     res.redirect(`/user/${req.user.username}/profile`);
 });
 
+router.get('/user/edit', requireAuth, (req, res) => {
+    res.redirect(`/user/${req.user.username}/edit`);
+});
+
+router.delete('/user/delete', requireAuth, async (req, res) => {
+    try {
+        const result = await User.findByIdAndDelete(req.user._id);
+        const deletion_status = result ? 'Account Deleted Successfully' : 'Something went wrong';
+
+        return req.logout(err => {
+            if (err) return next(err);
+            res.render('user-delete',  {
+                nav_context: { hide: true },
+                deletion_status,
+            });
+        });
+
+    } catch(err) {
+        console.error(err);
+        req.flash('Something went wrong');
+        res.render('user-delete',  {
+            nav_context: { hide: true },
+            deletion_status: 'Something went wrong',
+        });
+    }
+});
+
 router.get('/user/:username/profile', requireAuth, restrictToOwnProfile, async (req, res) => {
     const user = await User
         .findById(req.user._id)
@@ -27,16 +54,10 @@ router.get('/user/:username/profile', requireAuth, restrictToOwnProfile, async (
     });
 });
 
-router.get('/user/edit', requireAuth, (req, res) => {
-    res.redirect(`/user/${req.user.username}/edit`);
-});
-
 router.get('/user/:username/edit', requireAuth, restrictToOwnProfile, async (req, res) => {
     const user = await User
         .findById(req.user._id)
         .populate('reviews')
-        .lean();
-    const reviews = user.reviews;
     
     res.render('user-edit', {
         nav_context: {
