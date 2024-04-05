@@ -225,7 +225,7 @@ restaurantRouter.post('/:restaurant/writeareview', upload.single("image"), async
         const review_rating = req.body.review_rating
         const date_of_review = req.body.date_of_review
         const owner_response = req.body.owner_response
-        let image
+        let image;
 
         console.log(req.file)
 
@@ -266,20 +266,26 @@ restaurantRouter.post('/:restaurant/writeareview', upload.single("image"), async
 
         let new_length = await Reviews.find({}).lean().exec()
         new_length = new_length.length
-
-        console.log("NEW" + new_length)
-        console.log(req.body.restaurant)
         //checks if the reviews have been updated successfully
         if (prev_length < new_length) {
             res.sendStatus(200);
 
             restaurant = await Restaurants.findOne({restaurant_name: req.body.restaurant}).lean().exec();
-            console.log(restaurant)
             
-
             if (restaurant) {
-                await Users.deleteMany({}).exec();
-                await Restaurants.deleteMany({}).exec();
+
+                const users = await Users.findOneAndUpdate({username: req.user.username}, {
+                    $set: {
+                        reviews: []
+                    }
+                }).exec();
+
+                const restaurants = await Restaurants.findOneAndUpdate({restaurant_name: req.body.restaurant}, {
+                    $set: {
+                        resto_reviews: []
+                    }
+                }).exec();
+                
                 await updateRestaurant(req.body.restaurant, Reviews, Restaurants)
                 await updateUser(req.user.username, Reviews, Users)
             }

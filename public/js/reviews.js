@@ -5,10 +5,6 @@ const ratingBtns = document.getElementsByClassName("star-button");
 
 let review_rating = 0
 
-function getLoginStatus() {
-    return 0
-}
-
 ratingBtnWrapper.addEventListener("click", (event) => {
     event.preventDefault;
     const isButton = event.target.tagName === 'BUTTON';
@@ -86,11 +82,10 @@ submitReview?.addEventListener("click", async(e) => {
             }
         });
 
-        const reviewData = await review.json(); 
-        console.log("REVIEW DATA" + reviewData)
-
         if (review.status == 200) {
-            location.reload(); // refresh the page
+            setTimeout(function(){
+                location.reload();
+            }, 1000); // 3000 milliseconds = 3 seconds
         } else {
             const message = `An error has occured. Status code: ${review.status}`;
             alert(message);
