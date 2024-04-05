@@ -128,6 +128,7 @@ hr {
     background-repeat: no-repeat;
     background-size:600px 30px;
     background-position:-268px center;
+    margin-bottom: -1px;
 }
 
 .profile-controls .delete-profile {
@@ -483,4 +484,10 @@ ul {
 
 #profile-upload{
     display: none;
+}
+
+#confirm-upload {
+    width: 25px;
+    height: 20px;
+    padding: 0px;
 }
