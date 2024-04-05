@@ -380,7 +380,7 @@ ul {
 
 .post-review {
     margin-top: 25px;
-    font-size: 12px;
+    font-size: 15px;
 }
 
 .post-location {
@@ -454,5 +454,25 @@ li {
 }
 
 .owner-reply-container {
-    margin-top: 10px;
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #c9c9c9;
+    height: auto;
+    border-radius: 25px;
+    padding: 25px;
+}
+
+.owner-label {
+    color: #873b3b;
+    font-weight: 900;
+    font-size: 0.9rem;
+}
+
+.owner-reply-container p {
+    word-wrap: break-word;
+    font-size: 0.8rem;
+}
+
+ul {
+    list-style-type: none;
 }
