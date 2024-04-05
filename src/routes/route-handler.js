@@ -1,14 +1,14 @@
 const { Router } = require('express');
 const router = Router();
 
-const home = require('#routes/home.js');
-const auth = require('#routes/auth.js');
-const user = require('#routes/user-profile.js')
-const adminRouter = require('#routes/adminRouter.js');
-const indexRouter = require('#routes/indexRouter.js');
-const restaurantRouter = require('#routes/restaurantsRouter.js');
-const usersRouter = require('#routes/usersRouter.js');
-const about = require('#routes/about.js');
+const home = require('../routes/home.js');
+const auth = require('../routes/auth.js');
+const user = require('../routes/user-profile.js')
+const adminRouter = require('../routes/adminRouter.js');
+const indexRouter = require('../routes/indexRouter.js');
+const restaurantRouter = require('../routes/restaurantsRouter.js');
+const usersRouter = require('../routes/usersRouter.js');
+const about = require('../routes/about.js');
 
 router.use(home);
 router.use(about);

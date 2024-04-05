@@ -5,19 +5,19 @@ const { Router } = require('express');
 const restaurantRouter = Router();
 
 //DATABASES
-const Users = require("#models/Users.js");
-const Admins = require("#models/Admins.js");
-const Restaurants = require("#models/Restaurants.js");
-const Reviews = require("#models/Reviews.js");
-const Tags = require("#models/Tags.js");
+const Users = require("../models/Users.js");
+const Admins = require("../models/Admins.js");
+const Restaurants = require("../models/Restaurants.js");
+const Reviews = require("../models/Reviews.js");
+const Tags = require("../models/Tags.js");
 
-const { requireAuth } = require('#middleware/auth.js');
-const upload = require('#middleware/upload.js')
+const { requireAuth } = require('../middleware/auth.js');
+const upload = require('../middleware/upload.js')
 
 //REMOVE LATER
 const database = require('../../db/database.js');
 
-const {nestedQuery, nestedQueryNoProject, getAverageRating, updateRestaurant, updateUser} = require("#helpers/js-helpers.js");
+const {nestedQuery, nestedQueryNoProject, getAverageRating, updateRestaurant, updateUser} = require("../helpers/js-helpers.js");
 
 //GET for Viewing All Restaurants
 restaurantRouter.get('/browse', async (req, res) => {
