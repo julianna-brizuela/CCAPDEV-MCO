@@ -1,10 +1,10 @@
 const bcrypt = require('bcrypt');
 const express = require('express');
-const { requireAuth } = require('#middleware/auth.js');
-const { restrictToOwnProfile } = require('#middleware/restrict-profile.js');
-const Admin = require('#models/Admins.js');
-const User = require('#models/Users.js');
-const upload = require('#middleware/upload-profile.js')
+const { requireAuth } = require('../middleware/auth.js');
+const { restrictToOwnProfile } = require('../middleware/restrict-profile.js');
+const Admin = require('../models/Admins.js');
+const User = require('../models//Users.js');
+const upload = require('../middleware/upload-profile.js')
 
 const router = express.Router();
 

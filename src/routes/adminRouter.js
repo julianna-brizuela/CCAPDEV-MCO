@@ -2,11 +2,11 @@ const express = require('express');
 const adminRouter = express.Router();
 const database = require('../../db/database.js');
 
-const Restaurants = require('#models/Restaurants.js');
-const Admins = require('#models/Admins.js');
-const Reviews = require('#models/Reviews.js');
-const { requireAuth } = require('#middleware/auth.js');
-const { restrictToOwnProfile } = require('#middleware/restrict-profile.js');
+const Restaurants = require('../models/Restaurants.js');
+const Admins = require('../models/Admins.js');
+const Reviews = require('../models/Reviews.js');
+const { requireAuth } = require('../middleware/auth.js');
+const { restrictToOwnProfile } = require('../middleware/restrict-profile.js');
 
 function toLink(str) {
     return str.toLowerCase().replace(/\s+/g, '');

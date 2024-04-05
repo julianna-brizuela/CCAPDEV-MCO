@@ -63,13 +63,12 @@ submitReview?.addEventListener("click", async(e) => {
 
     let date_of_review = new Date();
     date_of_review = (date_of_review.getMonth() + 1) + "/" + date_of_review.getDate() + "/" + date_of_review.getFullYear();
-
     review["date_of_review"] = date_of_review
-    
+
     review["restaurant"] = document.getElementById("content-header").innerText;
     review["review_rating"] = review_rating
     review["owner_response"] = ""
- 
+    
 
     const jstring = JSON.stringify(review); 
 
