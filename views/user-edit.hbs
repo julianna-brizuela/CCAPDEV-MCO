@@ -1,7 +1,7 @@
 <link rel="stylesheet" type="text/css" href="/static/css/login-signup.css"/>
 
 <div class = "overall-container">
-    <form class="signup-form" action="/signup" method="POST"> 
+    <form class="signup-form" action="/user/edit" method="POST"> 
         <h2> <a href="index.html"> munch </a> </h2> 
         
         {{#if messages.error}}
@@ -18,7 +18,7 @@
         </div>
         <div class="form-element">
             <label for="signup-email"> Email </label>
-            <input type="text" id="signup-email" name="email" placeholder="Enter email" required>
+            <input type="text" id="signup-email" name="email" placeholder="Enter email" disabled>
         </div>
         <div class="form-element">
             <label for="signup-password"> Password </label>
@@ -32,7 +32,7 @@
             <input type="submit" value="Signup">
         </div>
         <div class="to-login">
-            Already have an account? <a id="to-login" href="/login"> Log In </a>
+            Back to <a id="to-login" href="/user">Profile </a>
         </div>
         </form>
     </div>
