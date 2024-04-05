@@ -4,6 +4,7 @@ const { requireAuth } = require('#middleware/auth.js');
 const { restrictToOwnProfile } = require('#middleware/restrict-profile.js');
 const Admin = require('#models/Admins.js');
 const User = require('#models/Users.js');
+const upload = require('#middleware/upload-profile.js')
 
 const router = express.Router();
 
@@ -175,6 +176,19 @@ router.get('/user/:username/edit', requireAuth, restrictToOwnProfile, async (req
         console.error(err)
         res.redirect('/user');
     }
+});
+
+router.post('/user/upload', requireAuth, upload.single('profile'), async (req, res) => {
+    try {
+        const result = await User.findByIdAndUpdate(
+            req.user._id,
+            {pfp: req.file.filename},
+            {new: true}
+        );
+    } catch(err) {
+        console.error(err)
+    }
+    res.redirect('/user');
 });
 
 module.exports = router;

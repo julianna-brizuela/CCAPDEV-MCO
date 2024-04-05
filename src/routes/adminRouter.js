@@ -45,7 +45,6 @@ adminRouter.get("/:username/restaurant", requireAuth, restrictToOwnProfile, asyn
 });
 
  adminRouter.post("/:username/restaurant", async (req, res) => {
-    console.log('HELLO')
     try {
         const reviewID = req.body.reviewID;
         const ownerResponse = req.body.owner_response

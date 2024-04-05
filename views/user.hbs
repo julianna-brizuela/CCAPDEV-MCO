@@ -17,10 +17,12 @@
                     Edit Profile
                 </div>
                 <div>
-                    <form action="" method="GET">
-                        <button class="add-photo"></button>
-                    </form>
-                    Add Photo
+                    <form action="/user/upload" method="POST" enctype="multipart/form-data">
+                        <button class="add-photo" type="button" onclick="document.getElementById('profile-upload').click();"></button>
+                        
+                        <input class="add-photo" type="file" name="profile" id="profile-upload">
+                        <br><button> ✔ </button>
+                    </form> 
                 </div>
                 <div>
                     <form action="/user/delete?_method=DELETE" method="POST">

@@ -480,3 +480,7 @@ ul {
 .action-buttons {
     margin-left: 0px;
 }
+
+#profile-upload{
+    display: none;
+}
