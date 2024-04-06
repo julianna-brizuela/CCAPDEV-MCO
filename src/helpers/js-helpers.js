@@ -46,7 +46,7 @@ async function updateRestaurant(restaurant, Modell, Model2) {
     const Restaurant_ReviewNum = Restaurant_ReviewString.length
     const Restaurant_Rating = getAverageRating(Restaurant_Review, Restaurant_ReviewNum)
 
-    const Restaurant_Stars = function() {
+    const Restaurant_Stars = (function() {
          //taken from: https://stackoverflow.com/questions/6137986/javascript-roundoff-number-to-nearest-0-5
         function round(value, step) {
             step || (step = 1.0);
@@ -55,6 +55,7 @@ async function updateRestaurant(restaurant, Modell, Model2) {
         }
 
         average = round(Restaurant_Rating, 0.5);
+        console.log(average)
 
         switch (average) {
             case 0:
@@ -81,17 +82,18 @@ async function updateRestaurant(restaurant, Modell, Model2) {
                 return ['star','star','star','star','star']
 
         }
-    }
+    })();
 
     const updatedRestaurant = await Model2.findOneAndUpdate({restaurant_name: restaurant}, 
     { 
      "$push": { "resto_reviews": Restaurant_ReviewString},
      rating: Restaurant_Rating,
      review_num: Restaurant_ReviewNum,
-     stars: Restaurant_Stars
+     "$set": {"star": Restaurant_Stars}
     }
     , {new: true, "upsert": true}).exec();
 
+    console.log("UPDATED RESTAURANT:")
     console.log(updatedRestaurant)
 }
 

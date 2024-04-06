@@ -6,7 +6,7 @@ const Admins = require("./src/models/Admins.js");
 const Restaurants = require("./src/models/Restaurants.js");
 const Reviews = require("./src/models/Reviews.js");
 const Tags = require("./src/models/Tags.js");
-const {nestedQuery, nestedQueryNoProject, getAverageRating, updateRestaurant, updateUser} = require("../helpers/js-helpers.js");
+const {nestedQuery, nestedQueryNoProject, getAverageRating, updateRestaurant, updateUser} = require("./src/helpers/js-helpers.js");
 
 async function populateDB() {
     try {
